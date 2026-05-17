@@ -1,0 +1,43 @@
+<!-- Light Anti-Gravity Navbar -->
+<header class="ag-navbar" [class.scrolled]="isScrolled">
+  <div style="max-width: 1280px; margin: 0 auto; padding: 0 40px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; height: 72px;">
+
+      <!-- Logo -->
+      <a routerLink="/" style="display: inline-flex; align-items: center; gap: 10px;">
+        <span style="
+          width: 34px; height: 34px; border-radius: 10px;
+          background: linear-gradient(135deg, #7B61FF, #00C4A7);
+          display: flex; align-items: center; justify-content: center;
+          box-shadow: 0 4px 14px rgba(123,97,255,0.30);
+        ">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="1" y="1" width="5.5" height="5.5" rx="1.2" fill="white" opacity="0.95"/>
+            <rect x="9.5" y="1" width="5.5" height="5.5" rx="1.2" fill="white" opacity="0.95"/>
+            <rect x="1" y="9.5" width="5.5" height="5.5" rx="1.2" fill="white" opacity="0.95"/>
+            <rect x="9.5" y="9.5" width="5.5" height="5.5" rx="1.2" fill="white" opacity="0.55"/>
+          </svg>
+        </span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:-0.02em;color:#12102A;">
+          CoreGrid <span class="text-gradient">Solutions</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}"
+           style="font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:500;color:#6B7199;transition:color 0.2s;"
+           onmouseenter="this.style.color='#7B61FF'" onmouseleave="this.style.color='#6B7199'">Home</a>
+        <a routerLink="/services" routerLinkActive="active-link"
+           style="font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:500;color:#6B7199;transition:color 0.2s;"
+           onmouseenter="this.style.color='#7B61FF'" onmouseleave="this.style.color='#6B7199'">Services</a>
+        <a routerLink="/portfolio" routerLinkActive="active-link"
+           style="font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:500;color:#6B7199;transition:color 0.2s;"
+           onmouseenter="this.style.color='#7B61FF'" onmouseleave="this.style.color='#6B7199'">Portfolio</a>
+        <a routerLink="/contact" class="btn-primary" style="padding: 10px 24px; font-size: 0.875rem;">
+          Get Free Audit
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>

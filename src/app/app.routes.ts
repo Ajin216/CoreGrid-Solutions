@@ -1,0 +1,27 @@
+import { Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { ServicesComponent } from './pages/services/services.component';
+import { PortfolioComponent } from './pages/portfolio/portfolio.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { EcommerceComponent } from './pages/services/ecommerce/ecommerce.component';
+import { FlutterComponent } from './pages/services/flutter/flutter.component';
+import { GoogleAdsComponent } from './pages/services/google-ads/google-ads.component';
+import { CustomDevComponent } from './pages/services/custom-dev/custom-dev.component';
+import { WebDevelopmentComponent } from './pages/services/web-development/web-development.component';
+import { SeoOptimizationComponent } from './pages/services/seo-optimization/seo-optimization.component';
+import { DigitalMarketingComponent } from './pages/services/digital-marketing/digital-marketing.component';
+
+export const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'services', component: ServicesComponent },
+  { path: 'services/web-development', component: WebDevelopmentComponent },
+  { path: 'services/seo-optimization', component: SeoOptimizationComponent },
+  { path: 'services/digital-marketing', component: DigitalMarketingComponent },
+  { path: 'services/ecommerce', component: EcommerceComponent },
+  { path: 'services/flutter', component: FlutterComponent },
+  { path: 'services/google-ads', component: GoogleAdsComponent },
+  { path: 'services/custom-dev', component: CustomDevComponent },
+  { path: 'portfolio', component: PortfolioComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: '**', redirectTo: '' }
+];
