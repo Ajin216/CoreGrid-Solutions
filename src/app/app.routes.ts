@@ -14,18 +14,18 @@ import { DigitalMarketingComponent } from './pages/services/digital-marketing/di
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'services', component: ServicesComponent },
-  { path: 'services/web-development', component: WebDevelopmentComponent },
-  { path: 'services/seo-optimization', component: SeoOptimizationComponent },
-  { path: 'services/digital-marketing', component: DigitalMarketingComponent },
-  { path: 'services/ecommerce', component: EcommerceComponent },
-  { path: 'services/flutter', component: FlutterComponent },
-  { path: 'services/google-ads', component: GoogleAdsComponent },
-  { path: 'services/custom-dev', component: CustomDevComponent },
-  { path: 'portfolio', component: PortfolioComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: '404', component: NotFoundComponent },
-  { path: '**', component: NotFoundComponent }
+  { path: '', component: HomeComponent, data: { title: 'Web Development Agency', description: 'CoreGrid Solutions — A cutting-edge web development, SEO, and digital marketing agency.' } },
+  { path: 'services', component: ServicesComponent, data: { title: 'Our Services', description: 'Explore our range of digital services including web development, SEO optimization, and digital marketing.' } },
+  { path: 'services/web-development', component: WebDevelopmentComponent, data: { title: 'Web Development Services', description: 'Custom web development services building fast, scalable, and secure applications.' } },
+  { path: 'services/seo-optimization', component: SeoOptimizationComponent, data: { title: 'SEO Optimization', description: 'Data-driven SEO optimization services to rank higher and increase organic traffic.' } },
+  { path: 'services/digital-marketing', component: DigitalMarketingComponent, data: { title: 'Digital Marketing', description: 'Comprehensive digital marketing strategies to grow your brand and reach your audience.' } },
+  { path: 'services/ecommerce', component: EcommerceComponent, data: { title: 'E-commerce Solutions', description: 'Build and scale your online store with our robust e-commerce development solutions.' } },
+  { path: 'services/flutter', component: FlutterComponent, data: { title: 'Flutter App Development', description: 'Cross-platform mobile app development with Flutter for iOS and Android.' } },
+  { path: 'services/google-ads', component: GoogleAdsComponent, data: { title: 'Google Ads Management', description: 'Maximize your ROI with expert Google Ads and PPC campaign management.' } },
+  { path: 'services/custom-dev', component: CustomDevComponent, data: { title: 'Custom Development', description: 'Tailored software and custom development solutions to meet your unique business needs.' } },
+  { path: 'portfolio', component: PortfolioComponent, data: { title: 'Our Portfolio', description: 'View our recent projects and success stories.' } },
+  { path: 'about', component: AboutComponent, data: { title: 'About Us', description: 'Learn more about CoreGrid Solutions, our mission, and our team of digital experts.' } },
+  { path: 'contact', component: ContactComponent, data: { title: 'Contact Us', description: 'Get in touch with us to discuss your project and how we can help your business grow.' } },
+  { path: '404', component: NotFoundComponent, data: { title: 'Page Not Found', description: 'The page you are looking for does not exist.' } },
+  { path: '**', component: NotFoundComponent, data: { title: 'Page Not Found', description: 'The page you are looking for does not exist.' } }
 ];
