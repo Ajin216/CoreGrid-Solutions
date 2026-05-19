@@ -1,0 +1,183 @@
+/* ─── Premium Glassmorphic Stats ─── */
+.stats-card {
+  background: rgba(12, 83, 166, 0.2) !important;
+  border: 1px solid rgba(0, 229, 195, 0.15) !important;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.35s ease, 
+              border-color 0.35s ease !important;
+}
+
+.stats-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: #00E5C3 !important;
+  box-shadow: 0 10px 30px rgba(0, 229, 195, 0.15) !important;
+}
+
+.count-text {
+  text-shadow: 0 0 15px rgba(0, 229, 195, 0.4);
+}
+
+/* ─── Trajectory Timeline ─── */
+.timeline-container {
+  position: relative;
+  margin: 40px auto 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 16px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #00E5C3, #7B61FF, transparent);
+  opacity: 0.4;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 11px;
+  top: 30px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #00E5C3;
+  box-shadow: 0 0 10px #00E5C3, 0 0 20px #00E5C3;
+  z-index: 10;
+}
+
+.timeline-card {
+  background: rgba(12, 83, 166, 0.15) !important;
+  border: 1px solid rgba(123, 97, 255, 0.15) !important;
+  margin-left: 20px;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.35s ease !important;
+}
+
+.timeline-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: #7B61FF !important;
+  box-shadow: 0 8px 25px rgba(123, 97, 255, 0.15) !important;
+}
+
+.timeline-year {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Timeline Desktop Alignment Adjustments */
+@media (min-width: 768px) {
+  .timeline-line {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    width: 50%;
+    margin-bottom: 60px;
+  }
+
+  .timeline-item.left-aligned {
+    left: 0;
+    padding-right: 40px;
+  }
+
+  .timeline-item.right-aligned {
+    left: 50%;
+    padding-left: 40px;
+  }
+
+  .timeline-item.left-aligned .timeline-dot {
+    left: auto;
+    right: -6px;
+  }
+
+  .timeline-item.right-aligned .timeline-dot {
+    left: -6px;
+  }
+
+  .timeline-item.left-aligned .timeline-card {
+    margin-left: 0;
+  }
+
+  .timeline-item.right-aligned .timeline-card {
+    margin-left: 0;
+  }
+}
+
+/* ─── Value Cards ─── */
+.value-card {
+  background: rgba(12, 83, 166, 0.12) !important;
+  border: 1px solid rgba(0, 229, 195, 0.1) !important;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              border-color 0.35s ease, 
+              box-shadow 0.35s ease !important;
+}
+
+.value-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: #00E5C3 !important;
+  box-shadow: 0 10px 30px rgba(0, 229, 195, 0.12) !important;
+}
+
+.value-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(0, 229, 195, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 229, 195, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 229, 195, 0.1);
+}
+
+/* ─── Crew Showcase ─── */
+.crew-card {
+  background: rgba(12, 83, 166, 0.15) !important;
+  border: 1px solid rgba(123, 97, 255, 0.1) !important;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              border-color 0.35s ease, 
+              box-shadow 0.35s ease !important;
+}
+
+.crew-card:hover {
+  transform: translateY(-10px) scale(1.04);
+  border-color: #7B61FF !important;
+  box-shadow: 0 15px 35px rgba(123, 97, 255, 0.15) !important;
+}
+
+.crew-avatar-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto;
+  background: radial-gradient(circle, rgba(123, 97, 255, 0.25) 0%, rgba(7, 56, 115, 0.6) 100%);
+  border: 2px dashed rgba(123, 97, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(123, 97, 255, 0.2);
+  transition: border-style 0.3s ease, border-color 0.3s ease;
+}
+
+.crew-card:hover .crew-avatar-placeholder {
+  border-style: solid;
+  border-color: #00E5C3;
+  box-shadow: 0 0 15px rgba(0, 229, 195, 0.3);
+}
+
+.crew-initials {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00E5C3;
+  text-shadow: 0 0 8px rgba(0, 229, 195, 0.5);
+}

@@ -1,0 +1,269 @@
+<!-- 404 Page Section -->
+<section class="ag-section exact-navy-gradient animate-section-wrapper error-404-container"
+  style="position:relative;overflow:hidden;padding:120px 0 80px; min-height:90vh;">
+  
+  <!-- Star and dust layer -->
+  <div class="cosmic-dust"></div>
+
+  <!-- Drifting space orbs background -->
+  <div class="celestial-decorations">
+    <div class="space-orb orb-indigo-glow" style="top:10%;left:8%;width:400px;height:400px;"></div>
+    <div class="space-orb orb-teal-glow" style="bottom:10%;right:12%;width:450px;height:450px;"></div>
+    <div class="space-orb orb-violet-glow" style="top:40%;right:5%;width:300px;height:300px;"></div>
+  </div>
+
+  <!-- Drifting meteors background -->
+  <div class="space-meteor-container">
+    <div class="space-meteor space-meteor-1"></div>
+    <div class="space-meteor space-meteor-2"></div>
+    <div class="space-meteor space-meteor-3"></div>
+  </div>
+
+  <!-- Moving dot grid background -->
+  <div class="moving-dot-grid"></div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2;width:100%;">
+    
+    <!-- Main content grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Text details column -->
+      <div class="lg:col-span-6 text-center lg:text-left ag-fade-up">
+        
+        <!-- Tech Status Badge -->
+        <div class="ag-badge badge-pulse-blink"
+          style="margin-bottom:24px;display:inline-flex;color:#FF3B30;border-color:rgba(255,59,48,0.3);">
+          <span class="radar-dot" style="margin-right: 6px;"></span>
+          CRITICAL ERROR: ORBITAL DEVIATION
+        </div>
+
+        <!-- 404 Title -->
+        <h1 class="neon-glow-404">
+          404
+        </h1>
+
+        <!-- High-tech descriptive headers -->
+        <h2 class="text-white font-heading font-bold" style="font-size:clamp(1.8rem,3.5vw,2.6rem);margin-top:16px;margin-bottom:16px;line-height:1.2;">
+          Lost in the <span class="text-gradient">Cyber Void?</span>
+        </h2>
+        
+        <p style="max-width:520px;margin:0 auto;font-size:1.1rem;color:rgba(240,239,255,0.85);line-height:1.7;" class="mx-auto lg:mx-0">
+          The requested coordinate does not exist. Our anti-gravity telemetry suggests this grid coordinate has drifted out of standard space-time alignment or never existed.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4" style="margin-top:36px;">
+          <a routerLink="/" class="btn-primary">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Navigate Home
+          </a>
+          
+          <a routerLink="/contact" class="btn-outline">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Signal Control
+          </a>
+        </div>
+      </div>
+
+      <!-- Vector Artwork illustration column -->
+      <div class="lg:col-span-6 flex justify-center items-center ag-fade-up" style="animation-delay: 0.2s;">
+        <div class="floating-element" style="position:relative;width:100%;max-width:480px;aspect-ratio:1;">
+          
+          <!-- Outer glowing circle rings -->
+          <div style="position:absolute;inset:10%;border:2px dashed rgba(0,229,195,0.25);border-radius:50%;animation:orbitDot 28s linear infinite;"></div>
+          <div style="position:absolute;inset:20%;border:1px solid rgba(123,97,255,0.15);border-radius:50%;animation:orbitDot 18s linear reverse infinite;"></div>
+          
+          <!-- Cyber Holographic SVG -->
+          <svg viewBox="0 0 500 500" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 10px 30px rgba(0, 229, 195, 0.15));">
+            <!-- Definitions for gradients -->
+            <defs>
+              <linearGradient id="astroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFFFFF"/>
+                <stop offset="60%" stop-color="#E8EFFF"/>
+                <stop offset="100%" stop-color="#A78BFF"/>
+              </linearGradient>
+              <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#00E5C3"/>
+                <stop offset="100%" stop-color="#0088FF"/>
+              </linearGradient>
+              <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF8C00"/>
+                <stop offset="100%" stop-color="#FF3B30"/>
+              </linearGradient>
+              <radialGradient id="meshSphere" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#00E5C3" stop-opacity="0.3"/>
+                <stop offset="70%" stop-color="#7B61FF" stop-opacity="0.05"/>
+                <stop offset="100%" stop-color="#0A0F2E" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <!-- Holographic background mesh grid inside outer ring -->
+            <circle cx="250" cy="250" r="160" fill="url(#meshSphere)" stroke="rgba(123, 97, 255, 0.25)" stroke-width="1.5" stroke-dasharray="8 6" />
+
+            <!-- Core grid line designs -->
+            <path d="M90 250 H 410" stroke="rgba(123,97,255,0.15)" stroke-width="1"/>
+            <path d="M250 90 V 410" stroke="rgba(123,97,255,0.15)" stroke-width="1"/>
+            <circle cx="250" cy="250" r="120" stroke="rgba(0, 229, 195, 0.15)" stroke-width="1"/>
+
+            <!-- Floating Server Nodes representing "CoreGrid" -->
+            <!-- Node 1 -->
+            <g transform="translate(110, 150)" style="animation: floatSpace 7s ease-in-out infinite alternate;">
+              <rect x="0" y="0" width="60" height="40" rx="8" fill="#0C1327" stroke="#00E5C3" stroke-width="1.5" opacity="0.9"/>
+              <line x1="12" y1="14" x2="48" y2="14" stroke="rgba(0, 229, 195, 0.5)" stroke-width="2"/>
+              <line x1="12" y1="24" x2="36" y2="24" stroke="rgba(0, 229, 195, 0.5)" stroke-width="2"/>
+              <circle cx="48" cy="24" r="3" fill="#00E5C3"/>
+            </g>
+            
+            <!-- Node 2 -->
+            <g transform="translate(320, 310)" style="animation: floatSpace 9s ease-in-out infinite alternate-reverse;">
+              <rect x="0" y="0" width="60" height="40" rx="8" fill="#0C1327" stroke="#7B61FF" stroke-width="1.5" opacity="0.9"/>
+              <line x1="12" y1="14" x2="48" y2="14" stroke="rgba(123, 97, 255, 0.5)" stroke-width="2"/>
+              <line x1="12" y1="24" x2="36" y2="24" stroke="rgba(123, 97, 255, 0.5)" stroke-width="2"/>
+              <circle cx="48" cy="24" r="3" fill="#A78BFF"/>
+            </g>
+
+            <!-- Holographic data transmission lines -->
+            <path d="M170 170 Q 200 210 230 230" stroke="url(#neonCyan)" stroke-width="1.5" stroke-dasharray="5 5"/>
+            <path d="M330 330 Q 300 290 270 270" stroke="#7B61FF" stroke-width="1.5" stroke-dasharray="5 5"/>
+
+            <!-- The Drifting Space Helmet / Astronaut Head (Main focus) -->
+            <g transform="translate(200, 190)">
+              <!-- Outer glowing aura -->
+              <circle cx="50" cy="55" r="48" fill="rgba(0, 229, 195, 0.08)" filter="blur(6px)"/>
+              
+              <!-- Helmet body base -->
+              <circle cx="50" cy="50" r="42" fill="url(#astroGrad)" stroke="#111A3A" stroke-width="2"/>
+              
+              <!-- Visor reflection/glow -->
+              <path d="M20 40 C 20 25, 80 25, 80 40 C 80 58, 20 58, 20 40 Z" fill="#0A0F2E" stroke="url(#neonCyan)" stroke-width="2.5"/>
+              
+              <!-- Visor specular light -->
+              <path d="M28 35 Q 50 28 72 35" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+              <path d="M34 45 Q 50 40 66 45" stroke="url(#neonCyan)" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+              
+              <!-- Helmet detailing / Ears -->
+              <rect x="5" y="40" width="6" height="20" rx="3" fill="#7B61FF" stroke="#111A3A"/>
+              <rect x="89" y="40" width="6" height="20" rx="3" fill="#7B61FF" stroke="#111A3A"/>
+              
+              <!-- Oxygen tube connector -->
+              <circle cx="50" cy="88" r="7" fill="#1E2A55" stroke="#00E5C3" stroke-width="1"/>
+              
+              <!-- Cyber HUD scanner inside helmet visor -->
+              <circle cx="42" cy="42" r="2" fill="#FF3B30">
+                <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+
+            <!-- Holographic crosshair cursor pointing at empty coordinates -->
+            <g transform="translate(240, 225)">
+              <circle cx="10" cy="15" r="14" stroke="#FF6B00" stroke-width="1" stroke-dasharray="3 3"/>
+              <line x1="10" y1="0" x2="10" y2="30" stroke="#FF6B00" stroke-width="1"/>
+              <line x1="-5" y1="15" x2="25" y2="15" stroke="#FF6B00" stroke-width="1"/>
+              <text x="28" y="20" fill="#FF6B00" font-family="monospace" font-size="10px" letter-spacing="1">COORD: NULL</text>
+            </g>
+
+            <!-- Disconnected WiFi/Satellite icon floating -->
+            <g transform="translate(310, 110)" style="animation: floatSpace 11s ease-in-out infinite alternate;">
+              <path d="M10 28 A 12 12 0 0 1 34 28" stroke="#FF3B30" stroke-width="2" stroke-linecap="round"/>
+              <path d="M15 33 A 6 6 0 0 1 29 33" stroke="#FF3B30" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="22" cy="38" r="2.5" fill="#FF3B30"/>
+              <!-- Cross out lines (Offline) -->
+              <line x1="8" y1="38" x2="36" y2="24" stroke="#FF3B30" stroke-width="2" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- Destinations Card Section -->
+    <div class="lg:col-span-12 cyber-card ag-card p-8 bg-[#0C1327] border border-[#1E2A55] rounded-2xl shadow-xl" style="margin-top:72px; position:relative; overflow:hidden;">
+      <div class="radar-scan-line"></div>
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6" style="margin-bottom: 28px;">
+        <div>
+          <div class="ag-badge mb-2 badge-pulse-blink"
+            style="color:#00E5C3;border-color:rgba(0,229,195,0.3);display:inline-flex;">
+            <span class="dot" style="background-color:#00E5C3;"></span>// telemetry_reconnection
+          </div>
+          <h3 class="text-xl font-heading font-bold text-white">Suggested Mission Portals</h3>
+          <p class="text-[#F0EFFF]/70 text-sm">Initiate manual override and reconnect to primary system nodes.</p>
+        </div>
+        <div style="font-size: 0.85rem; font-family: monospace; color: #00E5C3; background-color: rgba(0, 229, 195, 0.05); padding: 6px 14px; border-radius: 8px; border: 1px solid rgba(0, 229, 195, 0.15)">
+          SYS_RECOVERY_MODE: ACTIVE
+        </div>
+      </div>
+
+      <!-- Quicklinks grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Link 1: Home -->
+        <a routerLink="/" class="nav-card-item block p-5 rounded-xl border border-[#1E2A55] bg-[#111A3A] hover:bg-[#1E2A55]">
+          <div class="flex items-center gap-3">
+            <div class="ag-icon-chip teal" style="width:38px; height:38px; border-radius:10px;">
+              <svg width="18" height="18" fill="none" stroke="#00E5C3" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white mb-0.5">Control Deck</h4>
+              <span class="text-xs text-slate-400">Home Base</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Link 2: Services -->
+        <a routerLink="/services" class="nav-card-item block p-5 rounded-xl border border-[#1E2A55] bg-[#111A3A] hover:bg-[#1E2A55]">
+          <div class="flex items-center gap-3">
+            <div class="ag-icon-chip violet" style="width:38px; height:38px; border-radius:10px;">
+              <svg width="18" height="18" fill="none" stroke="#a78bff" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white mb-0.5">Capabilities</h4>
+              <span class="text-xs text-slate-400">Our Services</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Link 3: Portfolio -->
+        <a routerLink="/portfolio" class="nav-card-item block p-5 rounded-xl border border-[#1E2A55] bg-[#111A3A] hover:bg-[#1E2A55]">
+          <div class="flex items-center gap-3">
+            <div class="ag-icon-chip glow" style="width:38px; height:38px; border-radius:10px;">
+              <svg width="18" height="18" fill="none" stroke="#C4B0FF" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white mb-0.5">Launches</h4>
+              <span class="text-xs text-slate-400">Case Studies</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Link 4: Contact -->
+        <a routerLink="/contact" class="nav-card-item block p-5 rounded-xl border border-[#1E2A55] bg-[#111A3A] hover:bg-[#1E2A55]">
+          <div class="flex items-center gap-3">
+            <div class="ag-icon-chip teal" style="width:38px; height:38px; border-radius:10px;">
+              <svg width="18" height="18" fill="none" stroke="#00E5C3" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white mb-0.5">Comm Center</h4>
+              <span class="text-xs text-slate-400">Contact Control</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

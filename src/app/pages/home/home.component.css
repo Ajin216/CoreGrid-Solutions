@@ -1,0 +1,219 @@
+/* ─── Hero orb animations ─────────────────────────────────────── */
+
+.orb-violet {
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(123,97,255,0.55) 0%, rgba(123,97,255,0.20) 35%, transparent 70%);
+  filter: blur(40px);
+  animation: orbPulse 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb-teal {
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(0,196,167,0.50) 0%, rgba(0,196,167,0.18) 35%, transparent 70%);
+  filter: blur(36px);
+  animation: orbPulse 8s ease-in-out 1.5s infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb-orange {
+  position: absolute;
+  top: 38%;
+  left: 45%;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255,140,0,0.40) 0%, rgba(255,100,0,0.15) 40%, transparent 70%);
+  filter: blur(32px);
+  animation: orbDrift 10s ease-in-out 0.8s infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1);   opacity: 1;   }
+  50%       { transform: scale(1.2); opacity: 0.7; }
+}
+
+@keyframes orbDrift {
+  0%   { transform: translate(0, 0)    scale(1);    opacity: 0.9; }
+  33%  { transform: translate(30px,-20px) scale(1.1); opacity: 1;   }
+  66%  { transform: translate(-20px,15px) scale(0.95); opacity: 0.8; }
+  100% { transform: translate(0, 0)    scale(1);    opacity: 0.9; }
+}
+
+/* ─── Floating star particles ─────────────────────────────────── */
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  pointer-events: none;
+  z-index: 0;
+  animation: starTwinkle var(--dur, 3s) ease-in-out var(--delay, 0s) infinite;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.15; transform: scale(1);   }
+  50%       { opacity: 1;    transform: scale(1.6); }
+}
+
+/* ─── Shooting star ────────────────────────────────────────────── */
+.shooting-star {
+  position: absolute;
+  height: 1.5px;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #fff 50%, rgba(255,255,255,0) 100%);
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 0;
+  animation: shoot var(--dur, 4s) ease-out var(--delay, 0s) infinite;
+  opacity: 0;
+}
+
+@keyframes shoot {
+  0%   { opacity: 0;   transform: translateX(0)    scaleX(0.3); }
+  10%  { opacity: 0.9; transform: translateX(0)    scaleX(1);   }
+  80%  { opacity: 0.5; transform: translateX(300px) scaleX(1);   }
+  100% { opacity: 0;   transform: translateX(380px) scaleX(0.3); }
+}
+
+/* ─── Form shake + highlight (triggered by .form-shake class) ──── */
+
+.form-shake {
+  animation: formShakeGlow 0.6s cubic-bezier(0.36,0.07,0.19,0.97) both;
+}
+
+@keyframes formShakeGlow {
+  0%   { transform: translateX(0);    box-shadow: 0 8px 40px rgba(123,97,255,0.10), 0 2px 8px rgba(0,0,0,0.04); }
+  10%  { transform: translateX(-10px); box-shadow: 0 0 0 3px #FF8C00, 0 0 40px rgba(255,140,0,0.50); }
+  20%  { transform: translateX(10px);  box-shadow: 0 0 0 3px #FF8C00, 0 0 40px rgba(255,140,0,0.50); }
+  30%  { transform: translateX(-8px);  box-shadow: 0 0 0 4px #FF8C00, 0 0 60px rgba(255,140,0,0.55); }
+  40%  { transform: translateX(8px);   box-shadow: 0 0 0 4px #FF8C00, 0 0 60px rgba(255,140,0,0.55); }
+  50%  { transform: translateX(-5px);  box-shadow: 0 0 0 3px #FFB347, 0 0 40px rgba(255,140,0,0.45); }
+  60%  { transform: translateX(5px);   box-shadow: 0 0 0 3px #FFB347, 0 0 40px rgba(255,140,0,0.45); }
+  70%  { transform: translateX(-3px);  box-shadow: 0 0 0 2px #FFB347, 0 0 24px rgba(255,140,0,0.30); }
+  80%  { transform: translateX(3px);   box-shadow: 0 0 0 2px #FFB347, 0 0 24px rgba(255,140,0,0.30); }
+  100% { transform: translateX(0);    box-shadow: 0 8px 40px rgba(123,97,255,0.10), 0 2px 8px rgba(0,0,0,0.04); }
+}
+
+/* ─── Moving Dot Grid Background ───────────────────────────────── */
+.moving-dot-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0, 229, 195, 0.15) 1.5px, transparent 1.5px);
+  background-size: 36px 36px;
+  animation: driftDotGrid 28s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.65;
+}
+
+@keyframes driftDotGrid {
+  0% { background-position: 0 0; }
+  100% { background-position: 72px 72px; }
+}
+
+/* ─── Blinking Badges ──────────────────────────────────────────── */
+.badge-pulse-blink {
+  animation: badgePulseBlink 2.0s infinite ease-in-out;
+}
+
+@keyframes badgePulseBlink {
+  0%, 100% {
+    opacity: 0.6;
+    border-color: rgba(0, 229, 195, 0.15) !important;
+  }
+  50% {
+    opacity: 1;
+    border-color: rgba(0, 229, 195, 0.7) !important;
+    box-shadow: 0 0 12px rgba(0, 229, 195, 0.35);
+  }
+}
+
+/* ─── Section Layout relative ───────────────────────────────────── */
+.animate-section-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── Premium Inside Animations for Home Page Cards ───────────── */
+.ag-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease !important;
+}
+
+/* Spotlight Flare Glow Behind Content */
+.ag-card::after {
+  content: '';
+  position: absolute;
+  top: -45%;
+  left: -45%;
+  width: 190%;
+  height: 190%;
+  background: radial-gradient(circle, rgba(123, 97, 255, 0.16) 0%, transparent 60%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform: scale(0.65);
+  z-index: 0;
+}
+
+.ag-card:hover::after {
+  opacity: 1;
+  transform: scale(1) translate(4%, 4%);
+}
+
+.ag-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* SVG Icon Hover Hop & Glow (Advantage Boxes) */
+.ag-card .ag-icon-chip svg {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.35s ease;
+}
+
+.ag-card:hover .ag-icon-chip svg {
+  transform: scale(1.22) rotate(8deg);
+  filter: drop-shadow(0 0 6px rgba(123, 97, 255, 0.6));
+}
+
+/* Pricing Section Divider Line & Heading Highlights (Digital Services Boxes) */
+.ag-card h3 {
+  transition: color 0.3s ease;
+}
+
+.ag-card:hover h3 {
+  color: #00E5C3 !important;
+}
+
+.ag-card .border-t {
+  transition: border-color 0.4s ease;
+}
+
+.ag-card:hover .border-t {
+  border-color: #00E5C3 !important;
+}
+
+/* Smooth premium hover state overrides */
+.ag-card:hover {
+  transform: translateY(-10px) scale(1.03) !important;
+  border-color: #00E5C3 !important;
+  background: linear-gradient(135deg, rgba(41, 61, 157, 0.95) 0%, rgba(22, 33, 97, 0.95) 100%) !important;
+  box-shadow: 
+    0 22px 55px rgba(0, 229, 195, 0.28),
+    0 0 24px rgba(123, 97, 255, 0.15) !important;
+}

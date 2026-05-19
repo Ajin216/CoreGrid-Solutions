@@ -1,15 +1,15 @@
-<!-- Anti-Gravity Light Footer -->
-<footer style="background:#F8F7FF;border-top:1px solid #E8E6FF;padding:64px 0 32px;position:relative;">
+<!-- Dark Space Navy Footer -->
+<footer style="background:var(--ag-footer);border-top:1px solid var(--ag-border);padding:64px 0 32px;position:relative;">
   <!-- Top accent line -->
-  <div style="position:absolute;top:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(123,97,255,0.35),rgba(0,196,167,0.25),transparent);"></div>
+  <div style="position:absolute;top:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(123,97,255,0.40),rgba(0,196,167,0.30),transparent);"></div>
 
   <div style="max-width:1280px;margin:0 auto;padding:0 40px;">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-15 mb-12">
 
       <!-- Brand -->
       <div class="md:col-span-2 lg:col-span-2">
-        <a routerLink="/" style="display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;">
-          <span style="width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#7B61FF,#00C4A7);box-shadow:0 4px 14px rgba(123,97,255,0.25);">
+        <a routerLink="/" style="display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;text-decoration:none;">
+          <span style="width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#7B61FF,#00C4A7);box-shadow:0 4px 14px rgba(123,97,255,0.45);">
             <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
               <rect x="1" y="1" width="5.5" height="5.5" rx="1.2" fill="white" opacity="0.95"/>
               <rect x="9.5" y="1" width="5.5" height="5.5" rx="1.2" fill="white" opacity="0.95"/>
@@ -17,41 +17,42 @@
               <rect x="9.5" y="9.5" width="5.5" height="5.5" rx="1.2" fill="white" opacity="0.5"/>
             </svg>
           </span>
-          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;letter-spacing:-0.02em;color:#12102A;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;letter-spacing:-0.02em;color:#F0EFFF;">
             CoreGrid <span class="text-gradient">Solutions</span>
           </span>
         </a>
-        <p style="color:#6B7199;font-size:0.875rem;line-height:1.8;max-width:280px;">
+        <p style="color:#A8B2D8;font-size:0.875rem;line-height:1.8;max-width:280px;">
           Launching brands into orbit with engineering, growth, and strategy built for the next era of the web.
         </p>
       </div>
 
       <!-- Navigation -->
       <div>
-        <div class="mono-tag" style="margin-bottom:20px;">Navigation</div>
+        <div class="mono-tag" style="margin-bottom:20px;color:var(--ag-violet);">Navigation</div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;">
-          <li><a routerLink="/"          style="color:#6B7199;font-size:0.9rem;transition:color 0.2s;" onmouseenter="this.style.color='#7B61FF'" onmouseleave="this.style.color='#6B7199'">Home</a></li>
-          <li><a routerLink="/services"  style="color:#6B7199;font-size:0.9rem;transition:color 0.2s;" onmouseenter="this.style.color='#7B61FF'" onmouseleave="this.style.color='#6B7199'">Services</a></li>
-          <li><a routerLink="/portfolio" style="color:#6B7199;font-size:0.9rem;transition:color 0.2s;" onmouseenter="this.style.color='#7B61FF'" onmouseleave="this.style.color='#6B7199'">Portfolio</a></li>
-          <li><a routerLink="/contact"   style="color:#6B7199;font-size:0.9rem;transition:color 0.2s;" onmouseenter="this.style.color='#7B61FF'" onmouseleave="this.style.color='#6B7199'">Contact</a></li>
+          <li><a routerLink="/"          style="color:#8B93BE;font-size:0.9rem;transition:color 0.2s;text-decoration:none;" onmouseenter="this.style.color='#A78BFF'" onmouseleave="this.style.color='#8B93BE'">Home</a></li>
+          <li><a routerLink="/services"  style="color:#8B93BE;font-size:0.9rem;transition:color 0.2s;text-decoration:none;" onmouseenter="this.style.color='#A78BFF'" onmouseleave="this.style.color='#8B93BE'">Services</a></li>
+          <li><a routerLink="/portfolio" style="color:#8B93BE;font-size:0.9rem;transition:color 0.2s;text-decoration:none;" onmouseenter="this.style.color='#A78BFF'" onmouseleave="this.style.color='#8B93BE'">Portfolio</a></li>
+          <li><a routerLink="/about"     style="color:#8B93BE;font-size:0.9rem;transition:color 0.2s;text-decoration:none;" onmouseenter="this.style.color='#A78BFF'" onmouseleave="this.style.color='#8B93BE'">About Us</a></li>
+          <li><a routerLink="/contact"   style="color:#8B93BE;font-size:0.9rem;transition:color 0.2s;text-decoration:none;" onmouseenter="this.style.color='#A78BFF'" onmouseleave="this.style.color='#8B93BE'">Contact</a></li>
         </ul>
       </div>
 
       <!-- Connect -->
       <div>
-        <div class="mono-tag teal" style="margin-bottom:20px;">Connect</div>
+        <div class="mono-tag teal" style="margin-bottom:20px;color:var(--ag-teal);">Connect</div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;">
-          <li style="color:#6B7199;font-size:0.875rem;">info&#64;coregridsolutions.com</li>
-          <li style="color:#6B7199;font-size:0.875rem;">+1 (555) 123-4567</li>
+          <li style="color:#A8B2D8;font-size:0.875rem;">info&#64;coregridsolutions.com</li>
+          <li style="color:#A8B2D8;font-size:0.875rem;">+1 (555) 123-4567</li>
         </ul>
       </div>
 
-    </div>
+      </div>
 
     <!-- Bottom bar -->
-    <div style="border-top:1px solid #E8E6FF;padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-      <p style="color:#6B7199;font-size:0.8rem;margin:0;">&copy; 2026 CoreGrid Solutions. All rights reserved.</p>
-      <div class="mono-tag" style="opacity:0.5;font-size:0.65rem;">crafted_with_gravity ✦</div>
+    <div style="border-top:1px solid var(--ag-border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <p style="color:#8B93BE;font-size:0.8rem;margin:0;">&copy; 2026 CoreGrid Solutions. All rights reserved.</p>
+      <div class="mono-tag" style="opacity:0.5;font-size:0.65rem;color:var(--ag-text);">crafted_with_gravity ✦</div>
     </div>
   </div>
 </footer>
