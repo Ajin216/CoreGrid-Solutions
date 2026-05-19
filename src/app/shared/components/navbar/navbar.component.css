@@ -1,0 +1,40 @@
+/* Premium animations and Active Links styling for Navbar */
+
+/* ─── Desktop Active Links ─── */
+nav.hidden.md\:flex a.active-link {
+  color: #00E5C3 !important;
+  position: relative;
+  text-shadow: 0 0 8px rgba(0, 229, 195, 0.3);
+}
+
+nav.hidden.md\:flex a.active-link::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #7B61FF, #00C4A7);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(0, 229, 195, 0.6);
+}
+
+/* ─── Mobile Slide Down Animation ─── */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Mobile Active Links ─── */
+.md\:hidden a.active-link {
+  color: #00E5C3 !important;
+  border-left: 3px solid #00E5C3 !important;
+  padding-left: 12px !important;
+  text-shadow: 0 0 8px rgba(0, 229, 195, 0.2);
+}

@@ -20,7 +20,7 @@ export class ContactComponent {
   };
 
   // 2. Put your agency's actual WhatsApp number here (Include country code, no + or spaces)
-  agencyWhatsAppNumber = '919048032956';
+  agencyWhatsAppNumber = '919074501397';
 
   // 3. The execution function
   submitToWhatsApp() {

@@ -10,9 +10,18 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent {
   isScrolled = false;
+  isMenuOpen = false;
 
   @HostListener('window:scroll')
   onScroll() {
     this.isScrolled = window.scrollY > 20;
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
   }
 }

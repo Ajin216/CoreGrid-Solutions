@@ -41,6 +41,58 @@
           Get Free Audit
         </a>
       </nav>
+
+      <!-- Mobile hamburger menu button -->
+      <button class="flex md:hidden items-center justify-center p-2 rounded-lg text-[#F0EFFF] hover:text-[#00E5C3] focus:outline-none transition-colors"
+        (click)="toggleMenu()" aria-label="Toggle navigation menu" style="background: rgba(255,255,255,0.04); border: 1.5px solid rgba(123,97,255,0.2);">
+        <svg *ngIf="!isMenuOpen" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <svg *ngIf="isMenuOpen" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div *ngIf="isMenuOpen" class="md:hidden" style="
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: rgba(10, 15, 46, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1.5px solid rgba(123, 97, 255, 0.25);
+    padding: 24px 40px;
+    z-index: 99;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.3s ease-out;
+  ">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      
+      <div class="mono-tag" style="margin-bottom: 4px; color: #00E5C3;">// navigation_portal</div>
+      
+      <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenu()"
+        style="font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;color:#F0EFFF;text-decoration:none;padding:8px 0;border-bottom: 1px solid rgba(255,255,255,0.05);display: flex; justify-content: space-between; align-items: center;">
+        Home <span style="font-size: 0.85rem; color: #00E5C3;">&rarr;</span>
+      </a>
+      <a routerLink="/services" routerLinkActive="active-link" (click)="closeMenu()"
+        style="font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;color:#F0EFFF;text-decoration:none;padding:8px 0;border-bottom: 1px solid rgba(255,255,255,0.05);display: flex; justify-content: space-between; align-items: center;">
+        Services <span style="font-size: 0.85rem; color: #00E5C3;">&rarr;</span>
+      </a>
+      <a routerLink="/portfolio" routerLinkActive="active-link" (click)="closeMenu()"
+        style="font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;color:#F0EFFF;text-decoration:none;padding:8px 0;border-bottom: 1px solid rgba(255,255,255,0.05);display: flex; justify-content: space-between; align-items: center;">
+        Portfolio <span style="font-size: 0.85rem; color: #00E5C3;">&rarr;</span>
+      </a>
+      <a routerLink="/about" routerLinkActive="active-link" (click)="closeMenu()"
+        style="font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;color:#F0EFFF;text-decoration:none;padding:8px 0;border-bottom: 1px solid rgba(255,255,255,0.05);display: flex; justify-content: space-between; align-items: center;">
+        About Us <span style="font-size: 0.85rem; color: #00E5C3;">&rarr;</span>
+      </a>
+      
+      <a routerLink="/contact" class="btn-primary" (click)="closeMenu()"
+        style="padding: 14px 28px; font-size: 0.95rem; text-align: center; justify-content: center; width: 100%; margin-top: 10px; background:linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%); box-shadow:0 4px 20px rgba(255,140,0,0.45); border:none;">
+        Get Free Audit
+      </a>
     </div>
   </div>
 </header>
