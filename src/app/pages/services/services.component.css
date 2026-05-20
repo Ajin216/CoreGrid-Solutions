@@ -131,24 +131,21 @@
     background-color 0.35s ease !important;
 }
 
-/* Interactive custom border overlays and premium zoom-in */
+/* Hover effects removed — cards are static */
 .ag-card:hover {
-  transform: translateY(-12px) scale(1.05) !important;
-  background: linear-gradient(135deg, #1063c7 0%, #094791 100%) !important;
-  border-color: #00E5C3 !important;
-  box-shadow: 
-    0 25px 60px rgba(0, 229, 195, 0.38),
-    0 0 30px rgba(0, 229, 195, 0.22),
-    inset 0 0 30px rgba(0, 229, 195, 0.15) !important;
+  transform: none !important;
+  background: linear-gradient(135deg, #0C53A6 0%, #073873 100%) !important;
+  border-color: rgba(0, 229, 195, 0.35) !important;
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 24px rgba(0, 229, 195, 0.1) !important;
 }
 
-/* Specific glows for other standard cards if needed */
 .ag-card:not([style*="--card-theme"]):hover {
-  border-color: #00E5C3 !important;
-  box-shadow: 
-    0 25px 60px rgba(0, 229, 195, 0.35),
-    0 0 30px rgba(0, 229, 195, 0.2),
-    inset 0 0 30px rgba(0, 229, 195, 0.1) !important;
+  border-color: rgba(0, 229, 195, 0.35) !important;
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 24px rgba(0, 229, 195, 0.1) !important;
 }
 
 /* ─── Highlighted Interactive Learn More Buttons ─────────────── */
@@ -260,8 +257,8 @@
 }
 
 .ag-card:hover::after {
-  opacity: 1;
-  transform: scale(1) translate(5%, 5%);
+  opacity: 0;
+  transform: scale(0.6);
 }
 
 .ag-card > * {
@@ -275,10 +272,8 @@
 }
 
 .ag-card:hover .ag-accent-line {
-  width: 90px !important;
-  background: linear-gradient(90deg, #00E5C3, #7B61FF, #00E5C3) !important;
-  background-size: 200% auto;
-  animation: shiftGradient 1.8s linear infinite;
+  width: 40px !important;
+  background: linear-gradient(90deg, #00E5C3, #00C4A7) !important;
 }
 
 @keyframes shiftGradient {
@@ -293,6 +288,67 @@
 }
 
 .ag-card:hover .ag-icon-chip svg {
-  transform: scale(1.22) rotate(6deg);
-  filter: drop-shadow(0 0 8px rgba(0, 229, 195, 0.65));
+  transform: none;
+  filter: none;
 }
+
+/* ─── Sequential Card Flip & Darken Animation ────────────────── */
+
+/* Card rotates — no brightness filter so text stays bright */
+@keyframes cardFlipDarken {
+  0%     { transform: perspective(900px) rotateY(0deg); }
+  7.14%  { transform: perspective(900px) rotateY(90deg); }
+  14.28% { transform: perspective(900px) rotateY(0deg); }
+  35.71% { transform: perspective(900px) rotateY(0deg); }
+  42.85% { transform: perspective(900px) rotateY(90deg); }
+  50%, 100% { transform: perspective(900px) rotateY(0deg); }
+}
+
+/* Navy overlay fades in while card is edge-on (invisible), fades out on the return flip */
+@keyframes cardOverlayDarken {
+  0%, 6.9%        { opacity: 0; }
+  7.15%, 42.7%    { opacity: 1; }
+  43.1%, 100%     { opacity: 0; }
+}
+
+/* Apply rotation to each card */
+#service-offer-grid > .ag-card {
+  animation: cardFlipDarken 14s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+/* Dark navy overlay — above card background (z-index:1), below card content (z-index:2) */
+#service-offer-grid > .ag-card::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: #040c20 !important;
+  background-image: none !important;
+  border-radius: inherit !important;
+  opacity: 0;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  animation: cardOverlayDarken 14s ease-in-out infinite !important;
+}
+
+/* Stagger card + its overlay together, 2s apart */
+#service-offer-grid > .ag-card:nth-child(1),
+#service-offer-grid > .ag-card:nth-child(1)::before { animation-delay: 0s !important; }
+
+#service-offer-grid > .ag-card:nth-child(2),
+#service-offer-grid > .ag-card:nth-child(2)::before { animation-delay: 2s !important; }
+
+#service-offer-grid > .ag-card:nth-child(3),
+#service-offer-grid > .ag-card:nth-child(3)::before { animation-delay: 4s !important; }
+
+#service-offer-grid > .ag-card:nth-child(4),
+#service-offer-grid > .ag-card:nth-child(4)::before { animation-delay: 6s !important; }
+
+#service-offer-grid > .ag-card:nth-child(5),
+#service-offer-grid > .ag-card:nth-child(5)::before { animation-delay: 8s !important; }
+
+#service-offer-grid > .ag-card:nth-child(6),
+#service-offer-grid > .ag-card:nth-child(6)::before { animation-delay: 10s !important; }
+
+#service-offer-grid > .ag-card:nth-child(7),
+#service-offer-grid > .ag-card:nth-child(7)::before { animation-delay: 12s !important; }
