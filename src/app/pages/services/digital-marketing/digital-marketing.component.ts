@@ -1,11 +1,25 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { BannerComponent } from '../../../shared/components/banner/banner.component';
 
 @Component({
   selector: 'app-digital-marketing',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, BannerComponent],
   template: `
+    <app-banner 
+      badgeText="Digital Marketing"
+      title="Dominate Your"
+      highlightTitle="Market"
+      quote="Reach the right audience, generate quality leads, and grow your brand with data-driven marketing strategies."
+      dataValue1=""
+      dataLabel1=""
+      dataValue2=""
+      dataLabel2=""
+      formTitle="Get a Marketing Plan"
+      formButtonText="Grow My Brand"
+      serviceName="Digital Marketing">
+    </app-banner>
     <section class="ag-section exact-navy-gradient animate-section-wrapper" style="position:relative;overflow:hidden;">
       <!-- Drifting dot grid background -->
       <div class="moving-dot-grid"></div>
@@ -39,7 +53,7 @@ import { RouterLink } from '@angular/router';
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div class="ag-card p-8">
-            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹25,000</div>
+            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹9,999</div>
             <div class="text-white text-sm font-mono">Starting at / month</div>
           </div>
           <div class="ag-card p-8">
@@ -211,76 +225,105 @@ import { RouterLink } from '@angular/router';
 
             <!-- Basic -->
             <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Basic</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">₹25,000</div>
-                <div class="text-white text-sm">Per month</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to 2 Social Platforms</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 12 Custom Posts / month</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Basic Meta Ads Management</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Monthly Performance Report</li>
-               
-              </ul>
-              <a routerLink="/contact" class="block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Get Started →</a>
-            </div>
+  <div class="mb-6">
+    <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Starter</div>
+    <div class="text-sm text-gray-400 line-through mb-1">₹14,999</div>
+    <div class="flex items-baseline gap-1 mb-2">
+      <span class="text-4xl font-heading font-bold text-white">₹9,999</span>
+      <span class="text-white text-sm">/month</span>
+    </div>
+    <div class="text-white/70 text-xs flex items-center gap-1">
+      <span>🕒</span> management fee only
+    </div>
+  </div>
+  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 1 platform (Google Ads or Meta)</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Ad account setup</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Keyword / audience research</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Ad copy creation</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to Rs.30,000 ad spend managed</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Monthly performance report</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Basic conversion tracking</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> WhatsApp support</li>
+  </ul>
+  <a (click)="selectPlan('Starter Marketing', '₹9,999/month')" class="cursor-pointer block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Choose Starter</a>
+</div>
 
-            <!-- Standard (Featured) -->
-            <div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03]">
-              <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">Most Popular</div>
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#00E5C3] uppercase tracking-widest mb-2">// Standard</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">₹50,000</div>
-                <div class="text-white text-sm">Per month</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to 4 Social Platforms</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 20 Custom Posts / month</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Multi-channel Ads (Meta & Google)</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Email Automation Setup</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Retargeting Campaigns</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Bi-weekly Strategy Calls</li>
-              </ul>
-              <a routerLink="/contact" class="block text-center bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] font-bold py-3 rounded-xl hover:opacity-90 transition-all duration-300">Get Started →</a>
-            </div>
+<div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03]">
+  <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">★ Most Popular</div>
+  <div class="mb-6">
+    <div class="text-xs font-mono text-[#00E5C3] uppercase tracking-widest mb-2">// Growth</div>
+    <div class="text-sm text-[#7B61FF]/70 line-through mb-1">₹26,999</div>
+    <div class="flex items-baseline gap-1 mb-2">
+      <span class="text-4xl font-heading font-bold text-white">₹18,999</span>
+      <span class="text-white text-sm">/month</span>
+    </div>
+    <div class="text-white/70 text-xs flex items-center gap-1">
+      <span>🕒</span> management fee only
+    </div>
+  </div>
+  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Google Ads + Meta Ads</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Full campaign setup & strategy</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> A/B ad copy & creative testing</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Remarketing / retargeting</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to Rs.1 Lakh ad spend managed</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Google Analytics + Meta Pixel setup</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> SEO basics (on-page, GMB)</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Bi-weekly performance report</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Dedicated account manager</li>
+  </ul>
+  <a (click)="selectPlan('Growth Marketing', '₹18,999/month')" class="cursor-pointer block text-center bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] font-bold py-3 rounded-xl hover:opacity-90 transition-all duration-300">Choose Growth</a>
+</div>
 
-            <!-- Premium -->
-            <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Premium</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">₹1,00,000+</div>
-                <div class="text-white text-sm">Per month</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> All Social Platforms</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Daily Custom Content + Video</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Advanced Omnichannel Ads</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Advanced Marketing Automation</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Influencer Outreach & Management</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Custom Conversion Tracking</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Dedicated Account Manager</li>
-              </ul>
-              <a routerLink="/contact" class="block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Contact Us →</a>
-            </div>
+<div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
+  <div class="mb-6">
+    <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// 360 Pro</div>
+    <div class="text-sm text-gray-400 line-through mb-1">₹49,999</div>
+    <div class="flex items-baseline gap-1 mb-2">
+      <span class="text-4xl font-heading font-bold text-white">₹35,999</span>
+      <span class="text-white text-sm">/month</span>
+    </div>
+    <div class="text-white/70 text-xs flex items-center gap-1">
+      <span>🕒</span> management fee only
+    </div>
+  </div>
+  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Google Ads + Meta + YouTube Ads</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Full SEO (30 keywords)</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Social Media Management (2 platforms)</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Content creation (reels + posts)</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Advanced audience & funnel strategy</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to Rs.3 Lakh ad spend managed</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Landing page creation & optimisation</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Email / WhatsApp marketing automation</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Weekly reports + monthly strategy call</li>
+    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Priority support 7 days a week</li>
+  </ul>
+  <a (click)="selectPlan('360 Pro Marketing', '₹35,999/month')" class="cursor-pointer block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Choose 360 Pro</a>
+</div>
 
-          
-            <!-- Custom -->
-            <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Custom</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">Custom</div>
-                <div class="text-white text-sm">Built to your specifications</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Bespoke Strategy & Planning</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Dedicated Project Manager</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Complex & Custom Integrations</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Enterprise-Grade Security</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 24/7 Priority Support & SLA</li>
-              </ul>
-              <a routerLink="/contact" class="block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Contact Us →</a>
-            </div>
+<div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5">
+  <div class="mb-6">
+    <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Enterprise</div>
+    <div class="text-4xl font-heading font-bold text-[#7B61FF] mb-2">Custom</div>
+    <div class="text-white text-sm opacity-80 flex items-center gap-1">
+      <span>🏷️</span> custom quote
+    </div>
+  </div>
+  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
+    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> All channels managed</li>
+    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Unlimited ad spend management</li>
+    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Full SEO + content strategy</li>
+    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Influencer & PR outreach</li>
+    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Custom analytics dashboards</li>
+    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Dedicated team of specialists</li>
+    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Weekly strategy calls</li>
+    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> CRO & landing page testing</li>
+    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Multi-city / multi-location campaigns</li>
+  </ul>
+  <a (click)="selectPlan('Enterprise Marketing', 'Custom Quote')" class="cursor-pointer block text-center border border-[#7B61FF] text-[#7B61FF] font-semibold py-3 rounded-xl hover:bg-[#7B61FF] hover:text-white transition-all duration-300">Get Custom Quote</a>
+</div>
           </div>
         </div>
         <div class="text-center">
@@ -290,4 +333,11 @@ import { RouterLink } from '@angular/router';
     </section>
   `
 })
-export class DigitalMarketingComponent { }
+export class DigitalMarketingComponent {
+  selectPlan(planName: string, price: string) {
+    const text = `Hi, I visited your CoreGrid website and I'm interested in the ${planName} plan at ${price}.`;
+    const whatsappNumber = '919074501397';
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  }
+}

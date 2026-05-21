@@ -1,11 +1,25 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { BannerComponent } from '../../../shared/components/banner/banner.component';
 
 @Component({
   selector: 'app-google-ads',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, BannerComponent],
   template: `
+    <app-banner 
+      badgeText="Google Ads"
+      title="Drive Instant"
+      highlightTitle="Business Growth"
+      quote="Reach the right audience at the right time with high-converting Google Ads campaigns."
+      dataValue1=""
+      dataLabel1=""
+      dataValue2=""
+      dataLabel2=""
+      formTitle="Get a Free Ads Audit"
+      formButtonText="Optimize Ads"
+      serviceName="Google Ads Management">
+    </app-banner>
     <section class="ag-section exact-navy-gradient animate-section-wrapper" style="position:relative;overflow:hidden;">
       <!-- Drifting dot grid background -->
       <div class="moving-dot-grid"></div>
@@ -38,17 +52,10 @@ import { RouterLink } from '@angular/router';
         </p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div class="ag-card p-8">
-            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹20,000</div>
+            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹8,999</div>
             <div class="text-white text-sm font-mono">Starting at / month</div>
           </div>
-          <div class="ag-card p-8">
-            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">−35%</div>
-            <div class="text-white text-sm font-mono">Avg. CAC Reduction</div>
-          </div>
-          <div class="ag-card p-8">
-            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">3× ROAS</div>
-            <div class="text-white text-sm font-mono">Avg. Return on Ad Spend</div>
-          </div>
+         
         </div>
         <!-- What's Included Section -->
         <div class="mb-16">
@@ -200,86 +207,89 @@ import { RouterLink } from '@angular/router';
         </div>
         <!-- Pricing Plans -->
         <div class="mb-16">
-          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
-            Pricing <span class="text-[#00E5C3]">Plans</span>
-          </h2>
-          <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your goals. All plans include our signature quality, support, and transparent reporting.</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+  <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
+    Pricing <span class="text-[#00E5C3]">Plans</span>
+  </h2>
+  <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your goals. All plans include our signature quality, support, and transparent reporting.</p>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
 
-            <!-- Basic -->
-            <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Basic</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">₹20,000</div>
-                <div class="text-white text-sm">Per month</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Search Ads Setup</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Keyword Research</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to ₹50,000 Ad Spend</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Monthly Performance Report</li>
-               
-              </ul>
-              <a routerLink="/contact" class="block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Get Started →</a>
-            </div>
-
-            <!-- Standard (Featured) -->
-            <div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03]">
-              <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">Most Popular</div>
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#00E5C3] uppercase tracking-widest mb-2">// Standard</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">₹40,000</div>
-                <div class="text-white text-sm">Per month</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Search, Display & Performance Max</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Ad Copywriting & Testing</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to ₹2,00,000 Ad Spend</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Advanced Conversion Tracking</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Remarketing Campaigns</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Bi-weekly Optimization</li>
-              </ul>
-              <a routerLink="/contact" class="block text-center bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] font-bold py-3 rounded-xl hover:opacity-90 transition-all duration-300">Get Started →</a>
-            </div>
-
-            <!-- Premium -->
-            <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Premium</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">₹80,000+</div>
-                <div class="text-white text-sm">Per month</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Omnichannel Ad Strategy</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Custom Scripting & Automation</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Unlimited Ad Spend Management</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> CRM Integration (Salesforce/HubSpot)</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Landing Page CRO Audit</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Weekly Strategy Meetings</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Dedicated Account Director</li>
-              </ul>
-              <a routerLink="/contact" class="block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Contact Us →</a>
-            </div>
-
-          
-            <!-- Custom -->
-            <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Custom</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">Custom</div>
-                <div class="text-white text-sm">Built to your specifications</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Bespoke Strategy & Planning</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Dedicated Project Manager</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Complex & Custom Integrations</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Enterprise-Grade Security</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 24/7 Priority Support & SLA</li>
-              </ul>
-              <a routerLink="/contact" class="block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Contact Us →</a>
-            </div>
-          </div>
+    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg mt-4">
+      <div class="mb-6 text-center">
+        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Starter PPC</div>
+        <div class="flex items-baseline justify-center gap-1 mb-2">
+          <span class="text-4xl md:text-5xl font-heading font-bold text-white">₹8,999</span>
+          <span class="text-white text-sm">/month</span>
         </div>
+        <div class="text-white/60 text-xs flex flex-col items-center gap-1">
+          <span>🕒 management fee</span>
+          <span>(ad spend separate)</span>
+        </div>
+      </div>
+      <div class="w-full h-px bg-white/10 mb-6"></div>
+      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 1 campaign type</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to ₹50,000 ad spend managed</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Keyword research & setup</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Ad copy writing</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Monthly performance report</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Conversion tracking setup</li>
+      </ul>
+      <a (click)="selectPlan('Starter PPC', '₹8,999/month')" class="cursor-pointer block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Choose Starter PPC</a>
+    </div>
+
+    <div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03] z-10">
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF7A00] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full whitespace-nowrap">★ Most Popular</div>
+      <div class="mb-6 text-center">
+        <div class="text-xs font-mono text-[#00E5C3] uppercase tracking-widest mb-2">// Growth PPC</div>
+        <div class="flex items-baseline justify-center gap-1 mb-2">
+          <span class="text-4xl md:text-5xl font-heading font-bold text-white">₹15,999</span>
+          <span class="text-white text-sm">/month</span>
+        </div>
+        <div class="text-white/80 text-xs flex flex-col items-center gap-1">
+          <span>🕒 management fee</span>
+          <span>(ad spend separate)</span>
+        </div>
+      </div>
+      <div class="w-full h-px bg-[#7B61FF]/30 mb-6"></div>
+      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
+        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> All campaign types</li>
+        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Up to ₹2 Lakh ad spend managed</li>
+        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Full keyword strategy</li>
+        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> A/B ad copy testing</li>
+        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Remarketing campaigns</li>
+        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Landing page optimization</li>
+        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Bi-weekly report</li>
+        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Dedicated account manager</li>
+      </ul>
+      <a (click)="selectPlan('Growth PPC', '₹15,999/month')" class="cursor-pointer block text-center bg-[#FF7A00] text-white font-bold py-3 rounded-xl hover:bg-[#e66a00] transition-all duration-300">Choose Growth PPC</a>
+    </div>
+
+    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 mt-4">
+      <div class="mb-6 text-center">
+        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Enterprise PPC</div>
+        <div class="text-4xl md:text-5xl font-heading font-bold text-[#7B61FF] mb-3 mt-2">Custom</div>
+        <div class="text-white/60 text-xs flex items-center justify-center gap-1">
+          <span>🏷️</span> custom quote
+        </div>
+      </div>
+      <div class="w-full h-px bg-white/10 mb-6"></div>
+      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Unlimited ad spend managed</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Search, Display, Shopping, YouTube</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Advanced audience targeting</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Full funnel strategy</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Custom dashboards</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Weekly strategy calls</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Dedicated team</li>
+      </ul>
+      <a (click)="selectPlan('Enterprise PPC', 'Custom Quote')" class="cursor-pointer block text-center border border-[#7B61FF] text-[#7B61FF] font-semibold py-3 rounded-xl hover:bg-[#7B61FF] hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+        <span>📞</span> Get Custom Quote
+      </a>
+    </div>
+
+  </div>
+</div>
         <div class="text-center">
           <a routerLink="/contact" class="btn-primary">Get a Free Consultation →</a>
         </div>
@@ -287,4 +297,11 @@ import { RouterLink } from '@angular/router';
     </section>
   `
 })
-export class GoogleAdsComponent { }
+export class GoogleAdsComponent {
+  selectPlan(planName: string, price: string) {
+    const text = `Hi, I visited your CoreGrid website and I'm interested in the ${planName} plan at ${price}.`;
+    const whatsappNumber = '919074501397';
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  }
+}

@@ -1,11 +1,25 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { BannerComponent } from '../../../shared/components/banner/banner.component';
 
 @Component({
   selector: 'app-ecommerce',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, BannerComponent],
   template: `
+    <app-banner 
+      badgeText="E-Commerce Solutions"
+      title="Supercharge Your"
+      highlightTitle="Online Sales"
+      quote="Build powerful, user-friendly e-commerce platforms designed to increase sales and enhance customer experience."
+      dataValue1=""
+      dataLabel1=""
+      dataValue2=""
+      dataLabel2=""
+      formTitle="Start Selling More"
+      formButtonText="Build My Store"
+      serviceName="E-Commerce">
+    </app-banner>
     <section class="ag-section exact-navy-gradient animate-section-wrapper" style="position:relative;overflow:hidden;">
       <!-- Drifting dot grid background -->
       <div class="moving-dot-grid"></div>
@@ -38,7 +52,7 @@ import { RouterLink } from '@angular/router';
         </p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div class="ag-card p-8">
-            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹65,000</div>
+            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹22,999</div>
             <div class="text-white text-sm font-mono">Starting Price</div>
           </div>
           <div class="ag-card p-8">
@@ -200,86 +214,96 @@ import { RouterLink } from '@angular/router';
         </div>
         <!-- Pricing Plans -->
         <div class="mb-16">
-          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
-            Pricing <span class="text-[#00E5C3]">Plans</span>
-          </h2>
-          <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your goals. All plans include our signature quality, support, and transparent reporting.</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+  <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
+    Pricing <span class="text-[#00E5C3]">Plans</span>
+  </h2>
+  <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your goals. All plans include our signature quality, support, and transparent reporting.</p>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
 
-            <!-- Basic -->
-            <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Basic</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">₹65,000</div>
-                <div class="text-white text-sm">One-time · 4–6 week delivery</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to 50 Products</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Standard Theme Customization</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 1 Payment Gateway Integration</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Basic Shipping Setup</li>
-                
-              </ul>
-              <a routerLink="/contact" class="block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Get Started →</a>
-            </div>
+    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg mt-4">
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF7A00] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">★ Most Popular</div>
+      <div class="mb-6">
+        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Basic Store</div>
+        <div class="text-sm text-gray-400 line-through mb-1">₹29,899</div>
+        <div class="text-4xl font-heading font-bold text-white mb-1">₹22,999</div>
+        <div class="text-white text-sm opacity-80 flex items-center gap-1">🏷️ one-time payment</div>
+      </div>
+      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-6">
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to 100 products</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> WooCommerce setup</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Custom homepage design</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Product & category pages</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Payment gateway (2)</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Basic shipping setup</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Mobile responsive</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> SSL certificate</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> On-page SEO</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 1 month support</li>
+      </ul>
+      <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-white/10">
+        <span class="block mb-1">↻ Yearly renewal: ₹3999</span>
+        <span>(hosting + SSL + Maintenance)</span>
+      </div>
+      <a (click)="selectPlan('Basic Store', '₹22,999')" class="cursor-pointer block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Choose Basic Store</a>
+    </div>
 
-            <!-- Standard (Featured) -->
-            <div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03]">
-              <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">Most Popular</div>
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#00E5C3] uppercase tracking-widest mb-2">// Standard</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">₹1,20,000</div>
-                <div class="text-white text-sm">One-time · 6–8 week delivery</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to 500 Products</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Custom Storefront UI/UX</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Multi-Payment Gateways</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Advanced Shipping Rules</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Inventory Management Sync</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> E-commerce SEO Optimization</li>
-              </ul>
-              <a routerLink="/contact" class="block text-center bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] font-bold py-3 rounded-xl hover:opacity-90 transition-all duration-300">Get Started →</a>
-            </div>
+    <div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03] z-10">
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF7A00] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">★ Most Popular</div>
+      <div class="mb-6">
+        <div class="text-xs font-mono text-[#00E5C3] uppercase tracking-widest mb-2">// Standard Store</div>
+        <div class="text-sm text-[#7B61FF]/70 line-through mb-1">₹48,099</div>
+        <div class="text-4xl font-heading font-bold text-white mb-1">₹36,999</div>
+        <div class="text-white text-sm opacity-80 flex items-center gap-1">🏷️ one-time payment</div>
+      </div>
+      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-6">
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to 500 products</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> WooCommerce / Shopify</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Full custom design</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> All page types</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Payment gateways (all)</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Shipping integration</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Coupon & discount system</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Abandoned cart recovery</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Product reviews</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Advanced SEO</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Google Analytics + Pixel</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 3 months support</li>
+      </ul>
+      <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-[#7B61FF]/30">
+        <span class="block mb-1">↻ Yearly renewal: ₹4999</span>
+        <span>(hosting + SSL + Maintenance)</span>
+      </div>
+      <a (click)="selectPlan('Standard Store', '₹36,999')" class="cursor-pointer block text-center bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] font-bold py-3 rounded-xl hover:opacity-90 transition-all duration-300">Choose Standard Store</a>
+    </div>
 
-            <!-- Premium -->
-            <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Premium</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">₹2,50,000+</div>
-                <div class="text-white text-sm">One-time · 10–14 week delivery</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Unlimited Products</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Full Custom Headless Architecture</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> ERP & CRM Integrations</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> B2B/B2C Custom Portals</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Subscriptions & Memberships</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Multi-Currency & Multi-Lingual</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 3 Months Premium Support</li>
-              </ul>
-              <a routerLink="/contact" class="block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Contact Us →</a>
-            </div>
+    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 mt-4">
+      <div class="mb-6">
+        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Premium Store</div>
+        <div class="text-4xl font-heading font-bold text-[#7B61FF] mb-2">Custom</div>
+        <div class="text-white text-sm opacity-80 flex items-center gap-1">🏷️ custom quote</div>
+      </div>
+      <div class="w-full h-px bg-white/10 my-4"></div>
+      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8 mt-2">
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Unlimited products</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Magento / Custom</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Premium UX/UI design</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Multi-language support</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Multi-currency checkout</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Advanced inventory</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> ERP/CRM integration</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Custom mobile app</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Dedicated account manager</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Priority 24/7 support</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> 6 months maintenance</li>
+      </ul>
+      <a (click)="selectPlan('Premium Store', 'Custom Quote')" class="cursor-pointer block text-center border border-[#7B61FF] text-[#7B61FF] font-semibold py-3 rounded-full hover:bg-[#7B61FF] hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+        <span>📞</span> Get Custom Quote
+      </a>
+    </div>
 
-          
-            <!-- Custom -->
-            <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Custom</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">Custom</div>
-                <div class="text-white text-sm">Built to your specifications</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Bespoke Strategy & Planning</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Dedicated Project Manager</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Complex & Custom Integrations</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Enterprise-Grade Security</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 24/7 Priority Support & SLA</li>
-              </ul>
-              <a routerLink="/contact" class="block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Contact Us →</a>
-            </div>
-          </div>
-        </div>
+  </div>
+</div>
         <div class="text-center">
           <a routerLink="/contact" class="btn-primary">Get a Free Consultation →</a>
         </div>
@@ -287,4 +311,11 @@ import { RouterLink } from '@angular/router';
     </section>
   `
 })
-export class EcommerceComponent { }
+export class EcommerceComponent {
+  selectPlan(planName: string, price: string) {
+    const text = `Hi, I visited your CoreGrid website and I'm interested in the ${planName} plan at ${price}.`;
+    const whatsappNumber = '919074501397';
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  }
+}

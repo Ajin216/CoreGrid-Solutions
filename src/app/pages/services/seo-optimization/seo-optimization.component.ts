@@ -1,11 +1,25 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { BannerComponent } from '../../../shared/components/banner/banner.component';
 
 @Component({
   selector: 'app-seo-optimization',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, BannerComponent],
   template: `
+    <app-banner 
+      badgeText="SEO Strategy"
+      title="Rank Higher On"
+      highlightTitle="Google"
+      quote="We help your business rank higher on search engines and attract customers actively searching for your services"
+      dataValue1=""
+      dataLabel1=""
+      dataValue2=""
+      dataLabel2=""
+      formTitle="Get a Free SEO Audit"
+      formButtonText="Boost Rankings"
+      serviceName="SEO Optimization">
+    </app-banner>
     <section class="ag-section exact-navy-gradient animate-section-wrapper" style="position:relative;overflow:hidden;">
       <!-- Drifting dot grid background -->
       <div class="moving-dot-grid"></div>
@@ -39,7 +53,7 @@ import { RouterLink } from '@angular/router';
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div class="ag-card p-8">
-            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹15,000</div>
+            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹12,999</div>
             <div class="text-white text-sm font-mono">Starting at / month</div>
           </div>
           <div class="ag-card p-8">
@@ -203,86 +217,74 @@ import { RouterLink } from '@angular/router';
 
         <!-- Pricing Plans -->
         <div class="mb-16">
-          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
-            Pricing <span class="text-[#00E5C3]">Plans</span>
-          </h2>
-          <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your goals. All plans include our signature quality, support, and transparent reporting.</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+  <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
+    Pricing <span class="text-[#00E5C3]">Plans</span>
+  </h2>
+  <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your goals. All plans include our signature quality, support, and transparent reporting.</p>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
 
-            <!-- Basic -->
-            <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Basic</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">₹15,000</div>
-                <div class="text-white text-sm">Per month</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 10 Target Keywords</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Basic On-Page SEO</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Technical SEO Audit</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Monthly Performance Report</li>
-             
-              </ul>
-              <a routerLink="/contact" class="block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Get Started →</a>
-            </div>
+    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
+      <div class="mb-6">
+        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Local SEO</div>
+        <div class="text-4xl font-heading font-bold text-white mb-1">₹12,999</div>
+        <div class="text-white text-sm">/month · 5–7 months to results</div>
+      </div>
+      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to 10 keywords</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Google My Business optimization</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> On-page SEO (5 pages)</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Local citation building</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Monthly rank report</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Basic link building (5/mo)</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Competitor analysis</li>
+      </ul>
+      <a (click)="selectPlan('Local SEO', '₹12,999/month')" class="cursor-pointer block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Choose Local SEO</a>
+    </div>
 
-            <!-- Standard (Featured) -->
-            <div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03]">
-              <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">Most Popular</div>
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#00E5C3] uppercase tracking-widest mb-2">// Standard</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">₹35,000</div>
-                <div class="text-white text-sm">Per month</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 30 Target Keywords</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Advanced On-Page Optimization</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Local SEO Setup</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 2 Blog Posts / month</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> High-Quality Backlinks (3/mo)</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Competitor Analysis</li>
-              </ul>
-              <a routerLink="/contact" class="block text-center bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] font-bold py-3 rounded-xl hover:opacity-90 transition-all duration-300">Get Started →</a>
-            </div>
+    <div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03]">
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">★ Most Popular</div>
+      <div class="mb-6">
+        <div class="text-xs font-mono text-[#00E5C3] uppercase tracking-widest mb-2">// Growth SEO</div>
+        <div class="text-4xl font-heading font-bold text-white mb-1">₹25,999</div>
+        <div class="text-white text-sm">/month · 6–8 months to results</div>
+      </div>
+      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to 30 keywords</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Full on-page SEO</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Content creation (4 blogs/mo)</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Quality link building (15/mo)</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Technical SEO audit & fix</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Google Search Console setup</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Monthly detailed report</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Competitor tracking</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Conversion optimization</li>
+      </ul>
+      <a (click)="selectPlan('Growth SEO', '₹25,999/month')" class="cursor-pointer block text-center bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] font-bold py-3 rounded-xl hover:opacity-90 transition-all duration-300">Choose Growth SEO</a>
+    </div>
 
-            <!-- Premium -->
-            <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Premium</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">₹70,000+</div>
-                <div class="text-white text-sm">Per month</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 80+ Target Keywords</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Full Site Content Optimization</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 4+ Authority Blog Posts / month</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Premium Link Building (8+/mo)</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Conversion Rate Optimization (CRO)</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> E-commerce SEO Focus</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Weekly Strategy Meetings</li>
-              </ul>
-              <a routerLink="/contact" class="block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Contact Us →</a>
-            </div>
+    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
+      <div class="mb-6">
+        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Enterprise SEO</div>
+        <div class="text-4xl font-heading font-bold text-white mb-1">Custom</div>
+        <div class="text-white text-sm">8–12 months to results</div>
+      </div>
+      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Unlimited keywords</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Full website SEO overhaul</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Content strategy & creation</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Premium link building (30+/mo)</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Dedicated SEO manager</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Bi-weekly strategy calls</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Advanced analytics dashboard</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> PR & digital PR outreach</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> International / multi-location SEO</li>
+      </ul>
+      <a (click)="selectPlan('Enterprise SEO', 'Custom Quote')" class="cursor-pointer block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Get Custom Quote</a>
+    </div>
 
-          
-            <!-- Custom -->
-            <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Custom</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">Custom</div>
-                <div class="text-white text-sm">Built to your specifications</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Bespoke Strategy & Planning</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Dedicated Project Manager</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Complex & Custom Integrations</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Enterprise-Grade Security</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 24/7 Priority Support & SLA</li>
-              </ul>
-              <a routerLink="/contact" class="block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Contact Us →</a>
-            </div>
-          </div>
-        </div>
+  </div>
+</div>
         <div class="text-center">
           <a routerLink="/contact" class="btn-primary">Get a Free SEO Audit →</a>
         </div>
@@ -290,4 +292,11 @@ import { RouterLink } from '@angular/router';
     </section>
   `
 })
-export class SeoOptimizationComponent { }
+export class SeoOptimizationComponent {
+  selectPlan(planName: string, price: string) {
+    const text = `Hi, I visited your CoreGrid website and I'm interested in the ${planName} plan at ${price}.`;
+    const whatsappNumber = '919074501397';
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  }
+}

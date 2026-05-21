@@ -313,7 +313,7 @@
 
 /* Apply rotation to each card */
 #service-offer-grid > .ag-card {
-  animation: cardFlipDarken 14s ease-in-out infinite;
+  animation: cardFlipDarken 28s ease-in-out infinite;
   transform-origin: center center;
 }
 
@@ -328,27 +328,27 @@
   opacity: 0;
   z-index: 1 !important;
   pointer-events: none !important;
-  animation: cardOverlayDarken 14s ease-in-out infinite !important;
+  animation: cardOverlayDarken 28s ease-in-out infinite !important;
 }
 
-/* Stagger card + its overlay together, 2s apart */
+/* Stagger card + its overlay together, 4s apart */
 #service-offer-grid > .ag-card:nth-child(1),
 #service-offer-grid > .ag-card:nth-child(1)::before { animation-delay: 0s !important; }
 
 #service-offer-grid > .ag-card:nth-child(2),
-#service-offer-grid > .ag-card:nth-child(2)::before { animation-delay: 2s !important; }
+#service-offer-grid > .ag-card:nth-child(2)::before { animation-delay: 4s !important; }
 
 #service-offer-grid > .ag-card:nth-child(3),
-#service-offer-grid > .ag-card:nth-child(3)::before { animation-delay: 4s !important; }
+#service-offer-grid > .ag-card:nth-child(3)::before { animation-delay: 8s !important; }
 
 #service-offer-grid > .ag-card:nth-child(4),
-#service-offer-grid > .ag-card:nth-child(4)::before { animation-delay: 6s !important; }
+#service-offer-grid > .ag-card:nth-child(4)::before { animation-delay: 12s !important; }
 
 #service-offer-grid > .ag-card:nth-child(5),
-#service-offer-grid > .ag-card:nth-child(5)::before { animation-delay: 8s !important; }
+#service-offer-grid > .ag-card:nth-child(5)::before { animation-delay: 16s !important; }
 
 #service-offer-grid > .ag-card:nth-child(6),
-#service-offer-grid > .ag-card:nth-child(6)::before { animation-delay: 10s !important; }
+#service-offer-grid > .ag-card:nth-child(6)::before { animation-delay: 20s !important; }
 
 #service-offer-grid > .ag-card:nth-child(7),
-#service-offer-grid > .ag-card:nth-child(7)::before { animation-delay: 12s !important; }
+#service-offer-grid > .ag-card:nth-child(7)::before { animation-delay: 24s !important; }

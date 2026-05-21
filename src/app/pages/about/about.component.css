@@ -2,15 +2,15 @@
 .stats-card {
   background: rgba(12, 83, 166, 0.2) !important;
   border: 1px solid rgba(0, 229, 195, 0.15) !important;
-  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-              box-shadow 0.35s ease, 
-              border-color 0.35s ease !important;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease !important;
 }
 
 .stats-card:hover {
-  transform: translateY(-8px) scale(1.03);
+  transform: translateY(-2px);
   border-color: #00E5C3 !important;
-  box-shadow: 0 10px 30px rgba(0, 229, 195, 0.15) !important;
+  box-shadow: 0 8px 20px rgba(0, 229, 195, 0.12) !important;
 }
 
 .count-text {
@@ -59,9 +59,9 @@
 }
 
 .timeline-card:hover {
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-2px);
   border-color: #7B61FF !important;
-  box-shadow: 0 8px 25px rgba(123, 97, 255, 0.15) !important;
+  box-shadow: 0 6px 18px rgba(123, 97, 255, 0.12) !important;
 }
 
 .timeline-year {
@@ -114,17 +114,17 @@
 
 /* ─── Value Cards ─── */
 .value-card {
-  background: rgba(12, 83, 166, 0.12) !important;
+  background: #673ab7;
   border: 1px solid rgba(0, 229, 195, 0.1) !important;
-  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-              border-color 0.35s ease, 
-              box-shadow 0.35s ease !important;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease !important;
 }
 
 .value-card:hover {
-  transform: translateY(-8px) scale(1.03);
+  transform: translateY(-2px);
   border-color: #00E5C3 !important;
-  box-shadow: 0 10px 30px rgba(0, 229, 195, 0.12) !important;
+  box-shadow: 0 8px 20px rgba(0, 229, 195, 0.10) !important;
 }
 
 .value-icon {
@@ -143,9 +143,9 @@
 .crew-card {
   background: rgba(12, 83, 166, 0.15) !important;
   border: 1px solid rgba(123, 97, 255, 0.1) !important;
-  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-              border-color 0.35s ease, 
-              box-shadow 0.35s ease !important;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease !important;
 }
 
 .crew-card:hover {

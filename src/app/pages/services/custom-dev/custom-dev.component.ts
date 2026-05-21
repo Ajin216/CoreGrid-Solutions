@@ -1,11 +1,25 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { BannerComponent } from '../../../shared/components/banner/banner.component';
 
 @Component({
   selector: 'app-custom-dev',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, BannerComponent],
   template: `
+    <app-banner 
+      badgeText="Custom Development"
+      title="Smart Solutions for"
+      highlightTitle="Modern Enterprises"
+      quote="We create secure, scalable, and high-performance software customized to your unique business needs."
+      dataValue1=""
+      dataLabel1=""
+      dataValue2=""
+      dataLabel2=""
+      formTitle="Get a Custom Quote"
+      formButtonText="Launch Project"
+      serviceName="Custom Development">
+    </app-banner>
     <section class="ag-section exact-navy-gradient animate-section-wrapper" style="position:relative;overflow:hidden;">
       <!-- Drifting dot grid background -->
       <div class="moving-dot-grid"></div>
@@ -29,7 +43,7 @@ import { RouterLink } from '@angular/router';
         <div class="mb-4">
           <a routerLink="/services" class="text-[#00E5C3] text-sm font-mono hover:text-white transition-colors">← Back to Services</a>
         </div>
-        <div class="ag-badge mb-6 badge-pulse-blink" style="color:#00E5C3;border-color:rgba(0,229,195,0.3);"><span class="dot" style="background-color:#00E5C3;"></span>// 07 — engineering</div>
+        <div class="ag-badge mb-6 badge-pulse-blink" style="color:#00E5C3;border-color:rgba(0,229,195,0.3);"><span class="dot" style="background-color:#00E5C3;"></span>// 07 — Custom Development</div>
         <h1 class="text-4xl md:text-6xl font-heading font-bold text-white mb-6 tracking-tight">
           Custom <span class="text-[#00E5C3]">Development</span>
         </h1>
@@ -200,69 +214,82 @@ import { RouterLink } from '@angular/router';
         </div>
         <!-- Pricing Plans -->
         <div class="mb-16">
-          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
-            Pricing <span class="text-[#00E5C3]">Tiers</span>
-          </h2>
-          <p class="text-white text-center mb-12 max-w-2xl mx-auto">Because custom software scopes vary wildly, these tiers provide a general baseline for our engineering engagements.</p>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+  <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
+    Pricing <span class="text-[#00E5C3]">Tiers</span>
+  </h2>
+  <p class="text-white text-center mb-12 max-w-2xl mx-auto">Because custom software scopes vary wildly, these tiers provide a general baseline for our engineering engagements.</p>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
 
-            <!-- Basic -->
-            <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// MVP Build</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">₹2,00,000+</div>
-                <div class="text-white text-sm">Estimated Delivery: 6 Weeks</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Core Feature Development</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Rapid Prototyping</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Essential API Integrations</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Single Platform Deployment</li>
-                
-              </ul>
-              <a routerLink="/contact" class="block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Get Started →</a>
-            </div>
-
-            <!-- Standard (Featured) -->
-            <div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03]">
-              <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">Most Popular</div>
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#00E5C3] uppercase tracking-widest mb-2">// Full-Scale App</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">₹5,00,000+</div>
-                <div class="text-white text-sm">Estimated Delivery:12 Weeks</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Comprehensive End-to-End System</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Scalable Cloud Architecture</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Multi-Role Admin Dashboards</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Deep 3rd-Party Integrations</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Automated Testing (CI/CD)</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> High-Performance Database Design</li>
-              </ul>
-              <a routerLink="/contact" class="block text-center bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] font-bold py-3 rounded-xl hover:opacity-90 transition-all duration-300">Get Started →</a>
-            </div>
-
-            <!-- Premium -->
-            <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-              <div class="mb-6">
-                <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Enterprise</div>
-                <div class="text-4xl font-heading font-bold text-white mb-1">Custom</div>
-                <div class="text-white text-sm">Ongoing Dedicated Team</div>
-              </div>
-              <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Dedicated Engineering Squad</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Microservices / Serverless Architecture</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Legacy System Modernization</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Advanced Security & Compliance</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Unlimited Scaling Solutions</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> High-Availability SLA</li>
-                <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Continuous Maintenance & Upgrades</li>
-              </ul>
-              <a routerLink="/contact" class="block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Contact Us →</a>
-            </div>
-
-          </div>
+    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg mt-4">
+      <div class="mb-6">
+        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Starter Web App</div>
+        <div class="text-4xl font-heading font-bold text-white mb-2">₹49,999</div>
+        <div class="text-white/80 text-sm leading-relaxed min-h-[40px]">
+          Best for internal tools, portals & simple custom platforms
         </div>
+      </div>
+      <div class="w-full h-px bg-white/10 mb-6"></div>
+      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to 10 screens / modules</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> User auth & role management</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Admin dashboard & reports</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> MySQL database</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Mobile responsive</li>
+        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 3 months support</li>
+      </ul>
+      <a (click)="selectPlan('Starter Web App', '₹49,999')" class="cursor-pointer block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300 flex items-center justify-center gap-2">
+        <span class="text-lg">💬</span> Get This Plan
+      </a>
+    </div>
+
+    <div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03] z-10">
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF7A00] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full whitespace-nowrap">★ Most Popular</div>
+      <div class="mb-6">
+        <div class="text-xs font-mono text-[#00E5C3] uppercase tracking-widest mb-2">// Growth Platform</div>
+        <div class="text-4xl font-heading font-bold text-white mb-2">₹99,999</div>
+        <div class="text-white/80 text-sm leading-relaxed min-h-[40px]">
+          For marketplaces, SaaS, booking systems & complex platforms
+        </div>
+      </div>
+      <div class="w-full h-px bg-[#7B61FF]/30 mb-6"></div>
+      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
+        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Up to 25 screens / modules</li>
+        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Multi-role user system</li>
+        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Payment gateway integration</li>
+        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Advanced workflows & automation</li>
+        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> API integrations</li>
+        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> 6 months support</li>
+      </ul>
+      <a (click)="selectPlan('Growth Platform', '₹99,999')" class="cursor-pointer block text-center bg-[#FF7A00] text-white font-bold py-3 rounded-xl hover:bg-[#e66a00] transition-all duration-300 flex items-center justify-center gap-2">
+        <span class="text-lg">💬</span> Get This Plan
+      </a>
+    </div>
+
+    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 mt-4">
+      <div class="mb-6">
+        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Enterprise Build</div>
+        <div class="text-4xl font-heading font-bold text-[#7B61FF] mb-2">Custom Quote</div>
+        <div class="text-white/80 text-sm leading-relaxed min-h-[40px]">
+          For large-scale platforms, mobile apps & full product builds
+        </div>
+      </div>
+      <div class="w-full h-px bg-white/10 mb-6"></div>
+      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Unlimited scope</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Mobile app (iOS + Android)</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Microservices / scalable architecture</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Third-party API suite</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Dedicated project manager</li>
+        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> 12 months support</li>
+      </ul>
+      <a (click)="selectPlan('Enterprise Build', 'Custom Quote')" class="cursor-pointer block text-center border border-[#7B61FF] text-[#7B61FF] font-semibold py-3 rounded-xl hover:bg-[#7B61FF] hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+        <span class="text-lg">💬</span> Get This Plan
+      </a>
+    </div>
+
+  </div>
+</div>
         <div class="text-center">
           <a routerLink="/contact" class="btn-primary">Schedule a Discovery Call →</a>
         </div>
@@ -270,4 +297,11 @@ import { RouterLink } from '@angular/router';
     </section>
   `
 })
-export class CustomDevComponent { }
+export class CustomDevComponent {
+  selectPlan(planName: string, price: string) {
+    const text = `Hi, I visited your CoreGrid website and I'm interested in the ${planName} plan at ${price}.`;
+    const whatsappNumber = '919074501397';
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  }
+}
