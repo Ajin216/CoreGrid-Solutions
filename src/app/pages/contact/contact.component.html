@@ -53,7 +53,7 @@
 
           <div class="col-span-1 md:col-span-2">
             <label class="block text-sm font-bold text-[#F0EFFF] mb-2 font-['Space_Grotesk']">Email Address</label>
-            <input type="email" name="email" [(ngModel)]="formData.email" placeholder="jane@company.com"
+            <input type="email" name="email" [(ngModel)]="formData.email" placeholder="jane@company.com (optional)"
               class="w-full bg-[#111A3A] border border-[#1E2A55] rounded-lg p-3 text-white focus:outline-none focus:border-[#00E5C3] transition-colors">
           </div>
 
@@ -75,13 +75,12 @@
           <div class="col-span-1 md:col-span-2">
             <label class="block text-sm font-bold text-[#F0EFFF] mb-2 font-['Space_Grotesk']">Project Details</label>
             <textarea rows="5" name="details" [(ngModel)]="formData.details"
-              placeholder="Tell us about your project, goals, and timeline..."
+              placeholder="Tell us about your project, goals, and timeline...(optional)"
               class="w-full bg-[#111A3A] border border-[#1E2A55] rounded-lg p-3 text-white focus:outline-none focus:border-[#00E5C3] transition-colors"></textarea>
           </div>
 
           <div class="col-span-1 md:col-span-2 mt-2">
-            <button type="submit"
-              [disabled]="!formData.firstName || !formData.service"
+            <button type="submit" [disabled]="!formData.firstName || !formData.service"
               [style.opacity]="(formData.firstName && formData.service) ? 1 : 0.5"
               [style.cursor]="(formData.firstName && formData.service) ? 'pointer' : 'not-allowed'"
               [style.pointerEvents]="(formData.firstName && formData.service) ? 'auto' : 'none'"
