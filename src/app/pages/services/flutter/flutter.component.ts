@@ -18,7 +18,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
       dataLabel2=""
       formTitle="Get an App Quote"
       formButtonText="Build My App"
-      serviceName="Flutter App Development">
+      serviceName="Mobile app development">
     </app-banner>
     <section class="ag-section exact-navy-gradient animate-section-wrapper" style="position:relative;overflow:hidden;">
       <!-- Drifting dot grid background -->
@@ -45,7 +45,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
         </div>
         <div class="ag-badge mb-6 badge-pulse-blink" style="color:#00E5C3;border-color:rgba(0,229,195,0.3);"><span class="dot" style="background-color:#00E5C3;"></span>// 05 — mobile</div>
         <h1 class="text-4xl md:text-6xl font-heading font-bold text-white mb-6 tracking-tight">
-          Flutter App <span class="text-[#00E5C3]">Development</span>
+          Mobile app <span class="text-[#00E5C3]">Development</span>
         </h1>
         <p class="text-white text-lg md:text-xl max-w-3xl mb-12">
           Native-performance cross-platform mobile applications engineered for iOS and Android deployments using a single, unified, and scalable codebase.

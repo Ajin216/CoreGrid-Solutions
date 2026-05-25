@@ -66,21 +66,25 @@ import { FormsModule } from '@angular/forms';
             </p>
 
             <form style="display:flex;flex-direction:column;gap:16px;">
-              <input type="text" placeholder="Your Name" [(ngModel)]="formData.name" name="name" 
+              <input type="text" placeholder="Your Name" [(ngModel)]="formData.name" name="name" required
                      class="w-full rounded-xl bg-[rgba(10,15,46,0.8)] border border-[rgba(0,229,195,0.4)] text-[#00E5C3] px-4 py-3 focus:border-[#00E5C3] outline-none transition-all placeholder:text-[#00E5C3] placeholder:opacity-50">
                      
-              <input type="tel" placeholder="Phone Number" [(ngModel)]="formData.phone" name="phone" 
+              <input type="tel" placeholder="Phone Number" [(ngModel)]="formData.phone" name="phone" required
                      class="w-full rounded-xl bg-[rgba(10,15,46,0.8)] border border-[rgba(0,229,195,0.4)] text-[#00E5C3] px-4 py-3 focus:border-[#00E5C3] outline-none transition-all placeholder:text-[#00E5C3] placeholder:opacity-50">
                      
-              <input type="email" placeholder="Email Address" [(ngModel)]="formData.email" name="email" 
+              <input type="email" placeholder="Email Address" [(ngModel)]="formData.email" name="email" required
                      class="w-full rounded-xl bg-[rgba(10,15,46,0.8)] border border-[rgba(0,229,195,0.4)] text-[#00E5C3] px-4 py-3 focus:border-[#00E5C3] outline-none transition-all placeholder:text-[#00E5C3] placeholder:opacity-50">
                      
               <textarea rows="3" [(ngModel)]="formData.message" name="message" placeholder="Tell us about your project..." 
                         class="w-full rounded-xl bg-[rgba(10,15,46,0.8)] border border-[rgba(0,229,195,0.4)] text-[#00E5C3] px-4 py-3 focus:border-[#00E5C3] outline-none resize-y transition-all placeholder:text-[#00E5C3] placeholder:opacity-50"></textarea>
               
               <button type="button" (click)="sendToWhatsApp()" 
-                      style="width:100%;padding:16px 32px;border-radius:100px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#fff;background:linear-gradient(135deg,#FF8C00 0%,#FF5722 100%);border:none;cursor:pointer;box-shadow:0 4px 24px rgba(255,140,0,0.40);transition:transform 0.2s ease,box-shadow 0.2s ease;margin-top:8px;"
-                      onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(255,140,0,0.55)'"
+                      [disabled]="!formData.name || !formData.phone || !formData.email"
+                      [style.opacity]="(formData.name && formData.phone && formData.email) ? 1 : 0.5"
+                      [style.cursor]="(formData.name && formData.phone && formData.email) ? 'pointer' : 'not-allowed'"
+                      [style.pointerEvents]="(formData.name && formData.phone && formData.email) ? 'auto' : 'none'"
+                      style="width:100%;padding:16px 32px;border-radius:100px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#fff;background:linear-gradient(135deg,#FF8C00 0%,#FF5722 100%);border:none;box-shadow:0 4px 24px rgba(255,140,0,0.40);transition:transform 0.2s ease,box-shadow 0.2s ease;margin-top:8px;"
+                      onmouseover="if(this.getAttribute('disabled') === null) { this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(255,140,0,0.55)' }"
                       onmouseout="this.style.transform='';this.style.boxShadow='0 4px 24px rgba(255,140,0,0.40)'">
                 {{ formButtonText }} &rarr;
               </button>

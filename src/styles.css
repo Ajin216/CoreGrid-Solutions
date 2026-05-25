@@ -95,26 +95,24 @@ body::after {
 
 /* ─── Keyframes ─────────────────────────────────────────────────── */
 @keyframes floatY {
-
   0%,
   100% {
-    transform: translateY(0px);
+    transform: translate3d(0, 0, 0);
   }
 
   50% {
-    transform: translateY(-8px);
+    transform: translate3d(0, -8px, 0);
   }
 }
 
 @keyframes floatYLg {
-
   0%,
   100% {
-    transform: translateY(0px);
+    transform: translate3d(0, 0, 0);
   }
 
   50% {
-    transform: translateY(-14px);
+    transform: translate3d(0, -14px, 0);
   }
 }
 
@@ -380,39 +378,44 @@ body::after {
 
   /* Staggered rotating float for cards */
   @keyframes floatRotate {
-
     0%,
     100% {
-      transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0);
+      transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translate3d(0, 0, 0);
     }
 
     50% {
-      transform: perspective(1000px) rotateX(2deg) rotateY(1deg) translateY(-8px);
+      transform: perspective(1000px) rotateX(2deg) rotateY(1deg) translate3d(0, -8px, 0);
     }
   }
 
   .card-float-1 {
     animation: floatRotate 5s ease-in-out infinite;
+    will-change: transform;
   }
 
   .card-float-2 {
     animation: floatRotate 5s ease-in-out 1.2s infinite;
+    will-change: transform;
   }
 
   .card-float-3 {
     animation: floatRotate 5s ease-in-out 2.4s infinite;
+    will-change: transform;
   }
 
   .card-float-4 {
     animation: floatRotate 5s ease-in-out 0.6s infinite;
+    will-change: transform;
   }
 
   .card-float-5 {
     animation: floatRotate 5s ease-in-out 1.8s infinite;
+    will-change: transform;
   }
 
   .card-float-6 {
     animation: floatRotate 5s ease-in-out 3.0s infinite;
+    will-change: transform;
   }
 
   /* ── Navbar ── */
@@ -456,26 +459,32 @@ body::after {
   /* ── Float animations ── */
   .ag-float {
     animation: floatY 3s ease-in-out infinite;
+    will-change: transform;
   }
 
   .ag-float-slow {
     animation: floatYLg 5s ease-in-out infinite;
+    will-change: transform;
   }
 
   .ag-float-d1 {
     animation: floatY 3s ease-in-out 0.6s infinite;
+    will-change: transform;
   }
 
   .ag-float-d2 {
     animation: floatY 3s ease-in-out 1.2s infinite;
+    will-change: transform;
   }
 
   .ag-float-d3 {
     animation: floatY 3.5s ease-in-out 0.9s infinite;
+    will-change: transform;
   }
 
   .ag-fade-up {
     animation: fadeUp 0.7s ease-out forwards;
+    will-change: transform, opacity;
   }
 
   /* ── Decorative blob ── */
@@ -611,20 +620,20 @@ body::after {
   0%,
   100% {
     opacity: 0.75;
-    box-shadow: 0 0 4px rgba(0, 229, 195, 0.1);
-    transform: scale(1);
+    transform: scale(1) translateZ(0);
   }
 
   50% {
     opacity: 1;
-    box-shadow: 0 0 15px rgba(0, 229, 195, 0.45);
-    transform: scale(1.02);
+    transform: scale(1.02) translateZ(0);
   }
 }
 
 .badge-blink {
   animation: badgeBlink 2.5s infinite ease-in-out;
+  box-shadow: 0 0 8px rgba(0, 229, 195, 0.25);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform, opacity;
 }
 
 /* ─── Premium Celestial Space Animations ─── */
@@ -824,10 +833,11 @@ body::after {
 /* ─── Moving Dot Grid Background (Global) ───────────────────────── */
 .moving-dot-grid {
   position: absolute;
-  inset: 0;
+  inset: -72px;
   background-image: radial-gradient(rgba(0, 229, 195, 0.15) 1.5px, transparent 1.5px);
   background-size: 36px 36px;
   animation: driftDotGrid 28s linear infinite;
+  will-change: transform;
   pointer-events: none;
   z-index: 0;
   opacity: 0.65;
@@ -835,31 +845,31 @@ body::after {
 
 @keyframes driftDotGrid {
   0% {
-    background-position: 0 0;
+    transform: translate3d(0, 0, 0);
   }
 
   100% {
-    background-position: 72px 72px;
+    transform: translate3d(-36px, -36px, 0);
   }
 }
 
 /* ─── Blinking Badges (Global) ──────────────────────────────────── */
 .badge-pulse-blink {
   animation: badgePulseBlink 2.0s infinite ease-in-out;
+  border-color: rgba(0, 229, 195, 0.4) !important;
+  box-shadow: 0 0 8px rgba(0, 229, 195, 0.25);
+  will-change: opacity;
 }
 
 @keyframes badgePulseBlink {
 
   0%,
   100% {
-    opacity: 0.6;
-    border-color: rgba(0, 229, 195, 0.15) !important;
+    opacity: 0.5;
   }
 
   50% {
     opacity: 1;
-    border-color: rgba(0, 229, 195, 0.7) !important;
-    box-shadow: 0 0 12px rgba(0, 229, 195, 0.35);
   }
 }
 
@@ -909,34 +919,34 @@ body::after {
 
 @keyframes fallDown {
   0% {
-    top: -10%;
+    transform: translate3d(0, 0, 0) scale(0.8);
     opacity: 0;
-    transform: scale(0.8);
   }
 
   10% {
     opacity: 1;
-    transform: scale(1);
+    transform: translate3d(0, 12vh, 0) scale(1);
   }
 
   90% {
     opacity: 1;
-    transform: scale(1);
+    transform: translate3d(0, 108vh, 0) scale(1);
   }
 
   100% {
-    top: 110%;
+    transform: translate3d(0, 120vh, 0) scale(0.8);
     opacity: 0;
-    transform: scale(0.8);
   }
 }
 
 .falling-orb {
   position: absolute;
+  top: -100px;
   border-radius: 50%;
   pointer-events: none;
   z-index: 5;
   animation: fallDown 12s linear infinite;
+  will-change: transform, opacity;
 }
 
 .falling-orb.orb-left {

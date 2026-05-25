@@ -87,7 +87,7 @@
 
           <span
             class="px-4 py-1.5 text-sm font-medium text-white bg-white/10 border border-white/20 rounded-full hover:bg-white/20 transition-colors cursor-default shadow-[0_0_10px_rgba(255,255,255,0.1)]">
-            Flutter
+            Mobile app Development
           </span>
 
           <span
@@ -129,7 +129,7 @@
       </div>
 
       <!-- Right: Floating audit form -->
-      <div class="ag-float-slow" style="position:relative;">
+      <div style="position:relative;">
         <!-- Ambient glow behind card -->
         <div
           style="position:absolute;inset:-20px;background:radial-gradient(ellipse at center,rgba(255,140,0,0.12),transparent 70%);pointer-events:none;z-index:0;">
@@ -209,21 +209,26 @@
           </form> -->
 
           <form style="display:flex;flex-direction:column;gap:14px;">
-            <input type="text" placeholder="Jane Smith" [(ngModel)]="formData.name" name="name">
+            <input type="text" placeholder="Jane Smith" [(ngModel)]="formData.name" name="name" required>
 
-            <input type="tel" placeholder="+91 9074501397" [(ngModel)]="formData.phone" name="phone">
+            <input type="tel" placeholder="+91 9074501397" [(ngModel)]="formData.phone" name="phone" required>
 
-            <input type="email" placeholder="jane@startup.com" [(ngModel)]="formData.email" name="email">
+            <input type="email" placeholder="jane@startup.com" [(ngModel)]="formData.email" name="email" required>
 
             <select [(ngModel)]="formData.service" name="service">
-              <option value="">Select a service...</option>
-              <option>Web Development</option>
-              <option>SEO Optimization</option>
-              <option>Digital Marketing</option>
-              <option>E-Commerce Store</option>
-              <option>Flutter App Development</option>
-              <option>Google Ads Management</option>
-              <option>Custom Development</option>
+
+              <option value="" selected disabled>
+                Select a service...
+              </option>
+
+              <option value="Web Development">Web Development</option>
+              <option value="SEO Optimization">SEO Optimization</option>
+              <option value="Digital Marketing">Digital Marketing</option>
+              <option value="E-Commerce Store">E-Commerce Store</option>
+              <option value="Mobile App Development">Mobile App Development</option>
+              <option value="Google Ads Management">Google Ads Management</option>
+              <option value="Custom Development">Custom Development</option>
+
             </select>
 
             <textarea rows="3" [(ngModel)]="formData.message" name="message"
@@ -231,8 +236,12 @@
   </textarea>
 
             <button type="button" (click)="sendToWhatsApp()"
-              style="width:100%;padding:15px 32px;border-radius:100px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:#fff;background:linear-gradient(135deg,#FF8C00 0%,#FF5722 100%);border:none;cursor:pointer;box-shadow:0 4px 24px rgba(255,140,0,0.40);transition:transform 0.2s ease,box-shadow 0.2s ease;"
-              onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(255,140,0,0.55)'"
+              [disabled]="!formData.name || !formData.phone || !formData.email"
+              [style.opacity]="(formData.name && formData.phone && formData.email) ? 1 : 0.5"
+              [style.cursor]="(formData.name && formData.phone && formData.email) ? 'pointer' : 'not-allowed'"
+              [style.pointerEvents]="(formData.name && formData.phone && formData.email) ? 'auto' : 'none'"
+              style="width:100%;padding:15px 32px;border-radius:100px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:#fff;background:linear-gradient(135deg,#FF8C00 0%,#FF5722 100%);border:none;box-shadow:0 4px 24px rgba(255,140,0,0.40);transition:transform 0.2s ease,box-shadow 0.2s ease;"
+              onmouseover="if(this.getAttribute('disabled') === null) { this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(255,140,0,0.55)' }"
               onmouseout="this.style.transform='';this.style.boxShadow='0 4px 24px rgba(255,140,0,0.40)'">
               🚀 Claim My Free Audit →
             </button>
@@ -400,7 +409,7 @@
 
       <div class="ag-card !bg-[rgb(41_61_157_/_80%)] border border-[#324AB3] flex flex-col h-full">
         <div class="flex-grow">
-          <h3 class="text-xl font-heading font-bold text-white mb-3">Flutter App Development</h3>
+          <h3 class="text-xl font-heading font-bold text-white mb-3">Mobile app Development</h3>
           <p class="text-white text-sm mb-4">Cross-platform mobile applications for iOS and Android delivering native
             performance and stunning UI.</p>
 
