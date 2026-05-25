@@ -7,13 +7,11 @@
   width: 560px;
   height: 560px;
   border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(123,97,255,0.55) 0%, rgba(123,97,255,0.20) 35%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(123, 97, 255, 0.55) 0%, rgba(123, 97, 255, 0.20) 35%, transparent 70%);
   filter: blur(40px);
   animation: orbPulse 6s ease-in-out infinite;
   pointer-events: none;
   z-index: 0;
-  will-change: transform, opacity;
-  transform: translate3d(0,0,0);
 }
 
 .orb-teal {
@@ -23,13 +21,11 @@
   width: 480px;
   height: 480px;
   border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(0,196,167,0.50) 0%, rgba(0,196,167,0.18) 35%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(0, 196, 167, 0.50) 0%, rgba(0, 196, 167, 0.18) 35%, transparent 70%);
   filter: blur(36px);
   animation: orbPulse 8s ease-in-out 1.5s infinite;
   pointer-events: none;
   z-index: 0;
-  will-change: transform, opacity;
-  transform: translate3d(0,0,0);
 }
 
 .orb-orange {
@@ -39,25 +35,47 @@
   width: 360px;
   height: 360px;
   border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(255,140,0,0.40) 0%, rgba(255,100,0,0.15) 40%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(255, 140, 0, 0.40) 0%, rgba(255, 100, 0, 0.15) 40%, transparent 70%);
   filter: blur(32px);
   animation: orbDrift 10s ease-in-out 0.8s infinite;
   pointer-events: none;
   z-index: 0;
-  will-change: transform, opacity;
-  transform: translate3d(0,0,0);
 }
 
 @keyframes orbPulse {
-  0%, 100% { transform: translate3d(0,0,0) scale(1);   opacity: 1;   }
-  50%       { transform: translate3d(0,0,0) scale(1.2); opacity: 0.7; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
 }
 
 @keyframes orbDrift {
-  0%   { transform: translate3d(0, 0, 0)    scale(1);    opacity: 0.9; }
-  33%  { transform: translate3d(30px,-20px, 0) scale(1.1); opacity: 1;   }
-  66%  { transform: translate3d(-20px,15px, 0) scale(0.95); opacity: 0.8; }
-  100% { transform: translate3d(0, 0, 0)    scale(1);    opacity: 0.9; }
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.9;
+  }
+
+  33% {
+    transform: translate(30px, -20px) scale(1.1);
+    opacity: 1;
+  }
+
+  66% {
+    transform: translate(-20px, 15px) scale(0.95);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.9;
+  }
 }
 
 /* ─── Floating star particles ─────────────────────────────────── */
@@ -69,19 +87,27 @@
   pointer-events: none;
   z-index: 0;
   animation: starTwinkle var(--dur, 3s) ease-in-out var(--delay, 0s) infinite;
-  will-change: transform, opacity;
 }
 
 @keyframes starTwinkle {
-  0%, 100% { opacity: 0.15; transform: translate3d(0,0,0) scale(1);   }
-  50%       { opacity: 1;    transform: translate3d(0,0,0) scale(1.6); }
+
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
 }
 
 /* ─── Shooting star ────────────────────────────────────────────── */
 .shooting-star {
   position: absolute;
   height: 1.5px;
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #fff 50%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 50%, rgba(255, 255, 255, 0) 100%);
   border-radius: 4px;
   pointer-events: none;
   z-index: 0;
@@ -90,63 +116,124 @@
 }
 
 @keyframes shoot {
-  0%   { opacity: 0;   transform: translateX(0)    scaleX(0.3); }
-  10%  { opacity: 0.9; transform: translateX(0)    scaleX(1);   }
-  80%  { opacity: 0.5; transform: translateX(300px) scaleX(1);   }
-  100% { opacity: 0;   transform: translateX(380px) scaleX(0.3); }
+  0% {
+    opacity: 0;
+    transform: translateX(0) scaleX(0.3);
+  }
+
+  10% {
+    opacity: 0.9;
+    transform: translateX(0) scaleX(1);
+  }
+
+  80% {
+    opacity: 0.5;
+    transform: translateX(300px) scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(380px) scaleX(0.3);
+  }
 }
 
 /* ─── Form shake + highlight (triggered by .form-shake class) ──── */
 
 .form-shake {
-  animation: formShakeGlow 0.6s cubic-bezier(0.36,0.07,0.19,0.97) both;
+  animation: formShakeGlow 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
 @keyframes formShakeGlow {
-  0%   { transform: translateX(0);    box-shadow: 0 8px 40px rgba(123,97,255,0.10), 0 2px 8px rgba(0,0,0,0.04); }
-  10%  { transform: translateX(-10px); box-shadow: 0 0 0 3px #FF8C00, 0 0 40px rgba(255,140,0,0.50); }
-  20%  { transform: translateX(10px);  box-shadow: 0 0 0 3px #FF8C00, 0 0 40px rgba(255,140,0,0.50); }
-  30%  { transform: translateX(-8px);  box-shadow: 0 0 0 4px #FF8C00, 0 0 60px rgba(255,140,0,0.55); }
-  40%  { transform: translateX(8px);   box-shadow: 0 0 0 4px #FF8C00, 0 0 60px rgba(255,140,0,0.55); }
-  50%  { transform: translateX(-5px);  box-shadow: 0 0 0 3px #FFB347, 0 0 40px rgba(255,140,0,0.45); }
-  60%  { transform: translateX(5px);   box-shadow: 0 0 0 3px #FFB347, 0 0 40px rgba(255,140,0,0.45); }
-  70%  { transform: translateX(-3px);  box-shadow: 0 0 0 2px #FFB347, 0 0 24px rgba(255,140,0,0.30); }
-  80%  { transform: translateX(3px);   box-shadow: 0 0 0 2px #FFB347, 0 0 24px rgba(255,140,0,0.30); }
-  100% { transform: translateX(0);    box-shadow: 0 8px 40px rgba(123,97,255,0.10), 0 2px 8px rgba(0,0,0,0.04); }
+  0% {
+    transform: translateX(0);
+    box-shadow: 0 8px 40px rgba(123, 97, 255, 0.10), 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  10% {
+    transform: translateX(-10px);
+    box-shadow: 0 0 0 3px #FF8C00, 0 0 40px rgba(255, 140, 0, 0.50);
+  }
+
+  20% {
+    transform: translateX(10px);
+    box-shadow: 0 0 0 3px #FF8C00, 0 0 40px rgba(255, 140, 0, 0.50);
+  }
+
+  30% {
+    transform: translateX(-8px);
+    box-shadow: 0 0 0 4px #FF8C00, 0 0 60px rgba(255, 140, 0, 0.55);
+  }
+
+  40% {
+    transform: translateX(8px);
+    box-shadow: 0 0 0 4px #FF8C00, 0 0 60px rgba(255, 140, 0, 0.55);
+  }
+
+  50% {
+    transform: translateX(-5px);
+    box-shadow: 0 0 0 3px #FFB347, 0 0 40px rgba(255, 140, 0, 0.45);
+  }
+
+  60% {
+    transform: translateX(5px);
+    box-shadow: 0 0 0 3px #FFB347, 0 0 40px rgba(255, 140, 0, 0.45);
+  }
+
+  70% {
+    transform: translateX(-3px);
+    box-shadow: 0 0 0 2px #FFB347, 0 0 24px rgba(255, 140, 0, 0.30);
+  }
+
+  80% {
+    transform: translateX(3px);
+    box-shadow: 0 0 0 2px #FFB347, 0 0 24px rgba(255, 140, 0, 0.30);
+  }
+
+  100% {
+    transform: translateX(0);
+    box-shadow: 0 8px 40px rgba(123, 97, 255, 0.10), 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
 }
 
 /* ─── Moving Dot Grid Background ───────────────────────────────── */
 .moving-dot-grid {
   position: absolute;
-  inset: -72px;
+  inset: 0;
   background-image: radial-gradient(rgba(0, 229, 195, 0.15) 1.5px, transparent 1.5px);
   background-size: 36px 36px;
   animation: driftDotGrid 28s linear infinite;
-  will-change: transform;
   pointer-events: none;
   z-index: 0;
   opacity: 0.65;
 }
 
 @keyframes driftDotGrid {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-36px, -36px, 0); }
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 72px 72px;
+  }
 }
 
 /* ─── Blinking Badges ──────────────────────────────────────────── */
 .badge-pulse-blink {
   animation: badgePulseBlink 2.0s infinite ease-in-out;
-  border-color: rgba(0, 229, 195, 0.4) !important;
-  box-shadow: 0 0 8px rgba(0, 229, 195, 0.25);
-  will-change: opacity;
 }
 
 @keyframes badgePulseBlink {
-  0%, 100% {
-    opacity: 0.5;
+
+  0%,
+  100% {
+    opacity: 0.6;
+    border-color: rgba(0, 229, 195, 0.15) !important;
   }
+
   50% {
     opacity: 1;
+    border-color: rgba(0, 229, 195, 0.7) !important;
+    box-shadow: 0 0 12px rgba(0, 229, 195, 0.35);
   }
 }
 
@@ -184,7 +271,7 @@
   transform: scale(1) translate(4%, 4%);
 }
 
-.ag-card > * {
+.ag-card>* {
   position: relative;
   z-index: 2;
 }
@@ -221,7 +308,45 @@
   transform: translateY(-2px) !important;
   border-color: #00E5C3 !important;
   background: linear-gradient(135deg, rgba(41, 61, 157, 0.95) 0%, rgba(22, 33, 97, 0.95) 100%) !important;
-  box-shadow: 
+  box-shadow:
     0 15px 45px rgba(0, 229, 195, 0.22),
     0 0 20px rgba(123, 97, 255, 0.12) !important;
+}
+
+/* ─── Refined Mobile Performance Overrides (Screens <= 768px) ─── */
+@media (max-width: 768px) {
+  /* 1. Completely hide heavy blur orbs on mobile to maximize FPS */
+  .orb-violet, .orb-teal, .orb-orange {
+    display: none !important;
+    filter: none !important;
+    background: none !important;
+  }
+
+  /* 2. Hide all floating star particles and shooting stars on mobile */
+  .star, .shooting-star {
+    display: none !important;
+    animation: none !important;
+  }
+
+  /* 3. Stop background grid moving animations completely on mobile */
+  .moving-dot-grid {
+    animation: none !important;
+    transform: none !important;
+    inset: 0 !important;
+  }
+
+  /* 4. Disable pulsing glowing animations on badges */
+  .badge-pulse-blink {
+    animation: none !important;
+    box-shadow: none !important;
+    border-color: rgba(0, 229, 195, 0.3) !important;
+  }
+
+  /* 5. Simplify premium card hover states on mobile to avoid CPU redraws */
+  .ag-card:hover {
+    transform: none !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+    background: rgba(15, 22, 55, 0.98) !important;
+    border-color: rgba(123, 97, 255, 0.15) !important;
+  }
 }

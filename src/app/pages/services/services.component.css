@@ -24,13 +24,12 @@
   height: 150px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, #ffffff 0%, #e2e8f0 45%, #cbd5e1 70%, #94a3b8 100%);
-  box-shadow: 
+  box-shadow:
     inset -18px -18px 45px rgba(10, 15, 46, 0.9),
     inset 10px 10px 25px rgba(255, 255, 255, 0.4),
     0 0 50px rgba(0, 229, 195, 0.25),
     0 0 100px rgba(123, 97, 255, 0.15);
   animation: floatMoon 10s ease-in-out infinite alternate;
-  will-change: transform;
   opacity: 0.9;
   z-index: 1;
 }
@@ -74,8 +73,6 @@
   pointer-events: none;
   opacity: 0.35;
   mix-blend-mode: screen;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
 }
 
 .orb-violet-glow {
@@ -121,16 +118,16 @@
 .ag-card {
   background: linear-gradient(135deg, #0C53A6 0%, #073873 100%) !important;
   border: 2px solid rgba(0, 229, 195, 0.35) !important;
-  box-shadow: 
-    0 15px 40px rgba(0, 0, 0, 0.5), 
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.5),
     inset 0 0 24px rgba(0, 229, 195, 0.1) !important;
   border-radius: 24px !important;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  transition: 
-    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-    border-color 0.35s ease, 
-    box-shadow 0.35s ease, 
+  transition:
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
     background-color 0.35s ease !important;
 }
 
@@ -195,46 +192,53 @@
 /* ─── Keyframe Animations ────────────────────────────────────── */
 @keyframes floatMoon {
   0% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
+    transform: translateY(0px) rotate(0deg);
   }
+
   100% {
-    transform: translate3d(0, -20px, 0) rotate(5deg);
+    transform: translateY(-20px) rotate(5deg);
   }
 }
 
 @keyframes driftOrb1 {
   0% {
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translate(0, 0) scale(1);
   }
+
   50% {
-    transform: translate3d(60px, -40px, 0) scale(1.1);
+    transform: translate(60px, -40px) scale(1.1);
   }
+
   100% {
-    transform: translate3d(-30px, 30px, 0) scale(0.92);
+    transform: translate(-30px, 30px) scale(0.92);
   }
 }
 
 @keyframes driftOrb2 {
   0% {
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translate(0, 0) scale(1);
   }
+
   50% {
-    transform: translate3d(-50px, 50px, 0) scale(0.95);
+    transform: translate(-50px, 50px) scale(0.95);
   }
+
   100% {
-    transform: translate3d(40px, -30px, 0) scale(1.15);
+    transform: translate(40px, -30px) scale(1.15);
   }
 }
 
 @keyframes driftOrb3 {
   0% {
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translate(0, 0) scale(1);
   }
+
   50% {
-    transform: translate3d(50px, -60px, 0) scale(1.12);
+    transform: translate(50px, -60px) scale(1.12);
   }
+
   100% {
-    transform: translate3d(-40px, 40px, 0) scale(0.9);
+    transform: translate(-40px, 40px) scale(0.9);
   }
 }
 
@@ -264,7 +268,7 @@
   transform: scale(0.6);
 }
 
-.ag-card > * {
+.ag-card>* {
   position: relative;
   z-index: 2;
 }
@@ -280,9 +284,17 @@
 }
 
 @keyframes shiftGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Icon scale-and-rotate with drop-shadow glow */
@@ -299,36 +311,59 @@
 
 /* Card rotates — no brightness filter so text stays bright */
 @keyframes cardFlipDarken {
-  0%     { transform: translate3d(0, 0, 0) rotateY(0deg); }
-  7.14%  { transform: translate3d(0, 0, 0) rotateY(90deg); }
-  14.28% { transform: translate3d(0, 0, 0) rotateY(0deg); }
-  35.71% { transform: translate3d(0, 0, 0) rotateY(0deg); }
-  42.85% { transform: translate3d(0, 0, 0) rotateY(90deg); }
-  50%, 100% { transform: translate3d(0, 0, 0) rotateY(0deg); }
+  0% {
+    transform: perspective(900px) rotateY(0deg);
+  }
+
+  7.14% {
+    transform: perspective(900px) rotateY(90deg);
+  }
+
+  14.28% {
+    transform: perspective(900px) rotateY(0deg);
+  }
+
+  35.71% {
+    transform: perspective(900px) rotateY(0deg);
+  }
+
+  42.85% {
+    transform: perspective(900px) rotateY(90deg);
+  }
+
+  50%,
+  100% {
+    transform: perspective(900px) rotateY(0deg);
+  }
 }
 
 /* Navy overlay fades in while card is edge-on (invisible), fades out on the return flip */
 @keyframes cardOverlayDarken {
-  0%, 6.9%        { opacity: 0; }
-  7.15%, 42.7%    { opacity: 1; }
-  43.1%, 100%     { opacity: 0; }
-}
 
-#service-offer-grid {
-  perspective: 1200px;
-  transform-style: preserve-3d;
+  0%,
+  6.9% {
+    opacity: 0;
+  }
+
+  7.15%,
+  42.7% {
+    opacity: 1;
+  }
+
+  43.1%,
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Apply rotation to each card */
-#service-offer-grid > .ag-card {
+#service-offer-grid>.ag-card {
   animation: cardFlipDarken 28s ease-in-out infinite;
   transform-origin: center center;
-  will-change: transform;
-  transform: translate3d(0,0,0);
 }
 
 /* Dark navy overlay — above card background (z-index:1), below card content (z-index:2) */
-#service-offer-grid > .ag-card::before {
+#service-offer-grid>.ag-card::before {
   content: '' !important;
   position: absolute !important;
   inset: 0 !important;
@@ -342,23 +377,70 @@
 }
 
 /* Stagger card + its overlay together, 4s apart */
-#service-offer-grid > .ag-card:nth-child(1),
-#service-offer-grid > .ag-card:nth-child(1)::before { animation-delay: 0s !important; }
+#service-offer-grid>.ag-card:nth-child(1),
+#service-offer-grid>.ag-card:nth-child(1)::before {
+  animation-delay: 0s !important;
+}
 
-#service-offer-grid > .ag-card:nth-child(2),
-#service-offer-grid > .ag-card:nth-child(2)::before { animation-delay: 4s !important; }
+#service-offer-grid>.ag-card:nth-child(2),
+#service-offer-grid>.ag-card:nth-child(2)::before {
+  animation-delay: 4s !important;
+}
 
-#service-offer-grid > .ag-card:nth-child(3),
-#service-offer-grid > .ag-card:nth-child(3)::before { animation-delay: 8s !important; }
+#service-offer-grid>.ag-card:nth-child(3),
+#service-offer-grid>.ag-card:nth-child(3)::before {
+  animation-delay: 8s !important;
+}
 
-#service-offer-grid > .ag-card:nth-child(4),
-#service-offer-grid > .ag-card:nth-child(4)::before { animation-delay: 12s !important; }
+#service-offer-grid>.ag-card:nth-child(4),
+#service-offer-grid>.ag-card:nth-child(4)::before {
+  animation-delay: 12s !important;
+}
 
-#service-offer-grid > .ag-card:nth-child(5),
-#service-offer-grid > .ag-card:nth-child(5)::before { animation-delay: 16s !important; }
+#service-offer-grid>.ag-card:nth-child(5),
+#service-offer-grid>.ag-card:nth-child(5)::before {
+  animation-delay: 16s !important;
+}
 
-#service-offer-grid > .ag-card:nth-child(6),
-#service-offer-grid > .ag-card:nth-child(6)::before { animation-delay: 20s !important; }
+#service-offer-grid>.ag-card:nth-child(6),
+#service-offer-grid>.ag-card:nth-child(6)::before {
+  animation-delay: 20s !important;
+}
 
-#service-offer-grid > .ag-card:nth-child(7),
-#service-offer-grid > .ag-card:nth-child(7)::before { animation-delay: 24s !important; }
+#service-offer-grid>.ag-card:nth-child(7),
+#service-offer-grid>.ag-card:nth-child(7)::before {
+  animation-delay: 24s !important;
+}
+
+/* ─── Refined Mobile Performance Overrides (Screens <= 768px) ─── */
+@media (max-width: 768px) {
+  /* 1. Disable 3D card flips completely on mobile to eliminate GPU load and glitches */
+  #service-offer-grid {
+    perspective: none !important;
+    transform-style: flat !important;
+  }
+  #service-offer-grid > .ag-card {
+    animation: none !important;
+    transform: none !important;
+    will-change: auto !important;
+  }
+  #service-offer-grid > .ag-card::before {
+    animation: none !important;
+    opacity: 0 !important;
+    display: none !important;
+  }
+
+  /* 2. Hide all cosmic space blur orbs on mobile */
+  .space-orb {
+    display: none !important;
+    filter: none !important;
+    background: none !important;
+  }
+
+  /* 3. Stop celestial moon drifting and simplify its shadow layers */
+  .celestial-moon {
+    animation: none !important;
+    box-shadow: inset -10px -10px 25px rgba(10, 15, 46, 0.9), inset 5px 5px 12px rgba(255, 255, 255, 0.2) !important;
+    will-change: auto !important;
+  }
+}
