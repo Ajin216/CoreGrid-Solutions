@@ -1023,10 +1023,33 @@ body::after {
     font-size: 0.95rem !important;
   }
 
+  /* Specific override for the Home Page Banner Audit Button to be slim and long without text overflow */
+  #hero-audit-form button {
+    width: 100% !important;
+    padding: 10px 16px !important;
+    font-size: 0.85rem !important;
+    white-space: normal !important;
+    line-height: 1.3 !important;
+    letter-spacing: 0.02em !important;
+  }
+
   /* 8. Reduce Call to Action banner button sizes on mobile */
   .cta-btn {
     padding: 12px 24px !important;
     font-size: 0.95rem !important;
+  }
+
+  /* Specific override for the About Page Consultation Button to be slim and fixed to screen width */
+  .exact-navy-gradient .cta-btn {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 10px 24px !important;
+    font-size: 0.88rem !important;
+    white-space: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   /* 9. Prevent pricing cards scale and overlapping context issues on mobile stack */
@@ -1062,5 +1085,14 @@ body::after {
   textarea::placeholder {
     font-size: 0.8rem !important;
     white-space: normal !important;
+  }
+
+  /* 13. Increase home page form width by reducing heavy desktop paddings on mobile view */
+  #hero-audit-form {
+    padding: 24px !important;
+  }
+
+  section.min-h-screen > div {
+    padding: 0 16px !important;
   }
 }
