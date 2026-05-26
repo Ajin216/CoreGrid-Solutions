@@ -167,6 +167,7 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   box-shadow: 0 2px 10px rgba(0, 229, 195, 0.05);
   width: fit-content;
+  align-self: center !important;
   position: relative;
   z-index: 1;
 }

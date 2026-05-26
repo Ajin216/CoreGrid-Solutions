@@ -138,9 +138,6 @@
         <div id="hero-audit-form" class="ag-card" [class.form-shake]="formHighlighted"
           style="position:relative;z-index:1;padding:40px;border:1px solid rgba(255,140,0,0.15);">
           <!-- Orange accent bar -->
-          <div
-            style="height:3px;background:linear-gradient(90deg,#FF8C00,#FF6B00,#FFB347);border-radius:2px;margin-bottom:20px;">
-          </div>
 
           <!-- FREE credit highlight banner -->
           <div
@@ -148,12 +145,13 @@
             <span style="font-size:1.4rem;">🎁</span>
             <div>
               <div
-                style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#E65100;font-size:0.85rem;letter-spacing:0.02em;">
-                <!-- 100% FREE Website Audit</div> -->
-                100% FREE — Worth ₹5,000
+                style="font-family:'Space Grotesk', sans-serif; font-weight:700; color:#E65100; font-size:0.85rem; letter-spacing:0.02em;">
+                100% FREE WEBSITE AUDIT (WORTH ₹5,000)
               </div>
-              <!-- <div style="font-size:0.75rem;color:#BF360C;margin-top:1px;">Full website audit + personalised growth
-                roadmap, no card needed.</div> -->
+
+              <div style="font-size:0.75rem; color:#BF360C; margin-top:4px;">
+                Full website audit + personalised growth roadmap.
+              </div>
             </div>
           </div>
 
@@ -235,8 +233,7 @@
               placeholder="Tell us about your business (optional)">
   </textarea>
 
-            <button type="button" (click)="sendToWhatsApp()"
-              [disabled]="!formData.name || !formData.phone"
+            <button type="button" (click)="sendToWhatsApp()" [disabled]="!formData.name || !formData.phone"
               [style.opacity]="(formData.name && formData.phone) ? 1 : 0.5"
               [style.cursor]="(formData.name && formData.phone) ? 'pointer' : 'not-allowed'"
               [style.pointerEvents]="(formData.name && formData.phone) ? 'auto' : 'none'"

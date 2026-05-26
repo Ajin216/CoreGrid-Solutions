@@ -1028,4 +1028,35 @@ body::after {
     padding: 12px 24px !important;
     font-size: 0.95rem !important;
   }
+
+  /* 9. Prevent pricing cards scale and overlapping context issues on mobile stack */
+  .scale-\[1\.03\] {
+    transform: none !important;
+  }
+
+  /* 10. Add vertical spacing to pricing grids on mobile stack to accommodate badges */
+  .grid:has(> .scale-\[1\.03\]) {
+    row-gap: 44px !important;
+  }
+
+  /* 11. Reduce navbar container padding on mobile to push hamburger menu closer to the right edge */
+  .ag-navbar > div {
+    padding: 0 20px !important;
+  }
+
+  /* 12. Fix form inputs and placeholders to prevent text clipping on mobile */
+  input,
+  textarea,
+  select {
+    padding: 10px 12px !important;
+    font-size: 0.88rem !important;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    font-size: 0.8rem !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+  }
 }
