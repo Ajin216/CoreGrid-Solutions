@@ -86,7 +86,7 @@ import { FormsModule } from '@angular/forms';
                       style="width:100%;padding:16px 32px;border-radius:100px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:#fff;background:linear-gradient(135deg,#FF8C00 0%,#FF5722 100%);border:none;box-shadow:0 4px 24px rgba(255,140,0,0.40);transition:transform 0.2s ease,box-shadow 0.2s ease;margin-top:8px;"
                       onmouseover="if(this.getAttribute('disabled') === null) { this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(255,140,0,0.55)' }"
                       onmouseout="this.style.transform='';this.style.boxShadow='0 4px 24px rgba(255,140,0,0.40)'">
-                {{ formButtonText }} &rarr;
+                {{ formButtonText }}
               </button>
             </form>
           </div>
