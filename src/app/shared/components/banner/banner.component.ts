@@ -106,7 +106,7 @@ export class BannerComponent {
   @Input() dataLabel2: string = 'Avg ROI';
   @Input() formTitle: string = 'Get a Free Consultation';
   @Input() formButtonText: string = 'Send Request';
-  @Input() serviceName: string = 'General Inquiry';
+  @Input() serviceName: string = 'services';
 
   formData = {
     name: '',
@@ -116,14 +116,12 @@ export class BannerComponent {
   };
 
   sendToWhatsApp() {
-    const text = `
-I visited your CoreGrid Solutions website and I am interested in ${this.serviceName}.
+    const text = `Hello CoreGrid team, I was reviewing your website and I'd like to learn more about your ${this.serviceName} . Could we schedule a quick chat to discuss a potential project?
 
 Name: ${this.formData.name}
 Phone: ${this.formData.phone}
 Email: ${this.formData.email}
-Message: ${this.formData.message}
-`;
+Message: ${this.formData.message}`;
     const whatsappNumber = '919074501397';
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
