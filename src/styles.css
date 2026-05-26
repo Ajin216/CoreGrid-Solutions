@@ -1015,4 +1015,17 @@ body::after {
     transform: none !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
   }
+
+  /* 7. Reduce form button size according to form size on mobile */
+  form button,
+  form button[type="submit"] {
+    padding: 12px 24px !important;
+    font-size: 0.95rem !important;
+  }
+
+  /* 8. Reduce Call to Action banner button sizes on mobile */
+  .cta-btn {
+    padding: 12px 24px !important;
+    font-size: 0.95rem !important;
+  }
 }

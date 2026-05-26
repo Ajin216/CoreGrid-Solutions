@@ -356,10 +356,18 @@
   }
 }
 
-/* Apply rotation to each card */
+/* Apply rotation and layout to each card */
 #service-offer-grid>.ag-card {
   animation: cardFlipDarken 28s ease-in-out infinite;
   transform-origin: center center;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+#service-offer-grid>.ag-card p {
+  flex-grow: 1 !important;
+  margin-bottom: 20px !important;
 }
 
 /* Dark navy overlay — above card background (z-index:1), below card content (z-index:2) */
