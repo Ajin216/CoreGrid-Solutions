@@ -313,7 +313,9 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
 })
 export class EcommerceComponent {
   selectPlan(planName: string, price: string) {
-    const text = `Hi, I visited your CoreGrid website and I'm interested in the ${planName} plan at ${price}.`;
+    const text = `Hello CoreGrid team, 
+    I am reaching out from your website. I am interested in moving forward with the ${planName} plan at ${price}. 
+    Please let me know the next steps to initiate this project.`;
     const whatsappNumber = '919074501397';
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
