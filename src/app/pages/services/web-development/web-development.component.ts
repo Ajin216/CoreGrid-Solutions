@@ -18,7 +18,9 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
       dataLabel2=""
       formTitle="Get a Web Dev Quote"
       formButtonText="Start Building"
-      serviceName="Web Development">
+      serviceName="Web Development"
+      [showBreadcrumbs]="true"
+      currentServiceName="Web Development">
     </app-banner>
     <section class="ag-section exact-navy-gradient animate-section-wrapper" style="position:relative;overflow:hidden;">
       <!-- Drifting dot grid background -->
@@ -40,9 +42,6 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
       <div class="falling-orb orb-right"></div>
 
       <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
-        <div class="mb-4">
-          <a routerLink="/services" class="text-[#00E5C3] text-sm font-mono hover:text-white transition-colors">← Back to Services</a>
-        </div>
         <div class="ag-badge mb-6 badge-pulse-blink" style="color:#00E5C3;border-color:rgba(0,229,195,0.3);"><span class="dot" style="background-color:#00E5C3;"></span>// 01 — web_dev</div>
         <h1 class="text-4xl md:text-6xl font-heading font-bold text-white mb-6 tracking-tight">
           Web <span class="text-[#00E5C3]">Development</span>

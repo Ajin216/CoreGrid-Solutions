@@ -31,59 +31,139 @@
       <div class="lg:col-span-7 ag-card no-dots p-10 bg-[#0C1327] border border-[#1E2A55] rounded-2xl shadow-xl">
         <div class="h-1 w-16 bg-gradient-to-r from-[#00E5C3] to-blue-600 mb-9"></div>
 
-        <form class="grid grid-cols-1 md:grid-cols-2 gap-5" (ngSubmit)="submitToWhatsApp()">
+        <form #contactForm="ngForm" (ngSubmit)="submitToWhatsApp(contactForm)" novalidate
+          class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-          <div class="col-span-1 md:col-span-2">
-            <label class="block text-sm font-bold text-[#F0EFFF] mb-2 font-['Space_Grotesk']">Company Name</label>
+          <div class="col-span-1 md:col-span-2 form-group">
+            <label class="block text-sm font-bold text-[#F0EFFF] mb-2 font-['Space_Grotesk']">Company Name <span
+                class="text-[#A8B2D8] font-normal">(optional)</span></label>
             <input type="text" name="companyName" [(ngModel)]="formData.companyName" placeholder="Acme Corp"
               class="w-full bg-[#111A3A] border border-[#1E2A55] rounded-lg p-3 text-white focus:outline-none focus:border-[#00E5C3] transition-colors">
           </div>
 
-          <div>
-            <label class="block text-sm font-bold text-[#F0EFFF] mb-2 font-['Space_Grotesk']">First Name</label>
+          <div class="form-group">
+            <label class="block text-sm font-bold text-[#F0EFFF] mb-2 font-['Space_Grotesk']">First Name <span
+                class="input-required-asterisk">*</span></label>
             <input type="text" name="firstName" [(ngModel)]="formData.firstName" placeholder="Jane" required
+              minlength="2" pattern="^[a-zA-Z][a-zA-Z\s]{1,29}$" #firstNameInput="ngModel"
+              [class.is-invalid]="firstNameInput.invalid && (firstNameInput.touched || contactForm.submitted)"
               class="w-full bg-[#111A3A] border border-[#1E2A55] rounded-lg p-3 text-white focus:outline-none focus:border-[#00E5C3] transition-colors">
+            @if (firstNameInput.invalid && (firstNameInput.touched || contactForm.submitted)) {
+            <div class="validation-error">
+              <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink:0;">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                  d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+              </svg>
+              @if (firstNameInput.errors?.['required']) {
+              First Name is required
+              } @else if (firstNameInput.errors?.['minlength']) {
+              First Name must be at least 2 characters
+              } @else if (firstNameInput.errors?.['pattern']) {
+              First Name must start with a letter and contain letters/spaces only
+              }
+            </div>
+            }
           </div>
 
-          <div>
-            <label class="block text-sm font-bold text-[#F0EFFF] mb-2 font-['Space_Grotesk']">Last Name</label>
-            <input type="text" name="lastName" [(ngModel)]="formData.lastName" placeholder="Smith"
+          <div class="form-group">
+            <label class="block text-sm font-bold text-[#F0EFFF] mb-2 font-['Space_Grotesk']">Last Name <span
+                class="text-[#A8B2D8] font-normal">(optional)</span></label>
+            <input type="text" name="lastName" [(ngModel)]="formData.lastName" placeholder="Smith" minlength="2"
+              pattern="^[a-zA-Z][a-zA-Z\s]{1,29}$" #lastNameInput="ngModel"
+              [class.is-invalid]="lastNameInput.invalid && (lastNameInput.touched || contactForm.submitted)"
               class="w-full bg-[#111A3A] border border-[#1E2A55] rounded-lg p-3 text-white focus:outline-none focus:border-[#00E5C3] transition-colors">
+            @if (lastNameInput.invalid && (lastNameInput.touched || contactForm.submitted)) {
+            <div class="validation-error">
+              <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink:0;">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                  d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+              </svg>
+              @if (lastNameInput.errors?.['minlength']) {
+              Last Name must be at least 2 characters
+              } @else if (lastNameInput.errors?.['pattern']) {
+              Last Name must start with a letter and contain letters/spaces only
+              }
+            </div>
+            }
           </div>
 
-          <div class="col-span-1 md:col-span-2">
-            <label class="block text-sm font-bold text-[#F0EFFF] mb-2 font-['Space_Grotesk']">Email Address</label>
-            <input type="email" name="email" [(ngModel)]="formData.email" placeholder="jane@company.com (optional)"
+          <div class="col-span-1 md:col-span-2 form-group">
+            <label class="block text-sm font-bold text-[#F0EFFF] mb-2 font-['Space_Grotesk']">Email Address <span
+                class="text-[#A8B2D8] font-normal">(optional)</span></label>
+            <input type="email" name="email" [(ngModel)]="formData.email" placeholder="jane@company.com"
+              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" #emailInput="ngModel"
+              [class.is-invalid]="emailInput.invalid && (emailInput.touched || contactForm.submitted)"
               class="w-full bg-[#111A3A] border border-[#1E2A55] rounded-lg p-3 text-white focus:outline-none focus:border-[#00E5C3] transition-colors">
+            @if (emailInput.invalid && (emailInput.touched || contactForm.submitted)) {
+            <div class="validation-error">
+              <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink:0;">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                  d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+              </svg>
+              Please enter a valid email address
+            </div>
+            }
           </div>
 
-          <div class="col-span-1 md:col-span-2">
-            <label class="block text-sm font-bold text-[#F0EFFF] mb-2 font-['Space_Grotesk']">Services Needed</label>
-            <select name="service" [(ngModel)]="formData.service" required
-              class="w-full bg-[#111A3A] border border-[#1E2A55] rounded-lg p-3 text-white focus:outline-none focus:border-[#00E5C3] transition-colors appearance-none">
-              <option value="" disabled>Select a service...</option>
-              <option value="Web Development">Web Development</option>
-              <option value="SEO Optimization">SEO Optimization</option>
-              <option value="Digital Marketing">Digital Marketing</option>
-              <option value="E-Commerce Store">E-Commerce Store</option>
-              <option value="Flutter App Development">Flutter App Development</option>
-              <option value="Google Ads Management">Google Ads Management</option>
-              <option value="Custom Development">Custom Development</option>
-            </select>
+          <div class="col-span-1 md:col-span-2 form-group">
+            <label class="block text-sm font-bold text-[#F0EFFF] mb-2 font-['Space_Grotesk']">Phone Number <span
+                class="input-required-asterisk">*</span></label>
+            <input type="tel" name="phone" [(ngModel)]="formData.phone" placeholder="+91 9074501397" required
+              pattern="^[+]?[0-9\s\-]{10,15}$" #phoneInput="ngModel"
+              [class.is-invalid]="phoneInput.invalid && (phoneInput.touched || contactForm.submitted)"
+              class="w-full bg-[#111A3A] border border-[#1E2A55] rounded-lg p-3 text-white focus:outline-none focus:border-[#00E5C3] transition-colors">
+            @if (phoneInput.invalid && (phoneInput.touched || contactForm.submitted)) {
+            <div class="validation-error">
+              <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink:0;">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                  d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+              </svg>
+              @if (phoneInput.errors?.['required']) {
+              Phone Number is required
+              } @else if (phoneInput.errors?.['pattern']) {
+              Please enter a valid 10-15 digit phone number (e.g. +91 9074501397)
+              }
+            </div>
+            }
           </div>
 
-          <div class="col-span-1 md:col-span-2">
-            <label class="block text-sm font-bold text-[#F0EFFF] mb-2 font-['Space_Grotesk']">Project Details</label>
+          <div class="col-span-1 md:col-span-2 form-group">
+            <label class="block text-sm font-bold text-[#F0EFFF] mb-2 font-['Space_Grotesk']">Services Needed <span
+                class="text-[#A8B2D8] font-normal">(optional)</span></label>
+            <div class="relative">
+              <select name="service" [(ngModel)]="formData.service"
+                class="w-full bg-[#111A3A] border border-[#1E2A55] rounded-lg p-3 text-white focus:outline-none focus:border-[#00E5C3] transition-colors appearance-none pr-10">
+                <option value="">Select a service... (optional)</option>
+                <option value="Web Development">Web Development</option>
+                <option value="SEO Optimization">SEO Optimization</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+                <option value="E-Commerce Store">E-Commerce Store</option>
+                <option value="Flutter App Development">Flutter App Development</option>
+                <option value="Google Ads Management">Google Ads Management</option>
+                <option value="Custom Development">Custom Development</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-[#00E5C3]">
+                <svg class="h-6 w-6 fill-[#00E5C3]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-span-1 md:col-span-2 form-group">
+            <label class="block text-sm font-bold text-[#F0EFFF] mb-2 font-['Space_Grotesk']">Project Details <span
+                class="text-[#A8B2D8] font-normal">(optional)</span></label>
             <textarea rows="5" name="details" [(ngModel)]="formData.details"
-              placeholder="Tell us about your project, goals, and timeline...(optional)"
+              placeholder="Tell us about your project, goals, and timeline..."
               class="w-full bg-[#111A3A] border border-[#1E2A55] rounded-lg p-3 text-white focus:outline-none focus:border-[#00E5C3] transition-colors"></textarea>
           </div>
 
           <div class="col-span-1 md:col-span-2 mt-2">
-            <button type="submit" [disabled]="!formData.firstName || !formData.service"
-              [style.opacity]="(formData.firstName && formData.service) ? 1 : 0.5"
-              [style.cursor]="(formData.firstName && formData.service) ? 'pointer' : 'not-allowed'"
-              [style.pointerEvents]="(formData.firstName && formData.service) ? 'auto' : 'none'"
+            <button type="submit"
               class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#FF8C00] to-[#FF6B00] text-white font-bold py-4 rounded-lg hover:shadow-[0_0_20px_rgba(255,140,0,0.4)] transition-all">
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />

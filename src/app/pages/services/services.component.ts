@@ -8,4 +8,4 @@ import { BannerComponent } from '../../shared/components/banner/banner.component
   templateUrl: './services.component.html',
   styleUrl: './services.component.css',
 })
-export class ServicesComponent {}
+export class ServicesComponent { }

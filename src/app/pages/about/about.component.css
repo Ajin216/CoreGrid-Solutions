@@ -1,6 +1,28 @@
+/* ─── Premium Glassmorphic Cards (Gradient Flow) ─── */
+.ag-card {
+  background: linear-gradient(-45deg, #070b19, #1a255c, #5b21b6, #004d40) !important;
+  background-size: 300% 300% !important;
+  animation: gradientFlow 15s ease infinite !important;
+  border: 1px solid rgba(0, 229, 195, 0.25) !important;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease !important;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* ─── Premium Glassmorphic Stats ─── */
 .stats-card {
-  background: rgba(12, 83, 166, 0.2) !important;
   border: 1px solid rgba(0, 229, 195, 0.15) !important;
   transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
     box-shadow 0.35s ease,
@@ -52,7 +74,6 @@
 }
 
 .timeline-card {
-  background: rgba(12, 83, 166, 0.15) !important;
   border: 1px solid rgba(123, 97, 255, 0.15) !important;
   margin-left: 20px;
   transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.35s ease !important;
@@ -114,8 +135,7 @@
 
 /* ─── Value Cards ─── */
 .value-card {
-  background: #673ab7;
-  border: 1px solid rgba(0, 229, 195, 0.1) !important;
+  border: 1px solid rgba(0, 229, 195, 0.25) !important;
   transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
     border-color 0.35s ease,
     box-shadow 0.35s ease !important;
@@ -141,7 +161,6 @@
 
 /* ─── Crew Showcase ─── */
 .crew-card {
-  background: rgba(12, 83, 166, 0.15) !important;
   border: 1px solid rgba(123, 97, 255, 0.1) !important;
   transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
     border-color 0.35s ease,

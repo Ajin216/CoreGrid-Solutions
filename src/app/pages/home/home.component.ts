@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -35,19 +35,30 @@ export class HomeComponent {
     }, 10);
   }
 
-  sendToWhatsApp() {
-    const text = `
-I visited your CoreGrid Solutions website and I am interested in your services.
+  sendToWhatsApp(form: NgForm) {
+    if (form.invalid) {
+      // Mark all fields as touched to trigger real-time error displays in UI
+      Object.keys(form.controls).forEach(key => {
+        form.controls[key].markAsTouched();
+      });
+      // Scroll to the first invalid field or highlight/shake form card
+      this.highlightForm();
+      return;
+    }
+
+    const text = `Hi CoreGrid Team,
+I recently reviewed the CoreGrid Solutions website and would like to schedule a brief call to discuss how your services align with our current business needs.
 
 Name: ${this.formData.name}
 Phone: ${this.formData.phone}
-Email: ${this.formData.email}
+Email: ${this.formData.email || 'Not provided'}
 Service: ${this.formData.service}
-Message: ${this.formData.message}
+Message: ${this.formData.message || 'Not provided'}
 `;
     const whatsappNumber = '919074501397';
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   }
 }
+
 

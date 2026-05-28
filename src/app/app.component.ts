@@ -4,6 +4,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { SeoService } from './shared/services/seo.service';
 import { filter, map, mergeMap } from 'rxjs/operators';
+import { inject as injectAnalytics } from '@vercel/analytics';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,9 @@ export class App implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private seoService: SeoService
-  ) {}
+  ) {
+    injectAnalytics();
+  }
 
   ngOnInit() {
     this.router.events.pipe(

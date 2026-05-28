@@ -1,9 +1,4 @@
-/* ═══════════════════════════════════════════════════════════════════
-   SERVICES PAGE ENHANCEMENTS — Scoped Stylesheet
-   CoreGrid Solutions
-═══════════════════════════════════════════════════════════════════ */
-
-/* ─── Celestial Background decorations ────────────────────────── */
+/* Services enhancements */
 .celestial-decorations {
   position: absolute;
   top: 0;
@@ -114,7 +109,7 @@
   animation-delay: -15s;
 }
 
-/* ─── Premium Glassmorphic Service Cards (#0C53A6) ───────────── */
+/* Glassmorphic cards */
 .ag-card {
   background: linear-gradient(135deg, #0C53A6 0%, #073873 100%) !important;
   border: 2px solid rgba(0, 229, 195, 0.35) !important;
@@ -148,7 +143,7 @@
     inset 0 0 24px rgba(0, 229, 195, 0.1) !important;
 }
 
-/* ─── Highlighted Interactive Learn More Buttons ─────────────── */
+/* Learn More Buttons */
 .learn-more-btn {
   display: inline-flex;
   align-items: center;
@@ -190,7 +185,7 @@
   transform: translateX(4px);
 }
 
-/* ─── Keyframe Animations ────────────────────────────────────── */
+/* Animations */
 @keyframes floatMoon {
   0% {
     transform: translateY(0px) rotate(0deg);
@@ -243,7 +238,7 @@
   }
 }
 
-/* ─── Premium Ambient Animations Inside Cards ─────────────────── */
+/* Card ambient animations */
 .ag-card {
   position: relative;
   overflow: hidden;
@@ -308,7 +303,7 @@
   filter: none;
 }
 
-/* ─── Sequential Card Flip & Darken Animation ────────────────── */
+/* Sequential flips */
 
 /* Card rotates — no brightness filter so text stays bright */
 @keyframes cardFlipDarken {
@@ -421,7 +416,7 @@
   animation-delay: 24s !important;
 }
 
-/* ─── Refined Mobile Performance Overrides (Screens <= 768px) ─── */
+/* Mobile overrides */
 @media (max-width: 768px) {
   /* 1. Disable 3D card flips completely on mobile to eliminate GPU load and glitches */
   #service-offer-grid {
@@ -452,4 +447,56 @@
     box-shadow: inset -10px -10px 25px rgba(10, 15, 46, 0.9), inset 5px 5px 12px rgba(255, 255, 255, 0.2) !important;
     will-change: auto !important;
   }
+}
+
+/* Tech stack grid */
+.tech-stack-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  list-style-type: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.tech-stack-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  text-align: left !important;
+  transition: transform 0.2s ease;
+}
+
+.tech-stack-item:hover {
+  transform: translateX(6px);
+}
+
+.tech-stack-icon-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  background-color: #ffffff !important;
+  border-radius: 8px !important;
+  padding: 6px !important;
+  flex-shrink: 0 !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease !important;
+}
+
+.tech-stack-item:hover .tech-stack-icon-wrapper {
+  transform: scale(1.15) rotate(3deg) !important;
+  box-shadow: 0 6px 14px rgba(0, 229, 195, 0.45) !important;
+}
+
+.tech-stack-item svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  flex-shrink: 0 !important;
 }

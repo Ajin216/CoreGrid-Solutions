@@ -206,39 +206,89 @@
             </button>
           </form> -->
 
-          <form style="display:flex;flex-direction:column;gap:14px;">
-            <input type="text" placeholder="Jane Smith" [(ngModel)]="formData.name" name="name" required>
+          <form #auditForm="ngForm" (ngSubmit)="sendToWhatsApp(auditForm)" novalidate
+            style="display:flex;flex-direction:column;gap:14px;">
+            <div class="form-group">
+              <input type="text" placeholder="Full Name *" [(ngModel)]="formData.name" name="name" required
+                minlength="2" pattern="^[a-zA-Z][a-zA-Z\s]{1,49}$" #nameInput="ngModel"
+                [class.is-invalid]="nameInput.invalid && (nameInput.touched || auditForm.submitted)">
+              @if (nameInput.invalid && (nameInput.touched || auditForm.submitted)) {
+              <div class="validation-error">
+                <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink:0;">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                  <path
+                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                </svg>
+                @if (nameInput.errors?.['required']) {
+                Full Name is required
+                } @else if (nameInput.errors?.['minlength']) {
+                Name must be at least 2 characters long
+                } @else if (nameInput.errors?.['pattern']) {
+                Name must start with a letter and contain letters/spaces only
+                }
+              </div>
+              }
+            </div>
 
-            <input type="tel" placeholder="+91 9074501397" [(ngModel)]="formData.phone" name="phone" required>
+            <div class="form-group">
+              <input type="tel" placeholder="Phone Number *" [(ngModel)]="formData.phone" name="phone" required
+                pattern="^[+]?[0-9\s\-]{10,15}$" #phoneInput="ngModel"
+                [class.is-invalid]="phoneInput.invalid && (phoneInput.touched || auditForm.submitted)">
+              @if (phoneInput.invalid && (phoneInput.touched || auditForm.submitted)) {
+              <div class="validation-error">
+                <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink:0;">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                  <path
+                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                </svg>
+                @if (phoneInput.errors?.['required']) {
+                Phone Number is required
+                } @else if (phoneInput.errors?.['pattern']) {
+                Please enter a valid 10-15 digit phone number (e.g. +91 9074501397)
+                }
+              </div>
+              }
+            </div>
 
-            <input type="email" placeholder="jane@startup.com (optional)" [(ngModel)]="formData.email" name="email">
+            <div class="form-group">
+              <input type="email" placeholder="Email Address (optional)" [(ngModel)]="formData.email" name="email"
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" #emailInput="ngModel"
+                [class.is-invalid]="emailInput.invalid && (emailInput.touched || auditForm.submitted)">
+              @if (emailInput.invalid && (emailInput.touched || auditForm.submitted)) {
+              <div class="validation-error">
+                <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink:0;">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                  <path
+                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                </svg>
+                Please enter a valid email address
+              </div>
+              }
+            </div>
 
-            <select [(ngModel)]="formData.service" name="service">
+            <div class="form-group">
+              <select [(ngModel)]="formData.service" name="service">
+                <option value="" class="text-green-300" selected>
+                  Select a service... (optional)
+                </option>
+                <option value="Web Development">Web Development</option>
+                <option value="SEO Optimization">SEO Optimization</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+                <option value="E-Commerce Store">E-Commerce Store</option>
+                <option value="Mobile App Development">Mobile App Development</option>
+                <option value="Google Ads Management">Google Ads Management</option>
+                <option value="Custom Development">Custom Development</option>
+              </select>
+            </div>
 
-              <option value="" selected disabled>
-                Select a service...
-              </option>
+            <div class="form-group">
+              <textarea rows="3" [(ngModel)]="formData.message" name="message"
+                placeholder="Tell us about your business (optional)"></textarea>
+            </div>
 
-              <option value="Web Development">Web Development</option>
-              <option value="SEO Optimization">SEO Optimization</option>
-              <option value="Digital Marketing">Digital Marketing</option>
-              <option value="E-Commerce Store">E-Commerce Store</option>
-              <option value="Mobile App Development">Mobile App Development</option>
-              <option value="Google Ads Management">Google Ads Management</option>
-              <option value="Custom Development">Custom Development</option>
-
-            </select>
-
-            <textarea rows="3" [(ngModel)]="formData.message" name="message"
-              placeholder="Tell us about your business (optional)">
-  </textarea>
-
-            <button type="button" (click)="sendToWhatsApp()" [disabled]="!formData.name || !formData.phone"
-              [style.opacity]="(formData.name && formData.phone) ? 1 : 0.5"
-              [style.cursor]="(formData.name && formData.phone) ? 'pointer' : 'not-allowed'"
-              [style.pointerEvents]="(formData.name && formData.phone) ? 'auto' : 'none'"
+            <button type="submit"
               style="width:100%;padding:15px 32px;border-radius:100px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:#fff;background:linear-gradient(135deg,#FF8C00 0%,#FF5722 100%);border:none;box-shadow:0 4px 24px rgba(255,140,0,0.40);transition:transform 0.2s ease,box-shadow 0.2s ease;"
-              onmouseover="if(this.getAttribute('disabled') === null) { this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(255,140,0,0.55)' }"
+              onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(255,140,0,0.55)'"
               onmouseout="this.style.transform='';this.style.boxShadow='0 4px 24px rgba(255,140,0,0.40)'">
               🚀 Claim My Free Audit
             </button>
@@ -257,7 +307,7 @@
 <div class="h-px bg-gradient-to-r from-transparent via-ag-violet/20 to-transparent mx-6 md:mx-10"></div>
 
 <!-- Section 1: Why CoreGrid Solutions -->
-<section class="ag-section bg-gradient-to-br from-[#25399C] via-[#162161] to-[#0F1649] animate-section-wrapper">
+<section class="ag-section bg-gradient-to-br from-[#25399C] via-[#162161] to-[#0F1649] animate-section-wrapper flowing-cards-section">
 
   <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
     <div class="text-center max-w-3xl mx-auto mb-16 ag-fade-up">
@@ -324,7 +374,7 @@
 <div class="h-px bg-gradient-to-r from-transparent via-ag-violet/20 to-transparent mx-6 md:mx-10"></div>
 
 <!-- Section 2: Our Services & Pricing -->
-<section class="ag-section bg-gradient-to-br from-[#25399C] via-[#162161] to-[#0F1649] animate-section-wrapper">
+<section class="ag-section bg-gradient-to-br from-[#25399C] via-[#162161] to-[#0F1649] animate-section-wrapper flowing-cards-section">
   <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
     <div class="mb-16 ag-fade-up text-center md:text-left">
       <div class="ag-badge mb-6 badge-pulse-blink" style="color:#00E5C3;"><span class="dot"

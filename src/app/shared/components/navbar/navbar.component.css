@@ -38,3 +38,33 @@ nav.hidden.md\:flex a.active-link::after {
   padding-left: 12px !important;
   text-shadow: 0 0 8px rgba(0, 229, 195, 0.2);
 }
+
+/* ─── Mobile Dropdown Arrow Wrapper & Chevron SVG Icons ─── */
+.mobile-nav-link .arrow-wrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(0, 229, 195, 0.1) !important;
+  border: 1px solid rgba(0, 229, 195, 0.2) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.mobile-nav-link .chevron-icon {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Hover/Active/Router Active states on parent menu link */
+.mobile-nav-link:hover .arrow-wrapper,
+.mobile-nav-link:active .arrow-wrapper,
+.mobile-nav-link.active-link .arrow-wrapper {
+  background-color: rgba(0, 229, 195, 0.25) !important;
+}
+
+.mobile-nav-link:hover .chevron-icon,
+.mobile-nav-link:active .chevron-icon,
+.mobile-nav-link.active-link .chevron-icon {
+  transform: translateX(2px) !important;
+}

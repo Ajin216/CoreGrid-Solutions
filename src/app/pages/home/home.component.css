@@ -313,17 +313,51 @@
     0 0 20px rgba(123, 97, 255, 0.12) !important;
 }
 
+/* ─── Highly Viewable Flowing Gradient for Inner ag-cards ───────── */
+.flowing-cards-section .ag-card {
+  background-color: transparent !important;
+  background-image: linear-gradient(135deg, #0A0F26 0%, #152259 30%, #203580 55%, #182766 80%, #0A0F26 100%) !important;
+  background-size: 300% 300% !important;
+  animation: cardGradientFlow 10s ease-in-out infinite !important;
+  border: 1.5px solid #ffffff !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.flowing-cards-section .ag-card:hover {
+  transform: translateY(-5px) !important;
+  border-color: #00E5C3 !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7) !important;
+}
+
+@keyframes cardGradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* ─── Refined Mobile Performance Overrides (Screens <= 768px) ─── */
 @media (max-width: 768px) {
+
   /* 1. Completely hide heavy blur orbs on mobile to maximize FPS */
-  .orb-violet, .orb-teal, .orb-orange {
+  .orb-violet,
+  .orb-teal,
+  .orb-orange {
     display: none !important;
     filter: none !important;
     background: none !important;
   }
 
   /* 2. Hide all floating star particles and shooting stars on mobile */
-  .star, .shooting-star {
+  .star,
+  .shooting-star {
     display: none !important;
     animation: none !important;
   }
@@ -349,4 +383,5 @@
     background: rgba(15, 22, 55, 0.98) !important;
     border-color: rgba(123, 97, 255, 0.15) !important;
   }
+
 }
