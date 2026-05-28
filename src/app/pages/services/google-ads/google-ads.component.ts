@@ -206,89 +206,110 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
         </div>
         <!-- Pricing Plans -->
         <div class="mb-16">
-  <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
-    Pricing <span class="text-[#00E5C3]">Plans</span>
-  </h2>
-  <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your goals. All plans include our signature quality, support, and transparent reporting.</p>
-  
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
+            Pricing <span class="text-[#00E5C3]">Plans</span>
+          </h2>
+          <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your goals. All plans include our signature quality, support, and transparent reporting.</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            @for (plan of pricingPlans; track plan.name) {
+              <div [class]="plan.containerClass">
+                @if (plan.badge) {
+                  <div [class]="'absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full ' + plan.badgeClass">
+                    {{ plan.badge }}
+                  </div>
+                }
 
-    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg mt-4">
-      <div class="mb-6 text-center">
-        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Starter PPC</div>
-        <div class="flex items-baseline justify-center gap-1 mb-2">
-          <span class="text-4xl md:text-5xl font-heading font-bold text-white">₹8,999</span>
-          <span class="text-white text-sm">/month</span>
-        </div>
-        <div class="text-white/60 text-xs flex flex-col items-center gap-1">
-          <span>🕒 management fee</span>
-          <span>(ad spend separate)</span>
-        </div>
-      </div>
-      <div class="w-full h-px bg-white/10 mb-6"></div>
-      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 1 campaign type</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to ₹50,000 ad spend managed</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Keyword research & setup</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Ad copy writing</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Monthly performance report</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Conversion tracking setup</li>
-      </ul>
-      <a (click)="selectPlan('Starter PPC', '₹8,999/month')" class="cursor-pointer block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Choose Starter PPC</a>
-    </div>
+                @if (!plan.isCustom) {
+                  <!-- Standard / Promo Cards -->
+                  <div class="mb-6 flex flex-col gap-1.5">
+                    <div [class]="'text-xs font-mono uppercase tracking-widest mb-1 ' + plan.monoColor">// {{ plan.name }}</div>
+                    
+                    <!-- Top Row: Original Price + Savings Badge -->
+                    @if (plan.originalPrice) {
+                      <div class="flex items-center gap-2">
+                        <span class="relative px-1.5 py-0.5 text-xl font-bold text-white" style="background: linear-gradient(to top right, transparent 45%, #EF4444 48%, #EF4444 52%, transparent 55%), linear-gradient(to bottom right, transparent 45%, #EF4444 48%, #EF4444 52%, transparent 55%);">
+                          {{ plan.originalPrice }}
+                        </span>
+                        <span class="bg-emerald-500/10 text-emerald-400 text-sm font-bold px-2.5 py-1 rounded-full shrink-0">{{ plan.savingsBadge }}</span>
+                      </div>
+                    }
 
-    <div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03] z-10">
-      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF7A00] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full whitespace-nowrap">★ Most Popular</div>
-      <div class="mb-6 text-center">
-        <div class="text-xs font-mono text-[#00E5C3] uppercase tracking-widest mb-2">// Growth PPC</div>
-        <div class="flex items-baseline justify-center gap-1 mb-2">
-          <span class="text-4xl md:text-5xl font-heading font-bold text-white">₹15,999</span>
-          <span class="text-white text-sm">/month</span>
-        </div>
-        <div class="text-white/80 text-xs flex flex-col items-center gap-1">
-          <span>🕒 management fee</span>
-          <span>(ad spend separate)</span>
-        </div>
-      </div>
-      <div class="w-full h-px bg-[#7B61FF]/30 mb-6"></div>
-      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> All campaign types</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Up to ₹2 Lakh ad spend managed</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Full keyword strategy</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> A/B ad copy testing</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Remarketing campaigns</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Landing page optimization</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Bi-weekly report</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Dedicated account manager</li>
-      </ul>
-      <a (click)="selectPlan('Growth PPC', '₹15,999/month')" class="cursor-pointer block text-center bg-[#FF7A00] text-white font-bold py-3 rounded-xl hover:bg-[#e66a00] transition-all duration-300">Choose Growth PPC</a>
-    </div>
+                    <!-- Bottom Row: Price -->
+                    <div class="flex items-baseline gap-1.5">
+                      <span class="text-5xl font-heading font-bold text-white">
+                        {{ plan.price }}
+                      </span>
+                      <span class="text-white text-sm opacity-80">/month</span>
+                    </div>
+                    
+                    <div class="text-white text-xs opacity-60 flex items-center gap-1 mt-1">
+                      <span>🕒</span> {{ plan.timeline }}
+                    </div>
+                  </div>
+                  
+                  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-6">
+                    @for (feature of plan.features; track feature) {
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#00E5C3] mt-0.5">✓</span> {{ feature }}
+                      </li>
+                    }
+                    @for (notInc of plan.notIncluded; track notInc) {
+                      <li class="flex items-start gap-2 text-white/40 line-through decoration-white/20">
+                        <span class="text-rose-500/60 mt-0.5 font-bold">✗</span> {{ notInc }}
+                      </li>
+                    }
+                  </ul>
 
-    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 mt-4">
-      <div class="mb-6 text-center">
-        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Enterprise PPC</div>
-        <div class="text-4xl md:text-5xl font-heading font-bold text-[#7B61FF] mb-3 mt-2">Custom</div>
-        <div class="text-white/60 text-xs flex items-center justify-center gap-1">
-          <span>🏷️</span> custom quote
-        </div>
-      </div>
-      <div class="w-full h-px bg-white/10 mb-6"></div>
-      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Unlimited ad spend managed</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Search, Display, Shopping, YouTube</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Advanced audience targeting</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Full funnel strategy</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Custom dashboards</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Weekly strategy calls</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Dedicated team</li>
-      </ul>
-      <a (click)="selectPlan('Enterprise PPC', 'Custom Quote')" class="cursor-pointer block text-center border border-[#7B61FF] text-[#7B61FF] font-semibold py-3 rounded-xl hover:bg-[#7B61FF] hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
-        <span>📞</span> Get Custom Quote
-      </a>
-    </div>
+                  <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-white/10">
+                    <span>↻ Monthly renewal (cancel anytime)</span>
+                  </div>
 
-  </div>
-</div>
+                  <a (click)="selectPlan(plan.name, plan.price + '/month')"
+                     [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 ' + plan.buttonClass">
+                    Choose {{ plan.name }}
+                  </a>
+
+                } @else {
+                  <!-- Enterprise / Custom Card -->
+                  <div class="mb-6 text-center">
+                    <div class="text-sm font-bold text-white mb-2">{{ plan.name }}</div>
+                    <div class="text-5xl font-heading font-bold text-[#7B61FF] mb-2">Custom</div>
+                    <div class="text-white text-sm opacity-80">🏷️ custom quote</div>
+                    @if (plan.description) {
+                      <p class="text-xs text-white/60 mt-3 leading-relaxed max-w-[220px] mx-auto">
+                        {{ plan.description }}
+                      </p>
+                    }
+                    <div class="text-white text-xs opacity-60 flex items-center justify-center gap-1 mt-2.5">
+                      <span>🕒</span> {{ plan.timeline }}
+                    </div>
+                  </div>
+                  
+                  <div class="w-full h-px bg-white/10 my-4"></div>
+                  
+                  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8 mt-2">
+                    @for (feature of plan.features; track feature) {
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#7B61FF] mt-0.5">✓</span> {{ feature }}
+                      </li>
+                    }
+                    @for (notInc of plan.notIncluded; track notInc) {
+                      <li class="flex items-start gap-2 text-white/40 line-through decoration-white/20">
+                        <span class="text-rose-500/60 mt-0.5 font-bold">✗</span> {{ notInc }}
+                      </li>
+                    }
+                  </ul>
+
+                  <a (click)="selectPlan(plan.name, 'Custom Quote')"
+                     [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 flex items-center justify-center gap-2 ' + plan.buttonClass">
+                    Get Custom Quote
+                  </a>
+                }
+              </div>
+            }
+          </div>
+        </div>
         <div class="text-center">
           <a routerLink="/contact" class="btn-primary">Get a Free Consultation →</a>
         </div>
@@ -297,6 +318,115 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
   `
 })
 export class GoogleAdsComponent {
+  pricingPlans = [
+    {
+      name: 'Starter PPC',
+      price: '₹8,999',
+      originalPrice: '₹12,999',
+      savingsBadge: 'Save 31%',
+      timeline: 'management fee (ad spend separate)',
+      features: [
+        '1 campaign type',
+        'Up to ₹50,000 ad spend managed',
+        'Keyword research & setup',
+        'Ad copy writing',
+        'Monthly performance report',
+        'Conversion tracking setup'
+      ],
+      notIncluded: [
+        'A/B ad copy testing',
+        'Remarketing campaigns',
+        'Landing page optimization',
+        'Dedicated account manager'
+      ],
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px] mt-4',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Standard PPC',
+      price: '₹11,499',
+      originalPrice: '₹15,099',
+      savingsBadge: 'Save 24%',
+      timeline: 'management fee (ad spend separate)',
+      features: [
+        'Up to 3 campaign types',
+        'Up to ₹1 Lakh ad spend managed',
+        'Keyword research & setup',
+        'Ad copy writing',
+        'A/B ad copy testing',
+        'Remarketing campaigns',
+        'Monthly performance report',
+        'Conversion tracking setup'
+      ],
+      notIncluded: [
+        'Landing page optimization',
+        'Dedicated account manager',
+        'Bi-weekly reports'
+      ],
+      badge: '★ Best Value',
+      badgeClass: 'bg-[#FF7A00] text-white',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px] mt-4',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Growth PPC',
+      price: '₹15,999',
+      originalPrice: '₹19,999',
+      savingsBadge: 'Save 20%',
+      timeline: 'management fee (ad spend separate)',
+      features: [
+        'All campaign types',
+        'Up to ₹2 Lakh ad spend managed',
+        'Full keyword strategy',
+        'A/B ad copy testing',
+        'Remarketing campaigns',
+        'Landing page optimization',
+        'Bi-weekly report',
+        'Dedicated account manager',
+        'Conversion tracking setup'
+      ],
+      notIncluded: [
+        'Unlimited ad spend managed',
+        'Custom dashboard / Looker Studio',
+        'Weekly strategy calls'
+      ],
+      badge: '★ Most Popular',
+      badgeClass: 'bg-[#FF7A00] text-white',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px] mt-4',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Enterprise PPC',
+      price: 'Custom Quote',
+      originalPrice: null,
+      savingsBadge: null,
+      timeline: 'custom strategy',
+      description: 'For large-scale advertisers and e-commerce brands looking for aggressive growth. We build and manage complex, multi-campaign funnels with unlimited ad spend management, custom BI dashboards, and weekly syncs.',
+      features: [
+        'Unlimited ad spend managed',
+        'Search, Display, Shopping, YouTube',
+        'Advanced audience targeting',
+        'Full funnel strategy',
+        'Custom dashboards',
+        'Weekly strategy calls',
+        'Dedicated team'
+      ],
+      notIncluded: [],
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 h-full lg:min-h-[960px] md:min-h-[960px] mt-4',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#7B61FF] text-[#7B61FF] rounded-full hover:bg-[#7B61FF] hover:text-white',
+      isCustom: true
+    }
+  ];
+
   selectPlan(planName: string, price: string) {
     const text = `Hello CoreGrid team, 
     I am reaching out from your website. I am interested in moving forward with the ${planName} plan at ${price}. 

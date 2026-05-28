@@ -51,7 +51,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
         </p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div class="ag-card p-8">
-            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹89,999</div>
+            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹49,999</div>
             <div class="text-white text-sm font-mono">Starting Price</div>
           </div>
           <div class="ag-card p-8">
@@ -213,89 +213,107 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
         </div>
         <!-- Pricing Plans -->
         <div class="mb-16">
-  <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
-    Pricing <span class="text-[#00E5C3]">Plans</span>
-  </h2>
-  <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your goals. All plans include our signature quality, support, and transparent reporting.</p>
-  
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
+            Pricing <span class="text-[#00E5C3]">Plans</span>
+          </h2>
+          <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your goals. All plans include our signature quality, support, and transparent reporting.</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            @for (plan of pricingPlans; track plan.name) {
+              <div [class]="plan.containerClass">
+                @if (plan.badge) {
+                  <div [class]="'absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full ' + plan.badgeClass">
+                    {{ plan.badge }}
+                  </div>
+                }
 
-    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg mt-4">
-      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF7A00] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">★ Most Popular</div>
-      <div class="mb-6 text-center">
-        <div class="text-lg font-bold text-white mb-2">Starter App</div>
-        <div class="text-5xl font-heading font-bold text-white mb-3">₹89,999</div>
-        <div class="text-white/80 text-sm flex items-center justify-center gap-1">
-          <span>🏷️</span> 2–4 weeks delivery
+                @if (!plan.isCustom) {
+                  <!-- Standard / Promo Cards -->
+                  <div class="mb-6 flex flex-col gap-1.5">
+                    <div [class]="'text-xs font-mono uppercase tracking-widest mb-1 ' + plan.monoColor">// {{ plan.name }}</div>
+                    
+                    <!-- Top Row: Anchor & Hook -->
+                    @if (plan.originalPrice) {
+                      <div class="flex items-center gap-2">
+                        <span class="relative px-1.5 py-0.5 text-xl font-bold text-white" style="background: linear-gradient(to top right, transparent 45%, #EF4444 48%, #EF4444 52%, transparent 55%), linear-gradient(to bottom right, transparent 45%, #EF4444 48%, #EF4444 52%, transparent 55%);">
+                          {{ plan.originalPrice }}
+                        </span>
+                        <span class="bg-emerald-500/10 text-emerald-400 text-sm font-bold px-2.5 py-1 rounded-full shrink-0">{{ plan.savingsBadge }}</span>
+                      </div>
+                    }
+
+                    <!-- Bottom Row: The New Price -->
+                    <div class="text-5xl font-heading font-bold text-white">
+                      {{ plan.price }}
+                    </div>
+                    
+                    <div class="text-white text-xs opacity-80 mt-0.5 mb-1">⏰ {{ plan.delivery }}</div>
+                    <div class="text-white text-sm opacity-80 mt-0.5">🏷️ one-time payment</div>
+                  </div>
+                  
+                  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-6">
+                    @for (feature of plan.features; track feature) {
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#00E5C3] mt-0.5">✓</span> {{ feature }}
+                      </li>
+                    }
+                    @for (notInc of plan.notIncluded; track notInc) {
+                      <li class="flex items-start gap-2 text-white/40 line-through decoration-white/20">
+                        <span class="text-rose-500/60 mt-0.5 font-bold">✗</span> {{ notInc }}
+                      </li>
+                    }
+                  </ul>
+
+                  @if (plan.yearlyRenewal) {
+                    <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-white/10">
+                      <span class="block mb-1">↻ Yearly renewal: {{ plan.yearlyRenewal }}</span>
+                      <span>(hosting + SSL + Maintenance)</span>
+                    </div>
+                  }
+
+                  <a (click)="selectPlan(plan.name, plan.price)"
+                     [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 ' + plan.buttonClass">
+                    Choose {{ plan.name }}
+                  </a>
+
+                } @else {
+                  <!-- Enterprise / Custom Card -->
+                  <div class="mb-6 text-center">
+                    <div class="text-sm font-bold text-white mb-2">{{ plan.name }}</div>
+                    <div class="text-5xl font-heading font-bold text-[#7B61FF] mb-2">Custom</div>
+                    <div class="text-white text-xs opacity-80 mb-2">⏰ {{ plan.delivery }}</div>
+                    <div class="text-white text-sm opacity-80">🏷️ custom quote</div>
+                    @if (plan.description) {
+                      <p class="text-xs text-white/60 mt-3 leading-relaxed max-w-[220px] mx-auto">
+                        {{ plan.description }}
+                      </p>
+                    }
+                  </div>
+                  
+                  <div class="w-full h-px bg-white/10 my-4"></div>
+                  
+                  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8 mt-2">
+                    @for (feature of plan.features; track feature) {
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#7B61FF] mt-0.5">✓</span> {{ feature }}
+                      </li>
+                    }
+                    @for (notInc of plan.notIncluded; track notInc) {
+                      <li class="flex items-start gap-2 text-white/40 line-through decoration-white/20">
+                        <span class="text-rose-500/60 mt-0.5 font-bold">✗</span> {{ notInc }}
+                      </li>
+                    }
+                  </ul>
+
+                  <a (click)="selectPlan('Custom App', 'Custom Quote')"
+                     [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 flex items-center justify-center gap-2 ' + plan.buttonClass">
+                    Get Custom Quote
+                  </a>
+                }
+              </div>
+            }
+          </div>
         </div>
-      </div>
-      <div class="w-full h-px bg-white/10 mb-6"></div>
-      <ul class="flex flex-col gap-4 text-sm text-white flex-grow mb-8">
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Up to 5 screens</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> User login/signup</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Push notifications</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Basic API integration</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Play Store submission</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> App Store submission</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> 30 days post-launch support</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Android + iOS</li>
-      </ul>
-      <a (click)="selectPlan('Starter App', '₹89,999')" class="cursor-pointer block text-center bg-[#FF7A00] text-white font-bold py-3 rounded-full hover:bg-[#e66a00] transition-all duration-300">Choose Starter App</a>
-    </div>
-
-    <div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03] z-10">
-      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF7A00] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">★ Most Popular</div>
-      <div class="mb-6 text-center">
-        <div class="text-lg font-bold text-white mb-2">Business App</div>
-        <div class="text-5xl font-heading font-bold text-white mb-3">₹1,49,999</div>
-        <div class="text-white/80 text-sm flex items-center justify-center gap-1">
-          <span>🏷️</span> 4–8 weeks delivery
-        </div>
-      </div>
-      <div class="w-full h-px bg-[#7B61FF]/30 mb-6"></div>
-      <ul class="flex flex-col gap-4 text-sm text-white flex-grow mb-8">
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Up to 15 screens</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Advanced user management</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Payment gateway integration</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Real-time features</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Admin web dashboard</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> REST API / backend</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Push & in-app notifications</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Analytics integration</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Play Store + App Store</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> 60 days support</li>
-      </ul>
-      <a (click)="selectPlan('Business App', '₹1,49,999')" class="cursor-pointer block text-center bg-[#FF7A00] text-white font-bold py-3 rounded-full hover:bg-[#e66a00] transition-all duration-300">Choose Business App</a>
-    </div>
-
-    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg mt-4">
-      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF7A00] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">★ Most Popular</div>
-      <div class="mb-6 text-center">
-        <div class="text-lg font-bold text-white mb-2">Enterprise App</div>
-        <div class="text-5xl font-heading font-bold text-white mb-1">₹2,00,000</div>
-        <div class="text-3xl font-heading font-bold text-white mb-3">Starts</div>
-        <div class="text-white/80 text-sm flex items-center justify-center gap-1">
-          <span>🏷️</span> 12–24 weeks delivery
-        </div>
-      </div>
-      <div class="w-full h-px bg-white/10 mb-6"></div>
-      <ul class="flex flex-col gap-4 text-sm text-white flex-grow mb-8">
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Unlimited screens & features</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Custom backend<br><span class="opacity-70">(Node/Laravel)</span></li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Multi-role user system</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Advanced real-time features</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> 3rd party integrations</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Scalable architecture</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Full backend + admin panel</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Security & compliance audit</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Dedicated project manager</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> 6 months support & maintenance</li>
-      </ul>
-      <a (click)="selectPlan('Enterprise App', '₹2,00,000')" class="cursor-pointer block text-center bg-[#FF7A00] text-white font-bold py-3 rounded-full hover:bg-[#e66a00] transition-all duration-300">Choose Enterprise App</a>
-    </div>
-
-  </div>
-</div>
         <div class="text-center">
           <a routerLink="/contact" class="btn-primary">Get a Free Consultation →</a>
         </div>
@@ -304,6 +322,126 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
   `
 })
 export class FlutterComponent {
+  pricingPlans = [
+    {
+      name: 'Starter App',
+      price: '₹49,999',
+      originalPrice: '₹59,999',
+      savingsBadge: 'Save 16%',
+      delivery: '2–4 weeks delivery',
+      features: [
+        'Android + iOS Support',
+        'Up to 5 custom screens',
+        'User authentication (Login/Signup)',
+        'Push notification system',
+        'Basic backend API integration',
+        'App Store submission setup',
+        'Play Store submission setup',
+        '30 days post-launch support'
+      ],
+      notIncluded: [
+        'Advanced Admin Panel & Web Dashboard',
+        'Payment gateway integration (Business has it)',
+        'Real-time messaging or updates',
+        'Analytics & tracking integration'
+      ],
+      yearlyRenewal: '₹9,999',
+      badge: '★ Most Popular',
+      badgeClass: 'bg-[#FF7A00] text-white',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px] mt-4',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Business App',
+      price: '₹89,999',
+      originalPrice: '₹1,19,999',
+      savingsBadge: 'Save 25%',
+      delivery: '4–8 weeks delivery',
+      features: [
+        'Android + iOS Support',
+        'Up to 15 custom screens',
+        'Advanced user profiles & roles',
+        'Payment gateway integration',
+        'Real-time core notifications',
+        'REST API / Cloud server backend',
+        'Push & in-app message inbox',
+        'Google & Apple Analytics integration',
+        'Play Store + App Store live launch',
+        '60 days post-launch support'
+      ],
+      notIncluded: [
+        'Unlimited custom screens & complex modules',
+        'Dedicated server autoscaling setup',
+        'Custom interactive charts/data boards',
+        'Dedicated full-time Project Manager'
+      ],
+      yearlyRenewal: '₹14,999',
+      badge: '★ Most Popular',
+      badgeClass: 'bg-[#FF7A00] text-white',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px] mt-4',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Enterprise App',
+      price: '₹1,49,999',
+      originalPrice: '₹1,99,999',
+      savingsBadge: 'Save 26%',
+      delivery: '12–24 weeks delivery',
+      features: [
+        'Android + iOS Support',
+        'Unlimited custom screens & flow maps',
+        'Custom backend API (Node.js/Laravel)',
+        'Complex multi-role user dashboards',
+        'Advanced real-time chats & updates',
+        'High-performance database clustering',
+        'Dedicated admin panel / content editor',
+        'Security, penetration & compliance audits',
+        'Dedicated senior Project Manager',
+        '6 months support & live maintenance'
+      ],
+      notIncluded: [
+        'Native Bluetooth/BLE hardware modules',
+        'Deep AR/VR camera custom renderers'
+      ],
+      yearlyRenewal: '₹24,999',
+      badge: '★ Most Popular',
+      badgeClass: 'bg-[#FF7A00] text-white',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px] mt-4',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Custom App',
+      price: 'Custom Quote',
+      originalPrice: null,
+      savingsBadge: null,
+      delivery: 'Custom timeline',
+      description: 'Need something completely bespoke? We build custom mobile apps with BLE/IoT device integrations, native SDK wrappers, interactive AR cameras, custom AI integration, and enterprise-grade SLA backing.',
+      features: [
+        'Custom Bluetooth / BLE integrations',
+        'Smart IoT hardware device connectors',
+        'Deep platform-specific native plugins',
+        'Advanced Web3 / Blockchain elements',
+        'Scalable serverless cloud architecture',
+        'Tailored SLA support agreements',
+        'Full DevOps continuous delivery pipelines',
+        'Lifetime codebase quality warranty'
+      ],
+      notIncluded: [],
+      yearlyRenewal: null,
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 h-full lg:min-h-[960px] md:min-h-[960px] mt-4',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#7B61FF] text-[#7B61FF] rounded-full hover:bg-[#7B61FF] hover:text-white',
+      isCustom: true
+    }
+  ];
+
   selectPlan(planName: string, price: string) {
     const text = `Hello CoreGrid team, 
     I am reaching out from your website. I am interested in moving forward with the ${planName} plan at ${price}. 

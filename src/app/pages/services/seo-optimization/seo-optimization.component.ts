@@ -52,7 +52,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div class="ag-card p-8">
-            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹12,999</div>
+            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹6,999</div>
             <div class="text-white text-sm font-mono">Starting at / month</div>
           </div>
           <div class="ag-card p-8">
@@ -216,74 +216,109 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
 
         <!-- Pricing Plans -->
         <div class="mb-16">
-  <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
-    Pricing <span class="text-[#00E5C3]">Plans</span>
-  </h2>
-  <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your goals. All plans include our signature quality, support, and transparent reporting.</p>
-  
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
+            Pricing <span class="text-[#00E5C3]">Plans</span>
+          </h2>
+          <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your goals. All plans include our signature quality, support, and transparent reporting.</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            @for (plan of pricingPlans; track plan.name) {
+              <div [class]="plan.containerClass">
+                @if (plan.badge) {
+                  <div [class]="'absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full ' + plan.badgeClass">
+                    {{ plan.badge }}
+                  </div>
+                }
 
-    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-      <div class="mb-6">
-        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Local SEO</div>
-        <div class="text-4xl font-heading font-bold text-white mb-1">₹12,999</div>
-        <div class="text-white text-sm">/month · 5–7 months to results</div>
-      </div>
-      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to 10 keywords</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Google My Business optimization</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> On-page SEO (5 pages)</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Local citation building</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Monthly rank report</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Basic link building (5/mo)</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Competitor analysis</li>
-      </ul>
-      <a (click)="selectPlan('Local SEO', '₹12,999/month')" class="cursor-pointer block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Choose Local SEO</a>
-    </div>
+                @if (!plan.isCustom) {
+                  <!-- Standard / Promo Cards -->
+                  <div class="mb-6 flex flex-col gap-1.5">
+                    <div [class]="'text-xs font-mono uppercase tracking-widest mb-1 ' + plan.monoColor">// {{ plan.name }}</div>
+                    
+                    <!-- Top Row: Original Price + Savings Badge -->
+                    @if (plan.originalPrice) {
+                      <div class="flex items-center gap-2">
+                        <span class="relative px-1.5 py-0.5 text-xl font-bold text-white" style="background: linear-gradient(to top right, transparent 45%, #EF4444 48%, #EF4444 52%, transparent 55%), linear-gradient(to bottom right, transparent 45%, #EF4444 48%, #EF4444 52%, transparent 55%);">
+                          {{ plan.originalPrice }}
+                        </span>
+                        <span class="bg-emerald-500/10 text-emerald-400 text-sm font-bold px-2.5 py-1 rounded-full shrink-0">{{ plan.savingsBadge }}</span>
+                      </div>
+                    }
 
-    <div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03]">
-      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">★ Most Popular</div>
-      <div class="mb-6">
-        <div class="text-xs font-mono text-[#00E5C3] uppercase tracking-widest mb-2">// Growth SEO</div>
-        <div class="text-4xl font-heading font-bold text-white mb-1">₹25,999</div>
-        <div class="text-white text-sm">/month · 6–8 months to results</div>
-      </div>
-      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to 30 keywords</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Full on-page SEO</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Content creation (4 blogs/mo)</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Quality link building (15/mo)</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Technical SEO audit & fix</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Google Search Console setup</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Monthly detailed report</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Competitor tracking</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Conversion optimization</li>
-      </ul>
-      <a (click)="selectPlan('Growth SEO', '₹25,999/month')" class="cursor-pointer block text-center bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] font-bold py-3 rounded-xl hover:opacity-90 transition-all duration-300">Choose Growth SEO</a>
-    </div>
+                    <!-- Bottom Row: Price -->
+                    <div class="flex items-baseline gap-1.5">
+                      <span class="text-5xl font-heading font-bold text-white">
+                        {{ plan.price }}
+                      </span>
+                      <span class="text-white text-sm opacity-80">/month</span>
+                    </div>
+                    <div class="text-white text-xs opacity-60 flex items-center gap-1 mt-0.5">
+                      <span>🕒</span> {{ plan.timeline }}
+                    </div>
+                  </div>
+                  
+                  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-6">
+                    @for (feature of plan.features; track feature) {
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#00E5C3] mt-0.5">✓</span> {{ feature }}
+                      </li>
+                    }
+                    @for (notInc of plan.notIncluded; track notInc) {
+                      <li class="flex items-start gap-2 text-white/40 line-through decoration-white/20">
+                        <span class="text-rose-500/60 mt-0.5 font-bold">✗</span> {{ notInc }}
+                      </li>
+                    }
+                  </ul>
 
-    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-      <div class="mb-6">
-        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Enterprise SEO</div>
-        <div class="text-4xl font-heading font-bold text-white mb-1">Custom</div>
-        <div class="text-white text-sm">8–12 months to results</div>
-      </div>
-      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Unlimited keywords</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Full website SEO overhaul</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Content strategy & creation</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Premium link building (30+/mo)</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Dedicated SEO manager</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Bi-weekly strategy calls</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Advanced analytics dashboard</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> PR & digital PR outreach</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> International / multi-location SEO</li>
-      </ul>
-      <a (click)="selectPlan('Enterprise SEO', 'Custom Quote')" class="cursor-pointer block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Get Custom Quote</a>
-    </div>
+                  <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-white/10">
+                    <span>↻ Monthly renewal (cancel anytime)</span>
+                  </div>
 
-  </div>
-</div>
+                  <a (click)="selectPlan(plan.name + ' SEO', plan.price)"
+                     [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 ' + plan.buttonClass">
+                    Choose {{ plan.name }}
+                  </a>
+
+                } @else {
+                  <!-- Enterprise / Custom Card -->
+                  <div class="mb-6 text-center">
+                    <div class="text-sm font-bold text-white mb-2">{{ plan.name }}</div>
+                    <div class="text-5xl font-heading font-bold text-[#7B61FF] mb-2">Custom</div>
+                    <div class="text-white text-sm opacity-80">🏷️ custom quote</div>
+                    @if (plan.description) {
+                      <p class="text-xs text-white/60 mt-3 leading-relaxed max-w-[220px] mx-auto">
+                        {{ plan.description }}
+                      </p>
+                    }
+                    <div class="text-white text-xs opacity-60 flex items-center justify-center gap-1 mt-2.5">
+                      <span>🕒</span> {{ plan.timeline }}
+                    </div>
+                  </div>
+                  
+                  <div class="w-full h-px bg-white/10 my-4"></div>
+                  
+                  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8 mt-2">
+                    @for (feature of plan.features; track feature) {
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#7B61FF] mt-0.5">✓</span> {{ feature }}
+                      </li>
+                    }
+                    @for (notInc of plan.notIncluded; track notInc) {
+                      <li class="flex items-start gap-2 text-white/40 line-through decoration-white/20">
+                        <span class="text-rose-500/60 mt-0.5 font-bold">✗</span> {{ notInc }}
+                      </li>
+                    }
+                  </ul>
+
+                  <a (click)="selectPlan('Enterprise SEO', 'Custom Quote')"
+                     [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 flex items-center justify-center gap-2 ' + plan.buttonClass">
+                    Get Custom Quote
+                  </a>
+                }
+              </div>
+            }
+          </div>
+        </div>
         <div class="text-center">
           <a routerLink="/contact" class="btn-primary">Get a Free SEO Audit →</a>
         </div>
@@ -292,6 +327,120 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
   `
 })
 export class SeoOptimizationComponent {
+  pricingPlans = [
+    {
+      name: 'Starter',
+      price: '₹6,999',
+      originalPrice: '₹9,999',
+      savingsBadge: 'Save 30%',
+      timeline: '3–6 months to results',
+      features: [
+        'Up to 8 keywords',
+        'Google My Business setup',
+        'On-page SEO (3 pages)',
+        'Monthly rank report',
+        'Basic link building (2/mo)'
+      ],
+      notIncluded: [
+        'Basic link building (Local has 5/mo)',
+        'Google My Business optimization',
+        'SEO setup beyond 3 pages (Local has 5 pages)',
+        'Up to 10 keywords (Local has 10)',
+        'Conversion optimization'
+      ],
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Local SEO',
+      price: '₹12,499',
+      originalPrice: '₹15,999',
+      savingsBadge: 'Save 22%',
+      timeline: '5–7 months to results',
+      features: [
+        'Up to 10 keywords',
+        'Google My Business optimization',
+        'On-page SEO (5 pages)',
+        'Local citation building',
+        'Monthly rank report',
+        'Basic link building (5/mo)',
+        'Competitor analysis'
+      ],
+      notIncluded: [
+        'Content creation (Growth: 4 blogs/mo)',
+        'Quality link building beyond 5/mo (Growth: 15/mo)',
+        'Technical SEO audit & fix',
+        'Google Search Console setup',
+        'Conversion optimization'
+      ],
+      badge: '★ Most Popular',
+      badgeClass: 'bg-[#FF7A00] text-white',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Growth SEO',
+      price: '₹25,999',
+      originalPrice: '₹29,999',
+      savingsBadge: 'Save 13%',
+      timeline: '6–8 months to results',
+      features: [
+        'Up to 30 keywords',
+        'Full on-page SEO',
+        'Content creation (4 blogs/mo)',
+        'Quality link building (15/mo)',
+        'Technical SEO audit & fix',
+        'Google Search Console setup',
+        'Monthly detailed report',
+        'Competitor tracking',
+        'Conversion optimization'
+      ],
+      notIncluded: [
+        'Unlimited keywords (Enterprise: Unlimited)',
+        'Content strategy beyond 4 blogs/mo',
+        'Premium link building beyond 15/mo (Enterprise: 30+/mo)',
+        'Dedicated SEO manager',
+        'Bi-weekly strategy calls'
+      ],
+      badge: '★ Most Popular',
+      badgeClass: 'bg-[#FF7A00] text-white',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Enterprise SEO',
+      price: 'Custom Quote',
+      timeline: '8–12 months to results',
+      description: 'Engineered for scale. We implement advanced technical SEO for massive websites and international brands, ensuring automated optimization, perfect regional targeting, and maximum visibility for thousands of products.',
+      originalPrice: null,
+      savingsBadge: null,
+      features: [
+        'Unlimited keywords',
+        'Full website SEO overhaul',
+        'Content strategy & creation',
+        'Premium link building (30+/mo)',
+        'Dedicated SEO manager',
+        'Bi-weekly strategy calls',
+        'Advanced analytics dashboard',
+        'PR & digital PR outreach',
+        'International / multi-location SEO'
+      ],
+      notIncluded: [],
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 h-full lg:min-h-[960px] md:min-h-[960px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#7B61FF] text-[#7B61FF] rounded-full hover:bg-[#7B61FF] hover:text-white',
+      isCustom: true
+    }
+  ];
+
   selectPlan(planName: string, price: string) {
     const text = `Hello CoreGrid team, 
     I am reaching out from your website. I am interested in moving forward with the ${planName} plan at ${price}. 

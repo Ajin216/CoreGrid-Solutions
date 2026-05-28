@@ -111,7 +111,7 @@ import { FormsModule, NgForm } from '@angular/forms';
                     @if (phoneInput.errors?.['required']) {
                       Phone Number is required
                     } @else if (phoneInput.errors?.['pattern']) {
-                      Please enter a valid 10-15 digit phone number (e.g. +91 9074501397)
+                      Please enter a valid 10-15 digit phone number
                     }
                   </div>
                 }

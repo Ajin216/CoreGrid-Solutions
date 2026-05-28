@@ -52,7 +52,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div class="ag-card p-8">
-            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹13,999</div>
+            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹5,999</div>
             <div class="text-white text-sm font-mono">Starting Price</div>
           </div>
           <div class="ag-card p-8">
@@ -207,7 +207,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
             <ul class="flex flex-wrap justify-center gap-4 text-white text-sm leading-relaxed">
               <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> Angular / React / Next.js</li>
               <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> Tailwind CSS</li>
-              <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> Node.js APIs</li>
+              <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> Node.js</li>
               <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> AWS / Google Cloud</li>
               <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> CI/CD Pipelines</li>
             </ul>
@@ -220,107 +220,94 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
             Pricing <span class="text-[#00E5C3]">Plans</span>
           </h2>
           <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your goals. All plans include our signature quality, support, and 100% mobile-first delivery.</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            @for (plan of pricingPlans; track plan.name) {
+              <div [class]="plan.containerClass">
+                @if (plan.badge) {
+                  <div [class]="'absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full ' + plan.badgeClass">
+                    {{ plan.badge }}
+                  </div>
+                }
 
-            <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-  <div class="mb-6">
-    <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Basic</div>
-    <div class="text-4xl font-heading font-bold text-white mb-1">₹13,999</div>
-    <div class="text-white text-sm opacity-80">🏷️ one-time payment</div>
-  </div>
-  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-6">
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 5-page custom website</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Mobile responsive design</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> On-page SEO (5 pages)</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Contact form</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 1 year free hosting</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> SSL certificate</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 3 design revisions</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 7-day delivery</li>
-  </ul>
-  <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-white/10">
-    <span class="block mb-1">↻ Yearly renewal: ₹2999</span>
-    <span>(hosting + SSL + Maintenance)</span>
-  </div>
-  <a (click)="selectPlan('Basic Web Design', '₹13,999')" class="cursor-pointer block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Choose Basic</a>
-</div>
+                @if (!plan.isCustom) {
+                  <!-- Standard / Promo Cards -->
+                  <div class="mb-6 flex flex-col gap-1.5">
+                    <div [class]="'text-xs font-mono uppercase tracking-widest mb-1 ' + plan.monoColor">// {{ plan.name }}</div>
+                    
+                    <!-- Top Row: Anchor & Hook -->
+                    <div class="flex items-center gap-2">
+                      <span class="relative px-1.5 py-0.5 text-xl font-bold text-white" style="background: linear-gradient(to top right, transparent 45%, #EF4444 48%, #EF4444 52%, transparent 55%), linear-gradient(to bottom right, transparent 45%, #EF4444 48%, #EF4444 52%, transparent 55%);">
+                        {{ plan.originalPrice }}
+                      </span>
+                      <span class="bg-emerald-500/10 text-emerald-400 text-sm font-bold px-2.5 py-1 rounded-full shrink-0">{{ plan.savingsBadge }}</span>
+                    </div>
 
-<div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03]">
-  <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">★ Most Popular</div>
-  <div class="mb-6">
-    <div class="text-xs font-mono text-[#00E5C3] uppercase tracking-widest mb-2">// Standard</div>
-    <div class="text-4xl font-heading font-bold text-white mb-1">₹20,999</div>
-    <div class="text-white text-sm opacity-80">🏷️ one-time payment</div>
-  </div>
-  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-6">
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 10-page custom website</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Mobile responsive design</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Advanced on-page SEO</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Contact & lead forms</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 1 year free hosting</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> SSL certificate</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> WhatsApp Integration</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Google Analytics setup</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 5 design revisions</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 14-day delivery</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 1 month support</li>
-  </ul>
-  <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-[#7B61FF]/30">
-    <span class="block mb-1">↻ Yearly renewal: ₹3999</span>
-    <span>(hosting + SSL + Maintenance)</span>
-  </div>
-  <a (click)="selectPlan('Standard Web Design', '₹20,999')" class="cursor-pointer block text-center bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] font-bold py-3 rounded-xl hover:opacity-90 transition-all duration-300">Choose Standard</a>
-</div>
+                    <!-- Bottom Row: The New Price -->
+                    <div class="text-5xl font-heading font-bold text-white">
+                      {{ plan.price }}
+                    </div>
+                    
+                    <div class="text-white text-sm opacity-80 mt-0.5">🏷️ one-time payment</div>
+                  </div>
+                  
+                  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-6">
+                    @for (feature of plan.features; track feature) {
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#00E5C3] mt-0.5">✓</span> {{ feature }}
+                      </li>
+                    }
+                    @for (notInc of plan.notIncluded; track notInc) {
+                      <li class="flex items-start gap-2 text-white/40 line-through decoration-white/20">
+                        <span class="text-rose-500/60 mt-0.5 font-bold">✗</span> {{ notInc }}
+                      </li>
+                    }
+                  </ul>
 
-<div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg">
-  <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF7A00] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">★ Most Popular</div>
-  <div class="mb-6">
-    <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Premium</div>
-    <div class="text-4xl font-heading font-bold text-white mb-1">₹28,999</div>
-    <div class="text-white text-sm opacity-80">🏷️ one-time payment</div>
-  </div>
-  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-6">
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 20-page custom website</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Custom UI animations</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Full SEO setup + blog</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Advanced lead capture</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 1 year free hosting</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> SSL certificate</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> CMS (edit content yourself)</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> WhatsApp & chat integration</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Google Analytics + Search Console</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Unlimited revisions</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 21-day delivery</li>
-    <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 3 months support</li>
-  </ul>
-  <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-white/10">
-    <span class="block mb-1">↻ Yearly renewal: ₹5999</span>
-    <span>(hosting + SSL + Maintenance)</span>
-  </div>
-  <a (click)="selectPlan('Premium Web Design', '₹28,999')" class="cursor-pointer block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Choose Premium</a>
-</div>
+                  <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-white/10">
+                    <span class="block mb-1">↻ Yearly renewal: {{ plan.yearlyRenewal }}</span>
+                    <span>(hosting + SSL + Maintenance)</span>
+                  </div>
 
-<div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5">
-  <div class="mb-6 text-center">
-    <div class="text-sm font-bold text-white mb-2">Enterprise</div>
-    <div class="text-5xl font-heading font-bold text-[#7B61FF] mb-2">Custom</div>
-    <div class="text-white text-sm opacity-80">🏷️ custom quote</div>
-  </div>
-  <div class="w-full h-px bg-white/10 my-4"></div>
-  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8 mt-2">
-    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Unlimited pages</li>
-    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Custom web app features</li>
-    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> E-commerce functionality</li>
-    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Advanced Integrations (CRM, ERP)</li>
-    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Dedicated project manager</li>
-    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Priority support 24/7</li>
-    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Quarterly SEO audit</li>
-    <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Ongoing maintenance</li>
-  </ul>
-  <a (click)="selectPlan('Enterprise Web Design', 'Custom Quote')" class="cursor-pointer block text-center border border-[#7B61FF] text-[#7B61FF] font-semibold py-3 rounded-full hover:bg-[#7B61FF] hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
-    <span></span> Get Custom Quote
-  </a>
-</div>
+                  <a (click)="selectPlan(plan.name + ' Web Design', plan.price)"
+                     [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 ' + plan.buttonClass">
+                    Choose {{ plan.name }}
+                  </a>
+
+                } @else {
+                  <!-- Enterprise / Custom Card -->
+                  <div class="mb-6 text-center">
+                    <div class="text-sm font-bold text-white mb-2">{{ plan.name }}</div>
+                    <div class="text-5xl font-heading font-bold text-[#7B61FF] mb-2">Custom</div>
+                    <div class="text-white text-sm opacity-80">🏷️ custom quote</div>
+                    @if (plan.description) {
+                      <p class="text-xs text-white/60 mt-3 leading-relaxed max-w-[220px] mx-auto">
+                        {{ plan.description }}
+                      </p>
+                    }
+                  </div>
+                  
+                  <div class="w-full h-px bg-white/10 my-4"></div>
+                  
+                  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8 mt-2">
+                    @for (feature of plan.features; track feature) {
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#7B61FF] mt-0.5">✓</span> {{ feature }}
+                      </li>
+                    }
+                    @for (notInc of plan.notIncluded; track notInc) {
+                      <li class="flex items-start gap-2 text-white/40 line-through decoration-white/20">
+                        <span class="text-rose-500/60 mt-0.5 font-bold">✗</span> {{ notInc }}
+                      </li>
+                    }
+                  </ul>
+
+                  <a (click)="selectPlan('Enterprise Web Design', 'Custom Quote')"
+                     [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 flex items-center justify-center gap-2 ' + plan.buttonClass">
+                    Get Custom Quote
+                  </a>
+                }
+              </div>
+            }
           </div>
         </div>
         <div class="text-center">
@@ -331,6 +318,196 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
   `
 })
 export class WebDevelopmentComponent {
+  pricingPlans = [
+    {
+      name: 'Basic',
+      price: '₹5,999',
+      originalPrice: '₹7,999',
+      savingsBadge: 'Save 25%',
+      features: [
+        '5-page custom website',
+        'Mobile responsive design',
+        'On-page SEO (5 pages)',
+        'Contact form',
+        '1 year free hosting',
+        'SSL certificate',
+        '3 design revisions',
+        '7-day delivery',
+        'Domain Included'
+      ],
+      notIncluded: [
+        'WhatsApp Integration',
+        'Pages beyond 5 (Plus has 7)',
+        'SEO setup beyond 5 pages',
+        'More than 3 design revisions'
+      ],
+      yearlyRenewal: '₹2999',
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Plus',
+      price: '₹12,999',
+      originalPrice: '₹14,999',
+      savingsBadge: 'Save 13%',
+      features: [
+        '7-page custom website',
+        'Mobile responsive design',
+        'On-page SEO (7 pages)',
+        'Contact form',
+        '1 year free hosting',
+        'SSL certificate',
+        'WhatsApp Integration',
+        '4 design revisions',
+        '10-day delivery',
+        'Domain Included'
+      ],
+      notIncluded: [
+        'Advanced On-Page SEO (Plus has Basic)',
+        'Google Analytics Setup',
+        'Lead Capture & Forms (Plus has Contact only)',
+        'Post-launch Support (Standard: 1 Month)',
+        'Pages beyond 7 (Standard has 10)'
+      ],
+      yearlyRenewal: '₹3499',
+      badge: '★ Most Popular',
+      badgeClass: 'bg-[#FF7A00] text-white',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Standard',
+      price: '₹21,999',
+      originalPrice: '₹23,999',
+      savingsBadge: 'Save 8%',
+      features: [
+        '10-page custom website',
+        'Mobile responsive design',
+        'Advanced on-page SEO',
+        'Contact & lead forms',
+        '1 year free hosting',
+        'SSL certificate',
+        'WhatsApp Integration',
+        'Google Analytics setup',
+        '5 design revisions',
+        '14-day delivery',
+        '1 month support',
+        'Domain Included'
+      ],
+      notIncluded: [
+        'CMS Integration (Pro has Basic CMS)',
+        'Pages beyond 10 (Pro has 15)',
+        'Extended Support (Pro: 2 Months)',
+        'More than 5 design revisions (Pro has 8)'
+      ],
+      yearlyRenewal: '₹3999',
+      badge: '★ Most Popular',
+      badgeClass: 'bg-[#FF7A00] text-white',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Pro',
+      price: '₹28,999',
+      originalPrice: '₹34,499',
+      savingsBadge: 'Save 16%',
+      features: [
+        '15-page custom website',
+        'Advanced on-page SEO',
+        'Contact & lead forms',
+        '1 year free hosting',
+        'SSL certificate',
+        'Basic CMS setup',
+        'WhatsApp Integration',
+        'Google Analytics setup',
+        '8 design revisions',
+        '18-day delivery',
+        '2 months support',
+        'Domain Included'
+      ],
+      notIncluded: [
+        'Custom UI Animations',
+        'Dynamic CMS / Blog Integration',
+        'Unlimited revisions (Pro has 8)',
+        'Google Search Console Setup',
+        'Support beyond 2 months (Premium has 3)'
+      ],
+      yearlyRenewal: '₹4999',
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Premium',
+      price: '₹37,999',
+      originalPrice: '₹40,000',
+      savingsBadge: 'Save 5%',
+      features: [
+        '20-page custom website',
+        'Custom UI animations',
+        'Full SEO setup + blog',
+        'Advanced lead capture',
+        '1 year free hosting',
+        'SSL certificate',
+        'CMS (edit content yourself)',
+        'WhatsApp & chat integration',
+        'Google Analytics + Search Console',
+        'Unlimited revisions',
+        '21-day delivery',
+        '3 months support',
+        'Domain Included'
+      ],
+      notIncluded: [
+        'Unlimited Pages (Premium: 20 Pages)',
+        'Custom Web App / E-commerce Features',
+        'Advanced Integrations (CRM, ERP)',
+        '24/7 Priority Support & Maintenance',
+        'Dedicated Project Manager'
+      ],
+      yearlyRenewal: '₹5999',
+      badge: '★ Most Popular',
+      badgeClass: 'bg-[#FF7A00] text-white',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Enterprise',
+      price: 'Custom Quote',
+      description: 'When a basic website is not enough, we build custom solutions. If you need your website to handle thousands of visitors without crashing, take custom payments, or manage your inventory, we code it to work exactly the way your business runs',
+      originalPrice: null,
+      savingsBadge: null,
+      features: [
+        'Unlimited pages',
+        'Custom web app features',
+        'E-commerce functionality',
+        'Advanced Integrations (CRM, ERP)',
+        'Dedicated project manager',
+        'Priority support 24/7',
+        'Quarterly SEO audit',
+        'Ongoing maintenance',
+        'Domain Included'
+      ],
+      notIncluded: [],
+      yearlyRenewal: null,
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 h-full lg:min-h-[960px] md:min-h-[960px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#7B61FF] text-[#7B61FF] rounded-full hover:bg-[#7B61FF] hover:text-white',
+      isCustom: true
+    }
+  ];
+
   selectPlan(planName: string, price: string) {
     const text = `Hello CoreGrid team, 
     I am reaching out from your website. I am interested in moving forward with the ${planName} plan at ${price}. 

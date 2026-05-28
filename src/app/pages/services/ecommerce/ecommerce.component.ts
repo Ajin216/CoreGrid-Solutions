@@ -51,7 +51,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
         </p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div class="ag-card p-8">
-            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹22,999</div>
+            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹26,499</div>
             <div class="text-white text-sm font-mono">Starting Price</div>
           </div>
           <div class="ag-card p-8">
@@ -203,7 +203,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
           <div class="ag-card p-8">
             <h2 class="text-2xl font-heading font-bold text-[#00E5C3] mb-6 text-center">Tech Stack</h2>
             <ul class="flex flex-wrap justify-center gap-4 text-white text-sm leading-relaxed">
-              <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> Next.js / Angular</li>
+              <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> Next.js / Angular / React</li>
               <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> Node.js API</li>
               <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> PostgreSQL / MongoDB</li>
               <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> AWS / Google Cloud</li>
@@ -213,96 +213,103 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
         </div>
         <!-- Pricing Plans -->
         <div class="mb-16">
-  <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
-    Pricing <span class="text-[#00E5C3]">Plans</span>
-  </h2>
-  <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your goals. All plans include our signature quality, support, and transparent reporting.</p>
-  
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
+            Pricing <span class="text-[#00E5C3]">Plans</span>
+          </h2>
+          <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your goals. All plans include our signature quality, support, and transparent reporting.</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            @for (plan of pricingPlans; track plan.name) {
+              <div [class]="plan.containerClass">
+                @if (plan.badge) {
+                  <div [class]="'absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full ' + plan.badgeClass">
+                    {{ plan.badge }}
+                  </div>
+                }
 
-    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg mt-4">
-      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF7A00] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">★ Most Popular</div>
-      <div class="mb-6">
-        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Basic Store</div>
-        <div class="text-sm text-gray-400 line-through mb-1">₹29,899</div>
-        <div class="text-4xl font-heading font-bold text-white mb-1">₹22,999</div>
-        <div class="text-white text-sm opacity-80 flex items-center gap-1">🏷️ one-time payment</div>
-      </div>
-      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-6">
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to 100 products</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> WooCommerce setup</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Custom homepage design</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Product & category pages</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Payment gateway (2)</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Basic shipping setup</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Mobile responsive</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> SSL certificate</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> On-page SEO</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 1 month support</li>
-      </ul>
-      <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-white/10">
-        <span class="block mb-1">↻ Yearly renewal: ₹3999</span>
-        <span>(hosting + SSL + Maintenance)</span>
-      </div>
-      <a (click)="selectPlan('Basic Store', '₹22,999')" class="cursor-pointer block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300">Choose Basic Store</a>
-    </div>
+                @if (!plan.isCustom) {
+                  <!-- Standard / Promo Cards -->
+                  <div class="mb-6 flex flex-col gap-1.5">
+                    <div [class]="'text-xs font-mono uppercase tracking-widest mb-1 ' + plan.monoColor">// {{ plan.name }}</div>
+                    
+                    <!-- Top Row: Anchor & Hook -->
+                    @if (plan.originalPrice) {
+                      <div class="flex items-center gap-2">
+                        <span class="relative px-1.5 py-0.5 text-xl font-bold text-white" style="background: linear-gradient(to top right, transparent 45%, #EF4444 48%, #EF4444 52%, transparent 55%), linear-gradient(to bottom right, transparent 45%, #EF4444 48%, #EF4444 52%, transparent 55%);">
+                          {{ plan.originalPrice }}
+                        </span>
+                        <span class="bg-emerald-500/10 text-emerald-400 text-sm font-bold px-2.5 py-1 rounded-full shrink-0">{{ plan.savingsBadge }}</span>
+                      </div>
+                    }
 
-    <div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03] z-10">
-      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF7A00] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full">★ Most Popular</div>
-      <div class="mb-6">
-        <div class="text-xs font-mono text-[#00E5C3] uppercase tracking-widest mb-2">// Standard Store</div>
-        <div class="text-sm text-[#7B61FF]/70 line-through mb-1">₹48,099</div>
-        <div class="text-4xl font-heading font-bold text-white mb-1">₹36,999</div>
-        <div class="text-white text-sm opacity-80 flex items-center gap-1">🏷️ one-time payment</div>
-      </div>
-      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-6">
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to 500 products</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> WooCommerce / Shopify</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Full custom design</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> All page types</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Payment gateways (all)</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Shipping integration</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Coupon & discount system</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Abandoned cart recovery</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Product reviews</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Advanced SEO</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Google Analytics + Pixel</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 3 months support</li>
-      </ul>
-      <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-[#7B61FF]/30">
-        <span class="block mb-1">↻ Yearly renewal: ₹4999</span>
-        <span>(hosting + SSL + Maintenance)</span>
-      </div>
-      <a (click)="selectPlan('Standard Store', '₹36,999')" class="cursor-pointer block text-center bg-gradient-to-r from-[#7B61FF] to-[#00E5C3] text-[#0F1637] font-bold py-3 rounded-xl hover:opacity-90 transition-all duration-300">Choose Standard Store</a>
-    </div>
+                    <!-- Bottom Row: The New Price -->
+                    <div class="text-5xl font-heading font-bold text-white">
+                      {{ plan.price }}
+                    </div>
+                    
+                    <div class="text-white text-sm opacity-80 mt-0.5">🏷️ one-time payment</div>
+                  </div>
+                  
+                  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-6">
+                    @for (feature of plan.features; track feature) {
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#00E5C3] mt-0.5">✓</span> {{ feature }}
+                      </li>
+                    }
+                    @for (notInc of plan.notIncluded; track notInc) {
+                      <li class="flex items-start gap-2 text-white/40 line-through decoration-white/20">
+                        <span class="text-rose-500/60 mt-0.5 font-bold">✗</span> {{ notInc }}
+                      </li>
+                    }
+                  </ul>
 
-    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 mt-4">
-      <div class="mb-6">
-        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Premium Store</div>
-        <div class="text-4xl font-heading font-bold text-[#7B61FF] mb-2">Custom</div>
-        <div class="text-white text-sm opacity-80 flex items-center gap-1">🏷️ custom quote</div>
-      </div>
-      <div class="w-full h-px bg-white/10 my-4"></div>
-      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8 mt-2">
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Unlimited products</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Magento / Custom</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Premium UX/UI design</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Multi-language support</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Multi-currency checkout</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Advanced inventory</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> ERP/CRM integration</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Custom mobile app</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Dedicated account manager</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Priority 24/7 support</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> 6 months maintenance</li>
-      </ul>
-      <a (click)="selectPlan('Premium Store', 'Custom Quote')" class="cursor-pointer block text-center border border-[#7B61FF] text-[#7B61FF] font-semibold py-3 rounded-full hover:bg-[#7B61FF] hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
-        <span>📞</span> Get Custom Quote
-      </a>
-    </div>
+                  <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-white/10">
+                    <span class="block mb-1">↻ Yearly renewal: {{ plan.yearlyRenewal }}</span>
+                    <span>(hosting + SSL + Maintenance)</span>
+                  </div>
 
-  </div>
-</div>
+                  <a (click)="selectPlan(plan.name, plan.price)"
+                     [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 ' + plan.buttonClass">
+                    Choose {{ plan.name }}
+                  </a>
+
+                } @else {
+                  <!-- Enterprise / Custom Card -->
+                  <div class="mb-6 text-center">
+                    <div class="text-sm font-bold text-white mb-2">{{ plan.name }}</div>
+                    <div class="text-5xl font-heading font-bold text-[#7B61FF] mb-2">Custom</div>
+                    <div class="text-white text-sm opacity-80">🏷️ custom quote</div>
+                    @if (plan.description) {
+                      <p class="text-xs text-white/60 mt-3 leading-relaxed max-w-[220px] mx-auto">
+                        {{ plan.description }}
+                      </p>
+                    }
+                  </div>
+                  
+                  <div class="w-full h-px bg-white/10 my-4"></div>
+                  
+                  <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8 mt-2">
+                    @for (feature of plan.features; track feature) {
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#7B61FF] mt-0.5">✓</span> {{ feature }}
+                      </li>
+                    }
+                    @for (notInc of plan.notIncluded; track notInc) {
+                      <li class="flex items-start gap-2 text-white/40 line-through decoration-white/20">
+                        <span class="text-rose-500/60 mt-0.5 font-bold">✗</span> {{ notInc }}
+                      </li>
+                    }
+                  </ul>
+
+                  <a (click)="selectPlan('Premium Store', 'Custom Quote')"
+                     [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 flex items-center justify-center gap-2 ' + plan.buttonClass">
+                    Get Custom Quote
+                  </a>
+                }
+              </div>
+            }
+          </div>
+        </div>
         <div class="text-center">
           <a routerLink="/contact" class="btn-primary">Get a Free Consultation →</a>
         </div>
@@ -311,6 +318,131 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
   `
 })
 export class EcommerceComponent {
+  pricingPlans = [
+    {
+      name: 'Basic Store',
+      price: '₹26,499',
+      originalPrice: '₹33,999',
+      savingsBadge: 'Save 22%',
+      yearlyRenewal: '₹3,999',
+      features: [
+        'Up to 100 products',
+        'WooCommerce setup',
+        'Custom homepage design',
+        'Product & category pages',
+        'Payment gateway (2)',
+        'Basic shipping setup',
+        'Mobile responsive',
+        'SSL certificate',
+        'On-page SEO',
+        '1 month support'
+      ],
+      notIncluded: [
+        'Shopify platform setup (Plus has Shopify/Woo)',
+        'Products beyond 100 (Plus has 250)',
+        'Coupon & discount system (Plus has it)',
+        'Abandoned cart recovery (Standard has it)',
+        'Google Analytics + Meta Pixel (Standard has it)'
+      ],
+      badge: '★ Most Popular',
+      badgeClass: 'bg-[#FF7A00] text-white',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px] mt-4',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Plus Store',
+      price: '₹36,499',
+      originalPrice: '₹48,999',
+      savingsBadge: 'Save 26%',
+      yearlyRenewal: '₹4,499',
+      features: [
+        'Up to 250 products',
+        'WooCommerce / Shopify',
+        'Premium homepage design',
+        'Product & category pages',
+        'Payment gateway setup (3)',
+        'Advanced shipping setup',
+        'Coupon & discount system',
+        'Mobile responsive design',
+        'SSL certificate',
+        'On-page SEO setup',
+        '2 months support'
+      ],
+      notIncluded: [
+        'Products beyond 250 (Standard has 500)',
+        'Abandoned cart recovery (Standard has it)',
+        'Google Analytics + Meta Pixel (Standard has it)',
+        'All payment gateway integrations (Basic & Plus have limited)'
+      ],
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px] mt-4',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Standard Store',
+      price: '₹49,999',
+      originalPrice: '₹67,999',
+      savingsBadge: 'Save 26%',
+      yearlyRenewal: '₹4,999',
+      features: [
+        'Up to 500 products',
+        'WooCommerce / Shopify',
+        'Full custom design',
+        'All page types',
+        'Payment gateways (all)',
+        'Shipping integration',
+        'Coupon & discount system',
+        'Abandoned cart recovery',
+        'Product reviews',
+        'Advanced SEO',
+        'Google Analytics + Pixel',
+        '3 months support'
+      ],
+      notIncluded: [
+        'Unlimited products (Premium has Unlimited)',
+        'Magento / Custom storefront (Premium has it)',
+        'Multi-language / Multi-currency (Premium has it)',
+      ],
+      badge: '★ Most Popular',
+      badgeClass: 'bg-[#FF7A00] text-white',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px] mt-4',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Premium Store',
+      price: 'Custom Quote',
+      originalPrice: null,
+      savingsBadge: null,
+      yearlyRenewal: null,
+      description: 'Engineered for scale. We build high-performance custom e-commerce applications with unlimited product catalogs, multi-currency payment setups, custom CRM integrations, and premium UI animations.',
+      features: [
+        'React/Angular',
+        'Unlimited products',
+        'Magento / Custom storefront',
+        'Premium UX/UI design',
+        'Multi-language support',
+        'Multi-currency checkout',
+        'Advanced inventory system',
+        'ERP/CRM integration',
+        'Dedicated account manager',
+        'Priority 24/7 support',
+        '6 months maintenance'
+      ],
+      notIncluded: [],
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 h-full lg:min-h-[960px] md:min-h-[960px] mt-4',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#7B61FF] text-[#7B61FF] rounded-full hover:bg-[#7B61FF] hover:text-white',
+      isCustom: true
+    }
+  ];
+
   selectPlan(planName: string, price: string) {
     const text = `Hello CoreGrid team, 
     I am reaching out from your website. I am interested in moving forward with the ${planName} plan at ${price}. 

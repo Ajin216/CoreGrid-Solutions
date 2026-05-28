@@ -213,82 +213,229 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
         </div>
         <!-- Pricing Plans -->
         <div class="mb-16">
-  <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
-    Pricing <span class="text-[#00E5C3]">Tiers</span>
-  </h2>
-  <p class="text-white text-center mb-12 max-w-2xl mx-auto">Because custom software scopes vary wildly, these tiers provide a general baseline for our engineering engagements.</p>
-  
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          
+          <!-- Custom Websites Grid -->
+          <div class="mb-20">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
+              Custom <span class="text-[#00E5C3]">Websites</span>
+            </h2>
+            <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your website goals. All plans include our signature quality, 100% mobile-first design, and lightning-fast loading speeds.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              @for (plan of websitePlans; track plan.name) {
+                <div [class]="plan.containerClass">
+                  @if (plan.badge) {
+                    <div [class]="'absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full ' + plan.badgeClass">
+                      {{ plan.badge }}
+                    </div>
+                  }
 
-    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg mt-4">
-      <div class="mb-6">
-        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Starter Web App</div>
-        <div class="text-4xl font-heading font-bold text-white mb-2">₹49,999</div>
-        <div class="text-white/80 text-sm leading-relaxed min-h-[40px]">
-          Best for internal tools, portals & simple custom platforms
+                  @if (!plan.isCustom) {
+                    <!-- Standard Cards -->
+                    <div class="mb-6 flex flex-col gap-1.5">
+                      <div [class]="'text-xs font-mono uppercase tracking-widest mb-1 ' + plan.monoColor">// {{ plan.name }}</div>
+                      
+                      <!-- Top Row: Original Price + Savings Badge -->
+                      @if (plan.originalPrice) {
+                        <div class="flex items-center gap-2">
+                          <span class="relative px-1.5 py-0.5 text-xl font-bold text-white" style="background: linear-gradient(to top right, transparent 45%, #EF4444 48%, #EF4444 52%, transparent 55%), linear-gradient(to bottom right, transparent 45%, #EF4444 48%, #EF4444 52%, transparent 55%);">
+                            {{ plan.originalPrice }}
+                          </span>
+                          <span class="bg-emerald-500/10 text-emerald-400 text-sm font-bold px-2.5 py-1 rounded-full shrink-0">{{ plan.savingsBadge }}</span>
+                        </div>
+                      }
+
+                      <!-- Bottom Row: Price -->
+                      <div class="flex items-baseline gap-1.5">
+                        <span class="text-5xl font-heading font-bold text-white">
+                          {{ plan.price }}
+                        </span>
+                        <span class="text-white text-sm opacity-80">one-time</span>
+                      </div>
+                      <div class="text-white text-xs opacity-60 flex items-center gap-1 mt-0.5">
+                        <span>🕒</span> {{ plan.timeline }}
+                      </div>
+                    </div>
+                    
+                    <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-6">
+                      @for (feature of plan.features; track feature) {
+                        <li class="flex items-start gap-2">
+                          <span class="text-[#00E5C3] mt-0.5">✓</span> {{ feature }}
+                        </li>
+                      }
+                      @for (notInc of plan.notIncluded; track notInc) {
+                        <li class="flex items-start gap-2 text-white/40 line-through decoration-white/20">
+                          <span class="text-rose-500/60 mt-0.5 font-bold">✗</span> {{ notInc }}
+                        </li>
+                      }
+                    </ul>
+
+                    @if (plan.yearlyRenewal) {
+                      <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-white/10">
+                        <span class="block mb-1">↻ Yearly renewal: {{ plan.yearlyRenewal }}</span>
+                        <span>(hosting + SSL + Maintenance)</span>
+                      </div>
+                    }
+
+                    <a (click)="selectPlan(plan.name + ' Custom Dev', plan.price)"
+                       [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 rounded-xl ' + plan.buttonClass">
+                      Choose {{ plan.name }}
+                    </a>
+
+                  } @else {
+                    <!-- Enterprise Card -->
+                    <div class="mb-6 text-center">
+                      <div class="text-sm font-bold text-white mb-2">{{ plan.name }}</div>
+                      <div class="text-5xl font-heading font-bold text-[#7B61FF] mb-2">Custom</div>
+                      <div class="text-white text-sm opacity-80">🏷️ custom quote</div>
+                      @if (plan.description) {
+                        <p class="text-xs text-white/60 mt-3 leading-relaxed max-w-[220px] mx-auto">
+                          {{ plan.description }}
+                        </p>
+                      }
+                      <div class="text-white text-xs opacity-60 flex items-center justify-center gap-1 mt-2.5">
+                        <span>🕒</span> {{ plan.timeline }}
+                      </div>
+                    </div>
+                    
+                    <div class="w-full h-px bg-white/10 my-4"></div>
+                    
+                    <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8 mt-2">
+                      @for (feature of plan.features; track feature) {
+                        <li class="flex items-start gap-2">
+                          <span class="text-[#7B61FF] mt-0.5">✓</span> {{ feature }}
+                        </li>
+                      }
+                      @for (notInc of plan.notIncluded; track notInc) {
+                        <li class="flex items-start gap-2 text-white/40 line-through decoration-white/20">
+                          <span class="text-rose-500/60 mt-0.5 font-bold">✗</span> {{ notInc }}
+                        </li>
+                      }
+                    </ul>
+
+                    <a (click)="selectPlan(plan.name + ' Custom Dev', 'Custom Quote')"
+                       [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 flex items-center justify-center gap-2 rounded-xl ' + plan.buttonClass">
+                      Get Custom Quote
+                    </a>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="w-full max-w-6xl mx-auto h-px bg-gradient-to-r from-transparent via-white/20 to-transparent my-16"></div>
+
+          <!-- Custom Applications Grid -->
+          <div class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
+              Custom <span class="text-[#00E5C3]">Applications</span>
+            </h2>
+            <p class="text-white text-center mb-12 max-w-2xl mx-auto">Engineered from scratch for complex workflows, portals, SaaS platforms, and enterprise system architectures.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
+              @for (plan of appPlans; track plan.name) {
+                <div [class]="plan.containerClass">
+                  @if (plan.badge) {
+                    <div [class]="'absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full z-20 ' + plan.badgeClass">
+                      {{ plan.badge }}
+                    </div>
+                  }
+
+                  @if (!plan.isCustom) {
+                    <!-- Standard / Promo Cards -->
+                    <div class="mb-6 flex flex-col gap-1.5">
+                      <div [class]="'text-xs font-mono uppercase tracking-widest mb-1 ' + plan.monoColor">// {{ plan.name }}</div>
+                      
+                      <!-- Top Row: Original Price + Savings Badge -->
+                      @if (plan.originalPrice) {
+                        <div class="flex items-center gap-2">
+                          <span class="relative px-1.5 py-0.5 text-xl font-bold text-white" style="background: linear-gradient(to top right, transparent 45%, #EF4444 48%, #EF4444 52%, transparent 55%), linear-gradient(to bottom right, transparent 45%, #EF4444 48%, #EF4444 52%, transparent 55%);">
+                            {{ plan.originalPrice }}
+                          </span>
+                          <span class="bg-emerald-500/10 text-emerald-400 text-sm font-bold px-2.5 py-1 rounded-full shrink-0">{{ plan.savingsBadge }}</span>
+                        </div>
+                      }
+
+                      <!-- Bottom Row: Price -->
+                      <div class="flex items-baseline gap-1.5">
+                        <span class="text-5xl font-heading font-bold text-white">
+                          {{ plan.price }}
+                        </span>
+                        <span class="text-white text-sm opacity-80">one-time</span>
+                      </div>
+                      <div class="text-white text-xs opacity-60 flex items-center gap-1 mt-0.5">
+                        <span>🕒</span> {{ plan.timeline }}
+                      </div>
+                    </div>
+                    
+                    <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-6">
+                      @for (feature of plan.features; track feature) {
+                        <li class="flex items-start gap-2">
+                          <span class="text-[#00E5C3] mt-0.5">✓</span> {{ feature }}
+                        </li>
+                      }
+                      @for (notInc of plan.notIncluded; track notInc) {
+                        <li class="flex items-start gap-2 text-white/40 line-through decoration-white/20">
+                          <span class="text-rose-500/60 mt-0.5 font-bold">✗</span> {{ notInc }}
+                        </li>
+                      }
+                    </ul>
+
+                    @if (plan.yearlyRenewal) {
+                      <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-white/10">
+                        <span class="block mb-1">↻ Yearly renewal: {{ plan.yearlyRenewal }}</span>
+                        <span>(hosting + SSL + Maintenance)</span>
+                      </div>
+                    }
+
+                    <a (click)="selectPlan(plan.name + ' Custom Dev', plan.price)"
+                       [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 rounded-xl ' + plan.buttonClass">
+                      Choose {{ plan.name }}
+                    </a>
+
+                  } @else {
+                    <!-- Enterprise / Custom Card -->
+                    <div class="mb-6 text-center">
+                      <div class="text-sm font-bold text-white mb-2">{{ plan.name }}</div>
+                      <div class="text-5xl font-heading font-bold text-[#7B61FF] mb-2">Custom</div>
+                      <div class="text-white text-sm opacity-80">🏷️ custom quote</div>
+                      @if (plan.description) {
+                        <p class="text-xs text-white/60 mt-3 leading-relaxed max-w-[220px] mx-auto">
+                          {{ plan.description }}
+                        </p>
+                      }
+                      <div class="text-white text-xs opacity-60 flex items-center justify-center gap-1 mt-2.5">
+                        <span>🕒</span> {{ plan.timeline }}
+                      </div>
+                    </div>
+                    
+                    <div class="w-full h-px bg-white/10 my-4"></div>
+                    
+                    <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8 mt-2">
+                      @for (feature of plan.features; track feature) {
+                        <li class="flex items-start gap-2">
+                          <span class="text-[#7B61FF] mt-0.5">✓</span> {{ feature }}
+                        </li>
+                      }
+                      @for (notInc of plan.notIncluded; track notInc) {
+                        <li class="flex items-start gap-2 text-white/40 line-through decoration-white/20">
+                          <span class="text-rose-500/60 mt-0.5 font-bold">✗</span> {{ notInc }}
+                        </li>
+                      }
+                    </ul>
+
+                    <a (click)="selectPlan(plan.name + ' Custom Dev', 'Custom Quote')"
+                       [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 flex items-center justify-center gap-2 rounded-xl ' + plan.buttonClass">
+                      Get Custom Quote
+                    </a>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+
         </div>
-      </div>
-      <div class="w-full h-px bg-white/10 mb-6"></div>
-      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Up to 10 screens / modules</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> User auth & role management</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Admin dashboard & reports</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> MySQL database</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> Mobile responsive</li>
-        <li class="flex items-start gap-2"><span class="text-[#00E5C3] mt-0.5">✓</span> 3 months support</li>
-      </ul>
-      <a (click)="selectPlan('Starter Web App', '₹49,999')" class="cursor-pointer block text-center border border-[#00E5C3] text-[#00E5C3] font-semibold py-3 rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637] transition-all duration-300 flex items-center justify-center gap-2">
-        <span class="text-lg">💬</span> Get This Plan
-      </a>
-    </div>
-
-    <div class="relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03] z-10">
-      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF7A00] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full whitespace-nowrap">★ Most Popular</div>
-      <div class="mb-6">
-        <div class="text-xs font-mono text-[#00E5C3] uppercase tracking-widest mb-2">// Growth Platform</div>
-        <div class="text-4xl font-heading font-bold text-white mb-2">₹99,999</div>
-        <div class="text-white/80 text-sm leading-relaxed min-h-[40px]">
-          For marketplaces, SaaS, booking systems & complex platforms
-        </div>
-      </div>
-      <div class="w-full h-px bg-[#7B61FF]/30 mb-6"></div>
-      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Up to 25 screens / modules</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Multi-role user system</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Payment gateway integration</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> Advanced workflows & automation</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> API integrations</li>
-        <li class="flex items-start gap-2"><span class="text-[#FF7A00] mt-0.5">✓</span> 6 months support</li>
-      </ul>
-      <a (click)="selectPlan('Growth Platform', '₹99,999')" class="cursor-pointer block text-center bg-[#FF7A00] text-white font-bold py-3 rounded-xl hover:bg-[#e66a00] transition-all duration-300 flex items-center justify-center gap-2">
-        <span class="text-lg">💬</span> Get This Plan
-      </a>
-    </div>
-
-    <div class="relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 mt-4">
-      <div class="mb-6">
-        <div class="text-xs font-mono text-[#7B61FF] uppercase tracking-widest mb-2">// Enterprise Build</div>
-        <div class="text-4xl font-heading font-bold text-[#7B61FF] mb-2">Custom Quote</div>
-        <div class="text-white/80 text-sm leading-relaxed min-h-[40px]">
-          For large-scale platforms, mobile apps & full product builds
-        </div>
-      </div>
-      <div class="w-full h-px bg-white/10 mb-6"></div>
-      <ul class="flex flex-col gap-3 text-sm text-white flex-grow mb-8">
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Unlimited scope</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Mobile app (iOS + Android)</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Microservices / scalable architecture</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Third-party API suite</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> Dedicated project manager</li>
-        <li class="flex items-start gap-2"><span class="text-[#7B61FF] mt-0.5">✓</span> 12 months support</li>
-      </ul>
-      <a (click)="selectPlan('Enterprise Build', 'Custom Quote')" class="cursor-pointer block text-center border border-[#7B61FF] text-[#7B61FF] font-semibold py-3 rounded-xl hover:bg-[#7B61FF] hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
-        <span class="text-lg">💬</span> Get This Plan
-      </a>
-    </div>
-
-  </div>
-</div>
         <div class="text-center">
           <a routerLink="/contact" class="btn-primary">Schedule a Discovery Call →</a>
         </div>
@@ -297,6 +444,208 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
   `
 })
 export class CustomDevComponent {
+  websitePlans = [
+    {
+      name: 'Starter Website',
+      price: '₹6,999',
+      originalPrice: '₹9,999',
+      savingsBadge: 'Save 30%',
+      timeline: '7-day delivery',
+      features: [
+        '5-page custom website',
+        'Mobile responsive design',
+        'On-page SEO (3 pages)',
+        'Contact form',
+        '1 year free hosting',
+        'SSL certificate',
+        '3 design revisions',
+        'Domain Included'
+      ],
+      notIncluded: [
+        'WhatsApp Integration',
+        'CMS Integration (Growth has it)',
+        'E-commerce setup',
+        'More than 3 design revisions'
+      ],
+      yearlyRenewal: '₹2,999',
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Plus Website',
+      price: '₹12,499',
+      originalPrice: '₹15,999',
+      savingsBadge: 'Save 22%',
+      timeline: '10-day delivery',
+      features: [
+        '7-page custom website',
+        'Mobile responsive design',
+        'On-page SEO (7 pages)',
+        'Contact form',
+        '1 year free hosting',
+        'SSL certificate',
+        'WhatsApp Integration',
+        '4 design revisions',
+        'Domain Included'
+      ],
+      notIncluded: [
+        'Advanced On-Page SEO',
+        'Google Analytics Setup',
+        'CMS Setup (Growth has it)',
+        'Post-launch Support'
+      ],
+      yearlyRenewal: '₹3,499',
+      badge: '★ Most Popular',
+      badgeClass: 'bg-[#FF7A00] text-white',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Growth Website',
+      price: '₹25,999',
+      originalPrice: '₹29,999',
+      savingsBadge: 'Save 13%',
+      timeline: '18-day delivery',
+      features: [
+        '15-page custom website',
+        'Mobile responsive design',
+        'Advanced on-page SEO',
+        'Contact & lead forms',
+        'Basic CMS setup',
+        'WhatsApp Integration',
+        'Google Analytics setup',
+        '8 design revisions',
+        '1 year free hosting',
+        'SSL certificate',
+        '1 month support',
+        'Domain Included'
+      ],
+      notIncluded: [
+        'Custom Web App / E-commerce Features',
+        'Priority support 24/7',
+        'Dedicated Project Manager'
+      ],
+      yearlyRenewal: '₹4,999',
+      badge: '★ Most Popular',
+      badgeClass: 'bg-[#FF7A00] text-white',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Enterprise Website',
+      price: 'Custom Quote',
+      originalPrice: null,
+      savingsBadge: null,
+      timeline: 'Custom timeline',
+      description: 'Need something completely bespoke? We build premium high-performance custom website systems, customized animations, integration with your CRM/ERP systems, and advanced SEO strategy.',
+      features: [
+        'Unlimited pages',
+        'Custom interactive elements',
+        'Advanced integrations (CRM, ERP)',
+        'Premium UI animations',
+        'Dedicated project manager',
+        'Priority support 24/7',
+        '12 months support & maintenance',
+        'Domain Included'
+      ],
+      notIncluded: [],
+      yearlyRenewal: null,
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 h-full lg:min-h-[960px] md:min-h-[960px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#7B61FF] text-[#7B61FF] rounded-full hover:bg-[#7B61FF] hover:text-white',
+      isCustom: true
+    }
+  ];
+
+  appPlans = [
+    {
+      name: 'Starter Web App',
+      price: '₹49,999',
+      originalPrice: '₹59,999',
+      savingsBadge: 'Save 16%',
+      timeline: '2–4 weeks delivery',
+      features: [
+        'Up to 10 screens / modules',
+        'User auth & role management',
+        'Admin dashboard & reports',
+        'MySQL database',
+        'Mobile responsive',
+        '3 months support'
+      ],
+      notIncluded: [
+        'Multi-role user system (Growth has it)',
+        'Payment gateway integration (Growth has it)',
+        'API integrations & automation (Growth has it)',
+        'Support beyond 3 months'
+      ],
+      yearlyRenewal: '₹9,999',
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[760px] md:min-h-[760px] mt-4',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Growth Platform',
+      price: '₹99,999',
+      originalPrice: '₹1,29,999',
+      savingsBadge: 'Save 23%',
+      timeline: '4–8 weeks delivery',
+      features: [
+        'Up to 25 screens / modules',
+        'Multi-role user system',
+        'Payment gateway integration',
+        'Advanced workflows & automation',
+        'API integrations',
+        '6 months support'
+      ],
+      notIncluded: [
+        'Unlimited scope (Enterprise has it)',
+        'Mobile app iOS + Android (Enterprise has it)',
+        'Dedicated project manager',
+        'Support beyond 6 months'
+      ],
+      yearlyRenewal: '₹14,999',
+      badge: '★ Most Popular',
+      badgeClass: 'bg-[#FF7A00] text-white',
+      containerClass: 'relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03] z-10 h-full lg:min-h-[760px] md:min-h-[760px]',
+      monoColor: 'text-[#00E5C3]',
+      buttonClass: 'bg-[#FF7A00] text-white font-bold hover:bg-[#e66a00]',
+      isCustom: false
+    },
+    {
+      name: 'Enterprise Build',
+      price: 'Custom Quote',
+      originalPrice: null,
+      savingsBadge: null,
+      timeline: 'Custom timeline',
+      description: 'For large-scale platforms, mobile apps & full product builds designed to work exactly the way your enterprise runs.',
+      features: [
+        'Unlimited scope',
+        'Mobile app (iOS + Android)',
+        'Microservices / scalable architecture',
+        'Third-party API suite',
+        'Dedicated project manager',
+        '12 months support'
+      ],
+      notIncluded: [],
+      yearlyRenewal: null,
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 h-full lg:min-h-[760px] md:min-h-[760px] mt-4',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#7B61FF] text-[#7B61FF] rounded-xl hover:bg-[#7B61FF] hover:text-white',
+      isCustom: true
+    }
+  ];
+
   selectPlan(planName: string, price: string) {
     const text = `Hello CoreGrid team, 
     I am reaching out from your website. I am interested in moving forward with the ${planName} plan at ${price}. 
