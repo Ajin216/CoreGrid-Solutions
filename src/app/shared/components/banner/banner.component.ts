@@ -21,10 +21,20 @@ import { FormsModule, NgForm } from '@angular/forms';
       <!-- Background Ambient Glow -->
       <div class="absolute inset-0 bg-gradient-to-br from-[rgba(123,97,255,0.05)] to-transparent pointer-events-none"></div>
       
-      <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
-        
-        <!-- Left Side: Quotes & Data -->
-        <div class="ag-fade-up">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+        <!-- Back to Services Button (Big & Noticeable, placed under navbar in normal flow) -->
+        @if (showBreadcrumbs) {
+          <div class="mb-4 md:mb-8">
+            <a routerLink="/services" class="inline-flex items-center gap-2 md:gap-3 px-4 py-2 md:px-6 md:py-3 rounded-xl md:rounded-2xl bg-[rgba(15,22,55,0.85)] backdrop-blur-md border-2 border-[#00E5C3]/40 text-white hover:text-[#0F1637] hover:bg-[#00E5C3] hover:border-[#00E5C3] transition-all duration-300 font-heading font-bold text-xs md:text-sm uppercase tracking-wider group shadow-[0_0_25px_rgba(0,229,195,0.25)] cursor-pointer">
+              <span class="inline-block text-base md:text-lg font-bold transition-transform duration-300 group-hover:-translate-x-1.5">←</span> Back to Services
+            </a>
+          </div>
+        }
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          
+          <!-- Left Side: Quotes & Data -->
+          <div class="ag-fade-up">
           @if (showBreadcrumbs) {
             <nav class="flex items-center gap-2.5 text-sm md:text-base font-mono text-white/50 mb-6" aria-label="Breadcrumb">
               <a routerLink="/" class="hover:text-[#00E5C3] transition-colors">Home</a>

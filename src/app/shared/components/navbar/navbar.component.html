@@ -5,22 +5,9 @@
 
       <!-- Logo -->
       <a routerLink="/" style="display: inline-flex; align-items: center; gap: 10px; text-decoration:none;">
-        <span style="
-          width: 34px; height: 34px; border-radius: 10px;
-          background: linear-gradient(135deg, #7B61FF, #00C4A7);
-          display: flex; align-items: center; justify-content: center;
-          box-shadow: 0 4px 14px rgba(123,97,255,0.40);
-        ">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <rect x="1" y="1" width="5.5" height="5.5" rx="1.2" fill="white" opacity="0.95" />
-            <rect x="9.5" y="1" width="5.5" height="5.5" rx="1.2" fill="white" opacity="0.95" />
-            <rect x="1" y="9.5" width="5.5" height="5.5" rx="1.2" fill="white" opacity="0.95" />
-            <rect x="9.5" y="9.5" width="5.5" height="5.5" rx="1.2" fill="white" opacity="0.55" />
-          </svg>
-        </span>
-        <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:-0.02em;color:#F0EFFF;">
-          CoreGrid <span class="text-gradient">Solutions</span>
-        </span>
+        <img src="assets/images/CoreGrid solutions logo small-01.webp" alt="CoreGrid Solutions Logo"
+          style="height: 38px; width: auto; object-fit: contain;">
+
       </a>
 
       <!-- Desktop nav -->
@@ -37,18 +24,23 @@
         <a routerLink="/about" routerLinkActive="active-link"
           style="font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:500;color:#A8B2D8;transition:color 0.2s;text-decoration:none;"
           onmouseenter="this.style.color='#A78BFF'" onmouseleave="this.style.color='#A8B2D8'">About Us</a>
-        <a routerLink="/contact" class="btn-primary" style="padding: 10px 24px; font-size: 0.875rem; background:linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%); box-shadow:0 4px 20px rgba(255,140,0,0.45); border:none;">
+        <a routerLink="/contact" class="btn-primary"
+          style="padding: 10px 24px; font-size: 0.875rem; background:linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%); box-shadow:0 4px 20px rgba(255,140,0,0.45); border:none;">
           Get Free Audit
         </a>
       </nav>
 
       <!-- Mobile hamburger menu button -->
-      <button class="flex md:hidden items-center justify-center p-2 rounded-lg text-[#F0EFFF] hover:text-[#00E5C3] focus:outline-none transition-colors"
-        (click)="toggleMenu()" aria-label="Toggle navigation menu" style="background: rgba(255,255,255,0.04); border: 1.5px solid rgba(123,97,255,0.2);">
-        <svg *ngIf="!isMenuOpen" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <button
+        class="flex md:hidden items-center justify-center p-2 rounded-lg text-[#F0EFFF] hover:text-[#00E5C3] focus:outline-none transition-colors"
+        (click)="toggleMenu()" aria-label="Toggle navigation menu"
+        style="background: rgba(255,255,255,0.04); border: 1.5px solid rgba(123,97,255,0.2);">
+        <svg *ngIf="!isMenuOpen" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"
+          viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
-        <svg *ngIf="isMenuOpen" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <svg *ngIf="isMenuOpen" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"
+          viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
@@ -69,46 +61,51 @@
     animation: slideDown 0.3s ease-out;
   ">
     <div style="display: flex; flex-direction: column; gap: 16px;">
-      
+
       <div class="mono-tag" style="margin-bottom: 4px; color: #00E5C3;">// navigation_portal</div>
-      
-      <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenu()" class="mobile-nav-link"
+
+      <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenu()"
+        class="mobile-nav-link"
         style="font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;color:#F0EFFF;text-decoration:none;padding:8px 0;border-bottom: 1px solid rgba(255,255,255,0.05);display: flex; justify-content: space-between; align-items: center;">
-        Home 
+        Home
         <span class="arrow-wrapper">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00E5C3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="chevron-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00E5C3" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" class="chevron-icon">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
         </span>
       </a>
       <a routerLink="/services" routerLinkActive="active-link" (click)="closeMenu()" class="mobile-nav-link"
         style="font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;color:#F0EFFF;text-decoration:none;padding:8px 0;border-bottom: 1px solid rgba(255,255,255,0.05);display: flex; justify-content: space-between; align-items: center;">
-        Services 
+        Services
         <span class="arrow-wrapper">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00E5C3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="chevron-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00E5C3" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" class="chevron-icon">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
         </span>
       </a>
       <a routerLink="/portfolio" routerLinkActive="active-link" (click)="closeMenu()" class="mobile-nav-link"
         style="font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;color:#F0EFFF;text-decoration:none;padding:8px 0;border-bottom: 1px solid rgba(255,255,255,0.05);display: flex; justify-content: space-between; align-items: center;">
-        Portfolio 
+        Portfolio
         <span class="arrow-wrapper">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00E5C3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="chevron-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00E5C3" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" class="chevron-icon">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
         </span>
       </a>
       <a routerLink="/about" routerLinkActive="active-link" (click)="closeMenu()" class="mobile-nav-link"
         style="font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;color:#F0EFFF;text-decoration:none;padding:8px 0;border-bottom: 1px solid rgba(255,255,255,0.05);display: flex; justify-content: space-between; align-items: center;">
-        About Us 
+        About Us
         <span class="arrow-wrapper">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00E5C3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="chevron-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00E5C3" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" class="chevron-icon">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
         </span>
       </a>
-      
+
       <a routerLink="/contact" class="btn-primary" (click)="closeMenu()"
         style="padding: 14px 28px; font-size: 0.95rem; text-align: center; justify-content: center; width: 100%; margin-top: 10px; background:linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%); box-shadow:0 4px 20px rgba(255,140,0,0.45); border:none;">
         Get Free Audit

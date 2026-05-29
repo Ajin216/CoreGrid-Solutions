@@ -3,24 +3,24 @@ import { RouterLink } from '@angular/router';
 import { BannerComponent } from '../../../shared/components/banner/banner.component';
 
 @Component({
-  selector: 'app-custom-dev',
+  selector: 'app-google-business-profile',
   standalone: true,
   imports: [RouterLink, BannerComponent],
   template: `
     <app-banner 
-      badgeText="Custom Development"
-      title="Smart Solutions for"
-      highlightTitle="Modern Enterprises"
-      quote="We create secure, scalable, and high-performance software customized to your unique business needs."
+      badgeText="Local Visibility"
+      title="Dominate Local Search"
+      highlightTitle="Google Maps"
+      quote="We claim, optimize, and manage your Google Business Profile to attract local customers, build 5-star trust, and drive direct actions."
       dataValue1=""
       dataLabel1=""
       dataValue2=""
       dataLabel2=""
-      formTitle="Get a Custom Quote"
-      formButtonText="Launch Project"
-      serviceName="Custom Development"
+      formTitle="Get a Free GBP Audit"
+      formButtonText="Claim My Profile"
+      serviceName="Google Business Profile Management"
       [showBreadcrumbs]="true"
-      currentServiceName="Custom Development">
+      currentServiceName="Google Business Profile">
     </app-banner>
     <section class="ag-section exact-navy-gradient animate-section-wrapper" style="position:relative;overflow:hidden;">
       <!-- Drifting dot grid background -->
@@ -42,31 +42,33 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
       <div class="falling-orb orb-right"></div>
 
       <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
-        <div class="ag-badge mb-6 badge-pulse-blink" style="color:#00E5C3;border-color:rgba(0,229,195,0.3);"><span class="dot" style="background-color:#00E5C3;"></span>// 07 — Custom Development</div>
+        <div class="ag-badge mb-6 badge-pulse-blink" style="color:#00E5C3;border-color:rgba(0,229,195,0.3);"><span class="dot" style="background-color:#00E5C3;"></span>// 08 — local_seo</div>
         <h1 class="text-4xl md:text-6xl font-heading font-bold text-white mb-6 tracking-tight">
-          Custom <span class="text-[#00E5C3]">Development</span>
+          Google Business Profile <span class="text-[#00E5C3]">Setup & Management</span>
         </h1>
         <p class="text-white text-lg md:text-xl max-w-3xl mb-12">
-          Bespoke web architectures, custom API workflows, SaaS platforms, and internal tool integrations tailored precisely to match your unique operational demands and business logic.
+          Claim, verify, and aggressively optimize your Google Business Profile (formerly Google My Business) to command top rankings on Google Maps and drive highly qualified local traffic to your doorstep.
         </p>
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div class="ag-card p-8">
-            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">Custom</div>
-            <div class="text-white text-sm font-mono">Consultation Required</div>
+            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">₹5,999</div>
+            <div class="text-white text-sm font-mono">Starter One-Time Setup</div>
           </div>
           <div class="ag-card p-8">
-            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">Flexible</div>
-            <div class="text-white text-sm font-mono">Timeline & Scope</div>
+            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">+300%</div>
+            <div class="text-white text-sm font-mono">Avg. Local Direction Requests</div>
           </div>
           <div class="ag-card p-8">
-            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">Dedicated</div>
-            <div class="text-white text-sm font-mono">Engineering Team</div>
+            <div class="text-3xl font-heading font-bold text-[#00E5C3] mb-2">Top 3</div>
+            <div class="text-white text-sm font-mono">Local Pack Ranking Target</div>
           </div>
         </div>
-        <!-- What We Build Section -->
+
+        <!-- What's Included Section -->
         <div class="mb-16">
           <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-8 text-center">
-            What We <span class="text-[#00E5C3]">Build</span>
+            What's <span class="text-[#00E5C3]">Included</span>
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-5 max-w-6xl mx-auto relative">
             
@@ -75,8 +77,8 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                 <div class="w-full h-full bg-[#0F1637] rounded-full flex items-center justify-center text-[#00E5C3] font-bold text-lg">1</div>
               </div>
               <div class="flex-grow pt-1">
-                <h3 class="text-white font-bold text-lg mb-1">SaaS Platforms</h3>
-                <p class="text-white text-sm">Scalable, multi-tenant architectures designed for high performance and subscription models.</p>
+                <h3 class="text-white font-bold text-lg mb-1">Claim & Verification</h3>
+                <p class="text-white text-sm">Completing Google ownership validation and resolving listing duplicates.</p>
               </div>
             </div>
 
@@ -85,8 +87,8 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                 <div class="w-full h-full bg-[#0F1637] rounded-full flex items-center justify-center text-[#00E5C3] font-bold text-lg">2</div>
               </div>
               <div class="flex-grow pt-1">
-                <h3 class="text-white font-bold text-lg mb-1">Custom APIs</h3>
-                <p class="text-white text-sm">Robust REST and GraphQL API development bridging systems and enabling seamless data flow.</p>
+                <h3 class="text-white font-bold text-lg mb-1">Information Optimization</h3>
+                <p class="text-white text-sm">Targeting high-intent categories, services, and writing geo-optimized copy.</p>
               </div>
             </div>
 
@@ -95,8 +97,8 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                 <div class="w-full h-full bg-[#0F1637] rounded-full flex items-center justify-center text-[#00E5C3] font-bold text-lg">3</div>
               </div>
               <div class="flex-grow pt-1">
-                <h3 class="text-white font-bold text-lg mb-1">Internal Tools</h3>
-                <p class="text-white text-sm">Bespoke business tools and operational dashboards optimizing your internal workflows.</p>
+                <h3 class="text-white font-bold text-lg mb-1">Review Booster Setup</h3>
+                <p class="text-white text-sm">Deploying custom review links and response templates to elevate trust ratings.</p>
               </div>
             </div>
 
@@ -105,8 +107,8 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                 <div class="w-full h-full bg-[#0F1637] rounded-full flex items-center justify-center text-[#00E5C3] font-bold text-lg">4</div>
               </div>
               <div class="flex-grow pt-1">
-                <h3 class="text-white font-bold text-lg mb-1">Integrations</h3>
-                <p class="text-white text-sm">Deep third-party integrations and webhooks orchestrating your digital ecosystem.</p>
+                <h3 class="text-white font-bold text-lg mb-1">Citation Sync</h3>
+                <p class="text-white text-sm">Locking in Name, Address, and Phone number (NAP) consistency across directories.</p>
               </div>
             </div>
 
@@ -115,8 +117,8 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                 <div class="w-full h-full bg-[#0F1637] rounded-full flex items-center justify-center text-[#00E5C3] font-bold text-lg">5</div>
               </div>
               <div class="flex-grow pt-1">
-                <h3 class="text-white font-bold text-lg mb-1">Modernization</h3>
-                <p class="text-white text-sm">Refactoring and migrating legacy systems to modern, maintainable stacks.</p>
+                <h3 class="text-white font-bold text-lg mb-1">Local Citations</h3>
+                <p class="text-white text-sm">Regularly building new citations to signal geo-authority to search crawlers.</p>
               </div>
             </div>
 
@@ -125,18 +127,18 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                 <div class="w-full h-full bg-[#0F1637] rounded-full flex items-center justify-center text-[#00E5C3] font-bold text-lg">6</div>
               </div>
               <div class="flex-grow pt-1">
-                <h3 class="text-white font-bold text-lg mb-1">Microservices</h3>
-                <p class="text-white text-sm">Decoupled, serverless architectures engineered for infinite scale and resilience.</p>
+                <h3 class="text-white font-bold text-lg mb-1">Competitor Tracking</h3>
+                <p class="text-white text-sm">Identifying competitor category systems and reporting spam/fake listings.</p>
               </div>
             </div>
             
           </div>
         </div>
 
-        <!-- How We Build Your Software Section -->
+        <!-- How We Rank Your Business Section -->
         <div class="mb-20">
           <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-12 text-center">
-            How we build your <span class="text-[#00E5C3]">software</span>
+            How we rank your <span class="text-[#00E5C3]">business</span>
           </h2>
           
           <div class="relative max-w-5xl mx-auto px-4">
@@ -157,8 +159,8 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                   1
                 </div>
                 <div>
-                  <h3 class="text-white font-bold text-lg mb-1">Analysis</h3>
-                  <p class="text-white text-sm">Deep dive into your business logic and technical requirements.</p>
+                  <h3 class="text-white font-bold text-lg mb-1">Verify</h3>
+                  <p class="text-white text-sm">Unlocking profile ownership, fixing duplicates, and passing verification.</p>
                 </div>
               </div>
 
@@ -168,8 +170,8 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                   2
                 </div>
                 <div>
-                  <h3 class="text-white font-bold text-lg mb-1">Architecture</h3>
-                  <p class="text-white text-sm">Designing scalable data models and cloud infrastructure plans.</p>
+                  <h3 class="text-white font-bold text-lg mb-1">Optimize</h3>
+                  <p class="text-white text-sm">Locking in metadata categories, GEO-tagged media, and NAP consistency.</p>
                 </div>
               </div>
 
@@ -179,8 +181,8 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                   3
                 </div>
                 <div>
-                  <h3 class="text-white font-bold text-lg mb-1">Engineering</h3>
-                  <p class="text-white text-sm">Agile sprints delivering functional code and robust endpoints.</p>
+                  <h3 class="text-white font-bold text-lg mb-1">Automate</h3>
+                  <p class="text-white text-sm">Activating automated review-gathering campaign routes.</p>
                 </div>
               </div>
 
@@ -190,8 +192,8 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                   4
                 </div>
                 <div>
-                  <h3 class="text-white font-bold text-lg mb-1">Deployment</h3>
-                  <p class="text-white text-sm">Rigorous QA, CI/CD pipeline setup, and production rollout.</p>
+                  <h3 class="text-white font-bold text-lg mb-1">Growth</h3>
+                  <p class="text-white text-sm">Publishing strategic updates, citations, and clearing spam listings.</p>
                 </div>
               </div>
             </div>
@@ -201,28 +203,29 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
         <!-- Tech Stack -->
         <div class="mb-16 max-w-4xl mx-auto">
           <div class="ag-card p-8">
-            <h2 class="text-2xl font-heading font-bold text-[#00E5C3] mb-6 text-center">Tech Stack</h2>
+            <h2 class="text-2xl font-heading font-bold text-[#00E5C3] mb-6 text-center">Tools We Use</h2>
             <ul class="flex flex-wrap justify-center gap-4 text-white text-sm leading-relaxed">
-              <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> Angular, React, Next.js</li>
-              <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> Node.js, Python, Go</li>
-              <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> PostgreSQL / MongoDB</li>
-              <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> AWS / Docker / K8s</li>
-              <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> CI/CD Pipelines</li>
+              <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> Google Business Profile API</li>
+              <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> Google Maps Platform</li>
+              <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> BrightLocal & Whitespark</li>
+              <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> SEMrush Local</li>
+              <li class="flex items-center gap-2 bg-[rgba(15,22,55,0.8)] px-5 py-2.5 rounded-full border border-[#324AB3] hover:border-[#00E5C3] transition-colors"><span class="w-2 h-2 rounded-full bg-[#00E5C3]"></span> Looker Studio Dashboards</li>
             </ul>
           </div>
         </div>
+
         <!-- Pricing Plans -->
         <div class="mb-16">
           
-          <!-- Custom Websites Grid -->
+          <!-- Newly Created Business Setup Plans -->
           <div class="mb-20">
             <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
-              Custom <span class="text-[#00E5C3]">Websites</span>
+              Newly Created Business <span class="text-[#00E5C3]">Setup Plans</span>
             </h2>
-            <p class="text-white text-center mb-12 max-w-2xl mx-auto">Choose a plan that fits your website goals. All plans include our signature quality, 100% mobile-first design, and lightning-fast loading speeds.</p>
+            <p class="text-white text-center mb-12 max-w-2xl mx-auto">Get your business verified and correctly configured on Google Maps. Perfect for newly launched businesses or unclaimed profiles.</p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-              @for (plan of websitePlans; track plan.name) {
+              @for (plan of setupPlans; track plan.name) {
                 <div [class]="plan.containerClass">
                   @if (plan.badge) {
                     <div [class]="'absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full ' + plan.badgeClass">
@@ -231,7 +234,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                   }
 
                   @if (!plan.isCustom) {
-                    <!-- Standard Cards -->
+                    <!-- Standard Setup Cards -->
                     <div class="mb-6 flex flex-col gap-1.5">
                       <div [class]="'text-xs font-mono uppercase tracking-widest mb-1 ' + plan.monoColor">// {{ plan.name }}</div>
                       
@@ -250,7 +253,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                         <span class="text-5xl font-heading font-bold text-white">
                           {{ plan.price }}
                         </span>
-                        <span class="text-white text-sm opacity-80">one-time</span>
+                        <span class="text-white text-sm opacity-80">{{ plan.priceSuffix }}</span>
                       </div>
                       <div class="text-white text-xs opacity-60 flex items-center gap-1 mt-0.5">
                         <span>🕒</span> {{ plan.timeline }}
@@ -270,20 +273,17 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                       }
                     </ul>
 
-                    @if (plan.yearlyRenewal) {
-                      <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-white/10">
-                        <span class="block mb-1">↻ Yearly renewal: {{ plan.yearlyRenewal }}</span>
-                        <span>(hosting + SSL + Maintenance)</span>
-                      </div>
-                    }
+                    <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-white/10">
+                      <span>✓ One-time setup package</span>
+                    </div>
 
-                    <a (click)="selectPlan(plan.name + ' Custom Dev', plan.price)"
+                    <a (click)="selectPlan(plan.name + ' Setup', plan.price)"
                        [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 rounded-xl ' + plan.buttonClass">
                       Choose {{ plan.name }}
                     </a>
 
                   } @else {
-                    <!-- Enterprise Card -->
+                    <!-- Enterprise Setup Custom Card -->
                     <div class="mb-6 text-center">
                       <div class="text-sm font-bold text-white mb-2">{{ plan.name }}</div>
                       <div class="text-5xl font-heading font-bold text-[#7B61FF] mb-2">Custom</div>
@@ -313,7 +313,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                       }
                     </ul>
 
-                    <a (click)="selectPlan(plan.name + ' Custom Dev', 'Custom Quote')"
+                    <a (click)="selectPlan('Enterprise GBP Setup', 'Custom Quote')"
                        [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 flex items-center justify-center gap-2 rounded-xl ' + plan.buttonClass">
                       Get Custom Quote
                     </a>
@@ -326,15 +326,15 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
           <!-- Divider -->
           <div class="w-full max-w-6xl mx-auto h-px bg-gradient-to-r from-transparent via-white/20 to-transparent my-16"></div>
 
-          <!-- Custom Applications Grid -->
+          <!-- Ongoing Management & Maintenance Plans -->
           <div class="mb-16">
             <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-center">
-              Custom <span class="text-[#00E5C3]">Applications</span>
+              Ongoing Management & <span class="text-[#00E5C3]">Maintenance Plans</span>
             </h2>
-            <p class="text-white text-center mb-12 max-w-2xl mx-auto">Engineered from scratch for complex workflows, portals, SaaS platforms, and enterprise system architectures.</p>
+            <p class="text-white text-center mb-12 max-w-2xl mx-auto">Aggressive monthly post updates, regular high-authority citations, active review campaigns, and competitor tracking to dominate search pack rankings.</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
-              @for (plan of appPlans; track plan.name) {
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              @for (plan of maintenancePlans; track plan.name) {
                 <div [class]="plan.containerClass">
                   @if (plan.badge) {
                     <div [class]="'absolute -top-4 left-1/2 -translate-x-1/2 text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full z-20 ' + plan.badgeClass">
@@ -343,7 +343,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                   }
 
                   @if (!plan.isCustom) {
-                    <!-- Standard / Promo Cards -->
+                    <!-- Standard Maintenance Cards -->
                     <div class="mb-6 flex flex-col gap-1.5">
                       <div [class]="'text-xs font-mono uppercase tracking-widest mb-1 ' + plan.monoColor">// {{ plan.name }}</div>
                       
@@ -362,7 +362,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                         <span class="text-5xl font-heading font-bold text-white">
                           {{ plan.price }}
                         </span>
-                        <span class="text-white text-sm opacity-80">one-time</span>
+                        <span class="text-white text-sm opacity-80">{{ plan.priceSuffix }}</span>
                       </div>
                       <div class="text-white text-xs opacity-60 flex items-center gap-1 mt-0.5">
                         <span>🕒</span> {{ plan.timeline }}
@@ -382,20 +382,17 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                       }
                     </ul>
 
-                    @if (plan.yearlyRenewal) {
-                      <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-white/10">
-                        <span class="block mb-1">↻ Yearly renewal: {{ plan.yearlyRenewal }}</span>
-                        <span>(hosting + SSL + Maintenance)</span>
-                      </div>
-                    }
+                    <div class="text-center text-xs text-white/60 mb-4 pb-4 border-b border-white/10">
+                      <span>↻ Monthly renewal (cancel anytime)</span>
+                    </div>
 
-                    <a (click)="selectPlan(plan.name + ' Custom Dev', plan.price)"
+                    <a (click)="selectPlan(plan.name + ' Maintenance', plan.price)"
                        [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 rounded-xl ' + plan.buttonClass">
                       Choose {{ plan.name }}
                     </a>
 
                   } @else {
-                    <!-- Enterprise / Custom Card -->
+                    <!-- Enterprise Maintenance Custom Card -->
                     <div class="mb-6 text-center">
                       <div class="text-sm font-bold text-white mb-2">{{ plan.name }}</div>
                       <div class="text-5xl font-heading font-bold text-[#7B61FF] mb-2">Custom</div>
@@ -425,7 +422,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
                       }
                     </ul>
 
-                    <a (click)="selectPlan(plan.name + ' Custom Dev', 'Custom Quote')"
+                    <a (click)="selectPlan('Enterprise GBP Maintenance', 'Custom Quote')"
                        [class]="'cursor-pointer block text-center font-semibold py-3 transition-all duration-300 flex items-center justify-center gap-2 rounded-xl ' + plan.buttonClass">
                       Get Custom Quote
                     </a>
@@ -437,209 +434,234 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
 
         </div>
         <div class="text-center">
-          <a routerLink="/contact" class="btn-primary">Schedule a Discovery Call →</a>
+          <a routerLink="/contact" class="btn-primary">Get a Free GMB Audit →</a>
         </div>
       </div>
     </section>
   `
 })
-export class CustomDevComponent {
-  websitePlans = [
+export class GoogleBusinessProfileComponent {
+  setupPlans = [
     {
-      name: 'Starter Website',
-      price: '₹6,999',
-      originalPrice: '₹9,999',
-      savingsBadge: 'Save 30%',
-      timeline: '7-day delivery',
+      name: 'Starter Setup',
+      price: '₹5,999',
+      priceSuffix: 'one-time',
+      originalPrice: '₹6,799',
+      savingsBadge: 'Save 12%',
+      timeline: 'Completed in 10 days',
+      isMonthly: false,
       features: [
-        '5-page custom website',
-        'Mobile responsive design',
-        'On-page SEO (3 pages)',
-        'Contact form',
-        '1 year free hosting',
-        'SSL certificate',
-        '3 design revisions',
-        'Domain Included'
+        'Profile claiming & verification support',
+        '100% complete business details optimization',
+        'Strategic category & service configuration',
+        'Review generation custom link setup',
+        'Google Maps custom marker lock',
+        '2 months post-setup support'
       ],
       notIncluded: [
-        'WhatsApp Integration',
-        'CMS Integration (Growth has it)',
-        'E-commerce setup',
-        'More than 3 design revisions'
+        'Advanced Citation Submission',
+        'Review QR code design templates',
+        'Competitor GMB tracking',
+        'GEO-tagged photos (Plus has 24)'
       ],
-      yearlyRenewal: '₹2,999',
       badge: null,
-      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px]',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[780px] md:min-h-[780px]',
       monoColor: 'text-[#7B61FF]',
       buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
       isCustom: false
     },
     {
-      name: 'Plus Website',
-      price: '₹12,499',
-      originalPrice: '₹15,999',
-      savingsBadge: 'Save 22%',
-      timeline: '10-day delivery',
+      name: 'Advanced Setup',
+      price: '₹7,999',
+      priceSuffix: 'one-time',
+      originalPrice: '₹9,499',
+      savingsBadge: 'Save 16%',
+      timeline: 'Completed in 14 days',
+      isMonthly: false,
       features: [
-        '7-page custom website',
-        'Mobile responsive design',
-        'On-page SEO (7 pages)',
-        'Contact form',
-        '1 year free hosting',
-        'SSL certificate',
-        'WhatsApp Integration',
-        '4 design revisions',
-        'Domain Included'
+        'Everything in Starter Setup included',
+        'GEO-tagged photo uploads (up to 24)',
+        '25 local directories citations setup',
+        'Review generation QR code templates',
+        'Initial Q&A post setup (up to 5)',
+        'Competitor GMB analysis (up to 2)',
+        '4 months post-setup support',
+        'Local area optimization'
       ],
       notIncluded: [
-        'Advanced On-Page SEO',
-        'Google Analytics Setup',
-        'CMS Setup (Growth has it)',
-        'Post-launch Support'
+        'Custom review funnel booster site',
+        'Dedicated Local SEO strategy session',
+        'Multi-category radius lock'
       ],
-      yearlyRenewal: '₹3,499',
-      badge: '★ Most Popular',
+      badge: '★ Best Value',
       badgeClass: 'bg-[#FF7A00] text-white',
-      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px]',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[780px] md:min-h-[780px]',
       monoColor: 'text-[#7B61FF]',
       buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
       isCustom: false
     },
     {
-      name: 'Growth Website',
-      price: '₹25,999',
-      originalPrice: '₹29,999',
-      savingsBadge: 'Save 13%',
-      timeline: '18-day delivery',
+      name: 'Premium Setup',
+      price: '₹9,999',
+      priceSuffix: 'one-time',
+      originalPrice: '₹15,000',
+      savingsBadge: 'Save 33%',
+      timeline: 'Completed in 21 days',
+      isMonthly: false,
       features: [
-        '15-page custom website',
-        'Mobile responsive design',
-        'Advanced on-page SEO',
-        'Contact & lead forms',
-        'Basic CMS setup',
-        'WhatsApp Integration',
-        'Google Analytics setup',
-        '8 design revisions',
-        '1 year free hosting',
-        'SSL certificate',
-        '1 month support',
-        'Domain Included'
+        'Everything in Advanced Setup included',
+        'GEO-tagged photo uploads (up to 50)',
+        '50 local directories citations setup',
+        'Custom local booster micro-landing page',
+        'SMS/Email review generation templates',
+        '10 initial Q&A post configurations',
+        'Competitor GMB analysis (up to 5)',
+        '6 months post-setup support'
       ],
       notIncluded: [
-        'Custom Web App / E-commerce Features',
-        'Priority support 24/7',
-        'Dedicated Project Manager'
+        'Bulk multi-location dashboard',
+        'Dedicated GMB agency manager link'
       ],
-      yearlyRenewal: '₹4,999',
-      badge: '★ Most Popular',
-      badgeClass: 'bg-[#FF7A00] text-white',
-      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[960px] md:min-h-[960px]',
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[780px] md:min-h-[780px]',
       monoColor: 'text-[#7B61FF]',
       buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
       isCustom: false
     },
     {
-      name: 'Enterprise Website',
+      name: 'Enterprise Setup',
       price: 'Custom Quote',
+      priceSuffix: '',
+      timeline: 'Custom launch strategy',
+      description: 'Designed for retail chains, franchise groups, and multi-location companies (5+ hubs). We manage bulk Google map claiming, fast postcard verifications, complete directory locks, and unified micro-site launches.',
       originalPrice: null,
       savingsBadge: null,
-      timeline: 'Custom timeline',
-      description: 'Need something completely bespoke? We build premium high-performance custom website systems, customized animations, integration with your CRM/ERP systems, and advanced SEO strategy.',
+      isMonthly: false,
       features: [
-        'Unlimited pages',
-        'Custom interactive elements',
-        'Advanced integrations (CRM, ERP)',
-        'Premium UI animations',
-        'Dedicated project manager',
-        'Priority support 24/7',
-        '12 months support & maintenance',
-        'Domain Included'
+        'Bulk locations verify & setup',
+        '100+ local citations / location',
+        'Bespoke local micro-site networks',
+        'ERP/CRM lead system hooks',
+        'Dedicated multi-location team manager',
+        'Priority API speed lane access'
       ],
       notIncluded: [],
-      yearlyRenewal: null,
       badge: null,
-      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 h-full lg:min-h-[960px] md:min-h-[960px]',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 h-full lg:min-h-[780px] md:min-h-[780px]',
       monoColor: 'text-[#7B61FF]',
-      buttonClass: 'border border-[#7B61FF] text-[#7B61FF] rounded-full hover:bg-[#7B61FF] hover:text-white',
+      buttonClass: 'border border-[#7B61FF] text-[#7B61FF] rounded-xl hover:bg-[#7B61FF] hover:text-white',
       isCustom: true
     }
   ];
 
-  appPlans = [
+  maintenancePlans = [
     {
-      name: 'Starter Web App',
-      price: '₹49,999',
-      originalPrice: '₹59,999',
-      savingsBadge: 'Save 16%',
-      timeline: '2–4 weeks delivery',
+      name: 'Basic Care',
+      price: '₹7,999',
+      priceSuffix: '/month',
+      originalPrice: '₹10,999',
+      savingsBadge: 'Save 27%',
+      timeline: 'Ongoing monthly care',
+      isMonthly: true,
       features: [
-        'Up to 10 screens / modules',
-        'User auth & role management',
-        'Admin dashboard & reports',
-        'MySQL database',
-        'Mobile responsive',
-        '3 months support'
+        'Review response writing & templates',
+        'Monthly PDF local analysis report',
+        'Business hours & holiday updates support',
+        '6 optimized local post / month',
+        '10 local citations / month',
+        'Email customer support',
+        'Manage upto 2 profiles',
+        'Report sharing'
       ],
       notIncluded: [
-        'Multi-role user system (Growth has it)',
-        'Payment gateway integration (Growth has it)',
-        'API integrations & automation (Growth has it)',
-        'Support beyond 3 months'
+        'Competitor GMB tracking (Growth has it)',
+        'Weekly Q&A posting (Growth has it)',
+        'Spam monitoring & listing reporting'
       ],
-      yearlyRenewal: '₹9,999',
       badge: null,
-      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[760px] md:min-h-[760px] mt-4',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[780px] md:min-h-[780px]',
       monoColor: 'text-[#7B61FF]',
       buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
       isCustom: false
     },
     {
-      name: 'Growth Platform',
-      price: '₹99,999',
-      originalPrice: '₹1,29,999',
-      savingsBadge: 'Save 23%',
-      timeline: '4–8 weeks delivery',
+      name: 'Monthly Growth',
+      price: '₹9,999',
+      priceSuffix: '/month',
+      originalPrice: '₹13,999',
+      savingsBadge: 'Save 29%',
+      timeline: 'Ongoing monthly management',
+      isMonthly: true,
       features: [
-        'Up to 25 screens / modules',
-        'Multi-role user system',
-        'Payment gateway integration',
-        'Advanced workflows & automation',
-        'API integrations',
-        '6 months support'
+        'Everything in Basic Care included',
+        '10 highly-optimized local posts / month',
+        '20 local directories citations / month',
+        'Weekly Q&A posting & spam monitor',
+        'Competitor GMB tracking (up to 3)',
+        'Custom automated review funnel setup',
+        'Manage upto 7 profiles',
+        'Report sharing'
       ],
       notIncluded: [
-        'Unlimited scope (Enterprise has it)',
-        'Mobile app iOS + Android (Enterprise has it)',
-        'Dedicated project manager',
-        'Support beyond 6 months'
+        'Competitor local backlink analysis',
+        'Review spam fake listing reporting',
+        'Dedicated search strategist support'
       ],
-      yearlyRenewal: '₹14,999',
       badge: '★ Most Popular',
       badgeClass: 'bg-[#FF7A00] text-white',
-      containerClass: 'relative bg-gradient-to-b from-[rgba(123,97,255,0.15)] to-[rgba(0,229,195,0.05)] backdrop-blur-sm border border-[#7B61FF] rounded-2xl p-8 flex flex-col shadow-[0_0_40px_rgba(123,97,255,0.2)] scale-[1.03] z-10 h-full lg:min-h-[760px] md:min-h-[760px]',
-      monoColor: 'text-[#00E5C3]',
-      buttonClass: 'bg-[#FF7A00] text-white font-bold hover:bg-[#e66a00]',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[780px] md:min-h-[780px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
       isCustom: false
     },
     {
-      name: 'Enterprise Build',
+      name: 'Pro Rank Booster',
+      price: '₹13,499',
+      priceSuffix: '/month',
+      originalPrice: '₹17,999',
+      savingsBadge: 'Save 25%',
+      timeline: 'Ongoing monthly management',
+      isMonthly: true,
+      features: [
+        'Everything in Growth plan included',
+        '13 highly-optimized local posts / month',
+        '40 local directories citations / month',
+        'Active competitor local backlink check',
+        'Fake listing review spam removal actions',
+        'Dedicated Local SEO expert support',
+        'Bi-weekly analysis & planning syncs',
+        'Report sharing',
+        'Manage upto 12 profiles'
+      ],
+      notIncluded: [
+        'Multi-location bulk support (Enterprise GMB)'
+      ],
+      badge: null,
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg h-full lg:min-h-[780px] md:min-h-[780px]',
+      monoColor: 'text-[#7B61FF]',
+      buttonClass: 'border border-[#00E5C3] text-[#00E5C3] rounded-xl hover:bg-[#00E5C3] hover:text-[#0F1637]',
+      isCustom: false
+    },
+    {
+      name: 'Enterprise GMB',
       price: 'Custom Quote',
+      priceSuffix: '',
+      timeline: 'Custom ongoing strategy',
+      description: 'Full outsourced local map dominator solution for multi-location brands, clinics, franchises, or retail chains (5+ locations). We handle bulk verification, Looker Studio local dashboards, and regular spam listing cleanups.',
       originalPrice: null,
       savingsBadge: null,
-      timeline: 'Custom timeline',
-      description: 'For large-scale platforms, mobile apps & full product builds designed to work exactly the way your enterprise runs.',
+      isMonthly: true,
       features: [
-        'Unlimited scope',
-        'Mobile app (iOS + Android)',
-        'Microservices / scalable architecture',
-        'Third-party API suite',
-        'Dedicated project manager',
-        '12 months support'
+        'Unlimited locations managed',
+        'Dedicated GMB agency manager access',
+        '100+ local citations / location',
+        'Competitor listing takedown strategies',
+        'Looker Studio enterprise dashboards',
+        'SMS/Email review software dashboard'
       ],
       notIncluded: [],
-      yearlyRenewal: null,
       badge: null,
-      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 h-full lg:min-h-[760px] md:min-h-[760px] mt-4',
+      containerClass: 'relative bg-[rgba(15,22,55,0.7)] backdrop-blur-sm border border-[#324AB3] rounded-2xl p-8 flex flex-col hover:border-[#00E5C3]/50 transition-all duration-300 shadow-lg bg-white/5 h-full lg:min-h-[780px] md:min-h-[780px]',
       monoColor: 'text-[#7B61FF]',
       buttonClass: 'border border-[#7B61FF] text-[#7B61FF] rounded-xl hover:bg-[#7B61FF] hover:text-white',
       isCustom: true
@@ -648,7 +670,7 @@ export class CustomDevComponent {
 
   selectPlan(planName: string, price: string) {
     const text = `Hello CoreGrid team, 
-    I am reaching out from your website. I am interested in moving forward with the ${planName} plan under Custom Development service at ${price}. 
+    I am reaching out from your website. I am interested in moving forward with the ${planName} plan under Google Business Profile service at ${price}. 
     Please let me know the next steps to initiate this project.`;
     const whatsappNumber = '919074501397';
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;

@@ -443,7 +443,7 @@ export class SeoOptimizationComponent {
 
   selectPlan(planName: string, price: string) {
     const text = `Hello CoreGrid team, 
-    I am reaching out from your website. I am interested in moving forward with the ${planName} plan at ${price}. 
+    I am reaching out from your website. I am interested in moving forward with the ${planName} plan under SEO Optimization service at ${price}. 
     Please let me know the next steps to initiate this project.`;
     const whatsappNumber = '919074501397';
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
